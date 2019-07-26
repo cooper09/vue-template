@@ -24,6 +24,9 @@
                             </div>
                         </div>
                     </v-card-title>
+                        <v-card-actions>
+                            <v-btn outline block color="blue" @click="showConversions('boucher')">Boucher Conversions</v-btn>
+                        </v-card-actions>
                 </v-card>
             </v-flex>
 
@@ -45,6 +48,9 @@
                             </div>
                         </div>
                     </v-card-title>
+                       <v-card-actions >
+                            <v-btn outline block color="blue" @click="showConversions('facebook')">Facebook Conversions</v-btn>
+                        </v-card-actions>
                 </v-card>
             </v-flex>
 
@@ -66,6 +72,9 @@
                             </div>
                         </div>
                     </v-card-title>
+                        <v-card-actions>
+                            <v-btn outline block color="blue" @click="showConversions('google')">Google Conversions</v-btn>
+                        </v-card-actions>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -77,8 +86,13 @@
 
 <script>
 export default {
-    name: 'HomePlans'
-};
+    name: 'HomePlans',
+     methods: {
+        showConversions(plan) {
+            this.$store.dispatch('getCampaigns', plan);
+        }
+    }
+    }//end export
 </script>
 
 <style scoped>

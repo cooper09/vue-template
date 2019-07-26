@@ -18,5 +18,11 @@ export default {
     HomeDetail,
     HomePlans
   },
+   created() {
+
+      this.$store.dispatch('getCampaigns');
+      this.$store.dispatch('getConversions');
+ 
+  }//end created
 };
 </script>

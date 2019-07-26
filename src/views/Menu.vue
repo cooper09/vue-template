@@ -7,13 +7,10 @@
 </template>
 
 <script>
-
 export default {
     name: 'Menu',
-    components: {
-    }
-};//end export
+    components: {}
+}; //end export
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

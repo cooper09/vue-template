@@ -1,11 +1,19 @@
 <template>
     <v-container fluid fill-height class="home-hero">
         <v-layout justify-center align-center column pa-5>
-            <div class="display-4 font-weight-black white--text text-xs-center"></div>
-            <div class="display-1 font-weight-black white--text text-xs-center mb-3">Boucher + Co Conversions Reporting</div>
-            <div class="display-1 font-weight-bold white--text text-xs-center"></div>
+            <div
+                class="display-4 font-weight-black white--text text-xs-center"
+            ></div>
+            <div
+                class="display-1 font-weight-black white--text text-xs-center mb-3"
+            >
+                Boucher + Co Conversions Reporting
+            </div>
+            <div
+                class="display-1 font-weight-bold white--text text-xs-center"
+            ></div>
             <v-btn fab class="mt-5 brown darken-4">
-            <v-icon large color="white">expand_more</v-icon>
+                <v-icon large color="white">expand_more</v-icon>
             </v-btn>
         </v-layout>
     </v-container>

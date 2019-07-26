@@ -131,15 +131,15 @@ export default {
     methods: {
         boucherConversions(plan) {
             //this.$store.dispatch('getCampaigns', plan);
-            alert("Show Boucher Conversions");
+            alert("Show Boucher Conversions: " + plan );
         },
         facebookConversions(plan) {
             //this.$store.dispatch('getCampaigns', plan);
-            alert("Show Facebook Conversions");
+            alert("Show Facebook Conversions: " + plan);
         },
         googleConversions(plan) {
             //this.$store.dispatch('getCampaigns', plan);
-            alert("Show Google Conversions");
+            alert("Show Google Conversions: " + plan );
         }
     }
 }; //end export

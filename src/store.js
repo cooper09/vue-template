@@ -23,7 +23,7 @@ export default new Vuex.Store({
         } //end set Campaigns
     },
     actions: {
-        async getCampaigns({ state, commit }, plan) {
+        async getCampaigns({ state, commit }) {
             //alert("store - getCampaigns:  "+ plan )
             try {
                 let response = await axios.get(`${state.campaignsUrl}`);
@@ -33,7 +33,7 @@ export default new Vuex.Store({
                 alert('Campaigns error: ' + error);
             }
         },
-        async getConversions({ state, commit }, plan) {
+        async getConversions({ state, commit }) {
             //alert("store - getConversions:  "+ plan )
             try {
                 let response = await axios.get(`${state.conversionsUrl}`);

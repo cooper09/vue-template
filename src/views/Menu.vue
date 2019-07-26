@@ -1,15 +1,19 @@
 <template>
-    <v-container fluid>
-        <v-layout>
-            <h1>Menu Page</h1>
-        </v-layout>
-    </v-container>
+    <div>
+        <home-plans></home-plans>
+        <meal-recipes></meal-recipes>
+    </div>
 </template>
 
 <script>
+import HomePlans from '@/components/HomePlans';
+import Campaigns from '@/components/Campaigns';
 export default {
     name: 'Menu',
-    components: {}
+    components: {
+        HomePlans,
+        Campaigns
+    }
 }; //end export
 </script>
 

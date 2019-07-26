@@ -12,10 +12,15 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
+
         <v-toolbar app color="light-blue darken-4" dark>
             <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
-            <v-toolbar-title>{{appTitle}}</v-toolbar-title>
+
+            <router-link to="/">
+              <v-toolbar-title>{{appTitle}}</v-toolbar-title>
+            </router-link>
+
             <v-btn flat class="hidden-sm-and-down">Menu</v-btn>
             <v-spacer class="hidden-sm-and-down"></v-spacer>
             <v-btn flat class="hidden-sm-and-down">SIGN IN</v-btn>
@@ -47,9 +52,11 @@ export default {
 <style scoped>
   .v-toolbar__title {
     margin-right: 1em;
+    color: white;
   }
 
-  .v-toolbar-title img {
-  /*  background: url('src/assets/b+c_logo.png') */
+  a {
+    color: white;
+    text-decoration: none;
   }
 </style>

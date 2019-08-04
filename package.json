@@ -44,7 +44,7 @@
       "parser": "babel-eslint"
     }
   },
-  "prettier":{
+  "prettier": {
     "tabWidth": 4,
     "singleQuote": true
   },

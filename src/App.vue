@@ -36,13 +36,22 @@ export default {
   data: () => ({
     //
   }),
+  created() {
+    this.$store.dispatch('getData');
+   } //end created
 };
 </script>
 <style>
 body {
   padding: 2em;
 }
-  .closeBtn {
+.closeBtn {
     float: right;
   }
+.myPage {
+  background: #ccc;
+  position: relative;
+  top: -5em;
+}
+
 </style>

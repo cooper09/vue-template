@@ -1,7 +1,7 @@
 <template>
-  <div class="animated fadeIn myPage  ">
-    <h1>This is an about page</h1>
+  <div class="animated fadeInLeft myPage  ">
     <v-btn class="closeBtn" @click="closeMe">X</v-btn>
+    <h1>This is an about page</h1>
   </div>
 </template>
 <script>
@@ -16,6 +16,7 @@ export default {
 <style scoped>
 .myPage {
   background: #ccc;
+  padding: 0 0 0 0;
 }
 
 </style>

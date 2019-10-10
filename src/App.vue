@@ -38,3 +38,9 @@ export default {
   }),
 };
 </script>
+<style>
+body {
+  padding: 2em;
+}
+
+</style>

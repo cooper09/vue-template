@@ -1,6 +1,6 @@
 <template>
   <v-container   class="animated fadeIn">
-   <v-btn @click="nextPage()">What Type of Project Do We Have?</v-btn>
+   <v-btn success @click="nextPage()">What Type of Project Do We Have?</v-btn>
   </v-container>
 </template>
 
@@ -22,4 +22,7 @@ export default {
     background: #ddd;
     cursor: pointer;
   }
+  .startBtn {
+    background: red;
+    }
 </style>

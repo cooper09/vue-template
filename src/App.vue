@@ -2,8 +2,8 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span><img src="kweku-logo-color.png"></span>
+
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -45,6 +45,9 @@ export default {
 body {
   padding: 2em;
 }
+.startBtn {
+ background: red;
+}
 .closeBtn {
     float: right;
   }
@@ -52,6 +55,9 @@ body {
   background: #ccc;
   position: relative;
   top: -5em;
+}
+.mainBtn {
+  width: 50%;
 }
 
 </style>

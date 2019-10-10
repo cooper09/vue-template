@@ -25,15 +25,16 @@
             <v-spacer></v-spacer>
 
         </v-layout>
-        <v-btn @click="loadStart(1)">Bathroom Remodel</v-btn>
-        <v-btn @click="loadStart(2)">Kitchen Remodel</v-btn>
-        <v-btn @click="loadStart(3)">Multi=Room Remodel</v-btn>
-        <v-btn @click="loadStart(4)">Home Remodel</v-btn>
-        <v-btn @click="loadStart(5)">New Home Construction</v-btn>
-        <v-btn @click="loadStart(6)">Roofing</v-btn>
-        <v-btn @click="loadStart(7)">Solar Installation</v-btn>
-        <v-btn @click="loadStart(8)">New Commerical Remodel</v-btn>
-    
+        <v-layout row wrap align-center align-content-space-between>
+            <v-btn class="mainBtn" @click="loadStart(1)">Bathroom Remodel</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(2)">Kitchen Remodel</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(3)">Multi=Room Remodel</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(4)">Home Remodel</v-btn>
+            <v-btn class="mainBtn" @click="loadStart(5)">New Home Construction</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(6)">Roofing</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(7)">Solar Installation</v-btn>
+            <v-btn class="mainBtn"  @click="loadStart(8)">New Commerical Remodel</v-btn>
+        </v-layout>
     
   </v-container>
   </div>

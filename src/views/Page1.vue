@@ -8,19 +8,19 @@
     >
         <v-layout justify-center>
           <a
-            v-for="(next, i) in whatsNext"
+            v-for="(next, i) in mydata"
             :key="i"
             :href="next.href"
             class="subheading mx-3"
             target="_blank"
           >
-            {{ next.text }}
+            {{ next.data }}
           </a>
         </v-layout>
     </v-layout>
     <v-layout row wrap>
             <v-flex xs12 sm6 md6 lg4 v-for="(item, idx) in mydata" :key="idx">
-                <div class="subheading"><b>Product:</b> {{item}}</div>
+                <div class="subheading"><b>Product:</b> {{item.data}}</div>
             </v-flex>
             <v-spacer></v-spacer>
 

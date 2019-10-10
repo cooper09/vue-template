@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeInLeft myPage">
     <v-btn class="closeBtn" @click="closeMe()">X</v-btn>
-    <h3>Please Provide Info</h3>
+    <h3>Please provide the rest of your information.</h3>
     <v-content>
 		<v-container>
           <v-stepper v-model="step" vertical>

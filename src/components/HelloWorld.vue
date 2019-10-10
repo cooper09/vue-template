@@ -1,6 +1,6 @@
 <template>
   <v-container   class="animated fadeIn">
-   <v-btn success @click="nextPage()">What Type of Project Do We Have?</v-btn>
+   <v-btn btn-lg btn-primary success class="startBtn" @click="nextPage()">What Type of Project Do We Have?</v-btn>
   </v-container>
 </template>
 
@@ -12,7 +12,8 @@ export default {
   methods: {
     nextPage() {
       //alert("next page please")
-      this.$router.push('/page1')
+      this.$router.push('/page1');
+
     }
   }
 };//end export

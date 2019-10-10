@@ -8,10 +8,10 @@
       <v-spacer></v-spacer>
       <v-btn
         text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://kweku.com"
         target="_blank"
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Kweku Development</span>
       </v-btn>
     </v-app-bar>
     <v-content   >
@@ -55,6 +55,7 @@ body {
   background: #ccc;
   position: relative;
   top: -5em;
+  padding: 1em;
 }
 .mainBtn {
   width: 50%;

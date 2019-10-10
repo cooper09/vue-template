@@ -2,10 +2,12 @@
   <div class="animated fadeInLeft myPage">
     <v-btn class="closeBtn" @click="closeMe()">X</v-btn>
     <h3>Type of Property</h3>
-    <v-btn @click="loadPropertyType(1)">Single Family Home</v-btn>
-    <v-btn @click="loadPropertyType(2)">Condo/Apartment</v-btn>
-    <v-btn @click="loadPropertyType(3)">Office/Commercial</v-btn>
-    <v-btn @click="loadPropertyType(4)">Other</v-btn>
+    <center><v-layout row wrap align-center align-content-space-between>
+        <v-btn class="mainBtn" @click="loadPropertyType(1)">Single Family Home</v-btn>
+        <v-btn class="mainBtn" @click="loadPropertyType(2)">Condo/Apartment</v-btn>
+        <v-btn class="mainBtn" @click="loadPropertyType(3)">Office/Commercial</v-btn>
+        <v-btn class="mainBtn" @click="loadPropertyType(4)">Other</v-btn>
+    </v-layout></center>
   </div>
 </template>
 <script>

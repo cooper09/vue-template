@@ -1,5 +1,8 @@
 <template>
-  <HelloWorld />
+  <div>
+    <p> Home.vue </p>
+    <HelloWorld />
+  </div>
 </template>
 
 <script>

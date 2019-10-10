@@ -14,10 +14,14 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar>
-
     <v-content>
-      <HelloWorld/>
+      <p>App.vue</p>
+      <HelloWorld/> 
     </v-content>
+    <v-content transition="slide-x-transition">
+      <router-view></router-view>
+    </v-content>
+
   </v-app>
 </template>
 

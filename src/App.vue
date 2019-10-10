@@ -14,11 +14,11 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar>
-    <v-content   class="animated fadeIn">
+    <v-content   >
       <p>App.vue</p>
       <HelloWorld/> 
     </v-content>
-    <v-content transition="slide-x-transition">
+    <v-content class="animated fadeIn">
       <router-view></router-view>
     </v-content>
 
@@ -42,5 +42,7 @@ export default {
 body {
   padding: 2em;
 }
-
+  .closeBtn {
+    float: right;
+  }
 </style>

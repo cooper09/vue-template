@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container   class="animated fadeIn">
    
    <v-btn @click="nextPage()">Next Page</v-btn>
   </v-container>

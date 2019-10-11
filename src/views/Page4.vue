@@ -1,16 +1,16 @@
 <template>
   <div class="animated fadeInUp myPage">
-    <v-btn  outlined color="#DB3539"  class="closeBtn" @click="closeMe()">X</v-btn>
-    <h3>Please provide the rest of your information.</h3>
+    <v-btn class="closeBtn"  fab dark color="#DB3539"  @click="closeMe()">X</v-btn>
+    <h3 class="red--text display-5 font-weight-italic dark mb-5">Please provide the rest of your information.</h3>
     <v-content>
 		<v-container>
           <v-stepper v-model="step" vertical>
             <v-stepper-header>
-              <v-stepper-step step="1" :complete="step > 1">Your Information</v-stepper-step>
+              <v-stepper-step step="1" :complete="step > 1" color="#DB3539">Your Information</v-stepper-step>
               <v-divider></v-divider>
-              <v-stepper-step step="2" :complete="step > 2">Your Address</v-stepper-step>
+              <v-stepper-step step="2" :complete="step > 2" color="#DB3539">Your Address</v-stepper-step>
               <v-divider></v-divider>
-              <v-stepper-step step="3">Misc Info</v-stepper-step>
+              <v-stepper-step step="3" color="#DB3539">Misc Info</v-stepper-step>
             </v-stepper-header>
             <v-stepper-items>
               <v-stepper-content step="1">
@@ -19,7 +19,7 @@
                  <v-text-field label="Phone" v-model="registration.phone" required></v-text-field>
                  <v-text-field label="Email" v-model="registration.email" required></v-text-field>
                                     
-                <v-btn color="primary" @click.native="step = 2">Continue</v-btn>
+                <v-btn color="#DB3539" flat dark @click.native="step = 2">Continue</v-btn>
               </v-stepper-content>
               <v-stepper-content step="2">
                   
@@ -28,8 +28,8 @@
                   <v-text-field label="State" v-model="registration.state" required></v-text-field>
                   <v-text-field label="Zip" v-model="registration.zip" required></v-text-field>
 
-                <v-btn text @click.native="step = 1">Previous</v-btn>
-                <v-btn color="primary" @click.native="step = 3">Continue</v-btn>
+                <v-btn text @click.native="step = 1"  color="#DB3539">Previous</v-btn>
+                <v-btn color="#DB3539" flat dark @click.native="step = 3">Continue</v-btn>
                 
               </v-stepper-content>
               <v-stepper-content step="3">
@@ -41,7 +41,7 @@
                 <v-text-field label="Project Description" 
                               v-model="registration.description" required></v-text-field>
                 <v-btn text @click.native="step = 2">Previous</v-btn>
-                <v-btn color="primary" @click.prevent="submit">Save</v-btn>
+                <v-btn color="#DB3539" flat dark @click.prevent="submit">Save</v-btn>
                 
               </v-stepper-content>
             </v-stepper-items>
@@ -50,7 +50,7 @@
         </v-container>    
     
     </v-content>
-     <br/><br/>Debug: {{registration}}
+     <!-- <br/><br/>Debug: {{registration}} -->
   </div>
 </template>
 <script>
@@ -82,7 +82,8 @@ export default {
             this.$router.push('/')
         },//end page2()
         submit() {
-            alert('This is the post. Blah');
+            alert('Your info has be posted. We should be in touch for you shortly!');
+            this.$router.push('/')
         }
   }//end methods
 }//export default

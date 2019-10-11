@@ -1,6 +1,6 @@
 <template>
-  <div class="animated fadeInLeft myPage">
-    <v-btn class="closeBtn" @click="closeMe()">X</v-btn>
+  <div class="animated fadeInUp myPage">
+    <v-btn  outlined color="#DB3539"  class="closeBtn" @click="closeMe()">X</v-btn>
     <h3>Please provide the rest of your information.</h3>
     <v-content>
 		<v-container>

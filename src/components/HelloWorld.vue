@@ -1,6 +1,13 @@
 <template>
   <v-container   class="animated fadeIn">
-   <v-btn btn-lg btn-primary success class="startBtn" @click="nextPage()">What Type of Project Do We Have?</v-btn>
+   
+       <v-layout text-center wrap >
+      <v-flex mb-4>
+        <div class="about">
+          <v-btn class="ma-2" outlined color="#DB3539" @click="nextPage()">What Type of Project Do We Have?</v-btn>
+        </div>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 

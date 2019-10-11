@@ -7,7 +7,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
-        text
+        outlined
+        color="#db3539"
         href="https://kweku.com"
         target="_blank"
       >
@@ -15,7 +16,6 @@
       </v-btn>
     </v-app-bar>
     <v-content   >
-      <p>App.vue</p>
       <HelloWorld/> 
     </v-content>
     <v-content class="animated fadeIn">
@@ -52,13 +52,14 @@ body {
     float: right;
   }
 .myPage {
-  background: #ccc;
+  border:#db3539  1px solid;
   position: relative;
   top: -5em;
   padding: 1em;
 }
 .mainBtn {
-  width: 50%;
+  width: 45%;
+  margin: .25em;
 }
 
 </style>

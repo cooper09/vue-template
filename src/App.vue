@@ -12,7 +12,7 @@
         href="https://kweku.com"
         target="_blank"
       >
-        <span class="mr-2">Goto Web Site</span>
+        <span class="hidden-sm-and-down">Goto Web Site</span><span class="hidden-md-and-up">Web Site</span>
       </v-btn>
     </v-app-bar>
     <v-content   >

@@ -10,7 +10,7 @@
               <v-divider></v-divider>
               <v-stepper-step step="2" :complete="step > 2" color="#DB3539">Your Address</v-stepper-step>
               <v-divider></v-divider>
-              <v-stepper-step step="3" color="#DB3539">Misc Info</v-stepper-step>
+              <v-stepper-step step="3" color="#DB3539">Add'l Info</v-stepper-step>
             </v-stepper-header>
             <v-stepper-items>
               <v-stepper-content step="1">

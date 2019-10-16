@@ -21,8 +21,11 @@
     <v-content class="animated fadeIn">
       <router-view></router-view>
     </v-content>
-
+     <br/><br/>Project Type: {{projType}}
+     <br/>Start Time: {{startTime}}
+     <br/>Property Tytpe {{propType}}
   </v-app>
+
 </template>
 
 <script>
@@ -36,6 +39,17 @@ export default {
   data: () => ({
     //
   }),
+  computed: {
+    projType() {
+      return this.$store.state.projType;
+    },
+    startTime() {
+      return this.$store.state.startTime;
+    },
+    propType() {
+      return this.$store.state.propType;
+    },
+  },//end computed
   created() {
     this.$store.dispatch('getData');
    } //end created

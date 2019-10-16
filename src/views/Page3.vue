@@ -26,8 +26,16 @@ export default {
       //alert("NExt page");
       this.$router.push('/')
     },//end page2()
-    loadPropertyType(startTime) {
-      console.log("Property Type selected: ", startTime )
+    loadPropertyType(propType) {
+      console.log("Property Type selected: ", propType )
+            
+      switch(propType) {
+        case 1:
+          this.$store.dispatch('setPropType', 'Single Family')
+        break;
+
+      }//end switch
+      //
       this.$router.push('/page4')
     }//end page2()
   }//end methods

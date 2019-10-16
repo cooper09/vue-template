@@ -26,29 +26,29 @@
 
         </v-layout>
         <v-layout row wrap align-center align-content-space-between>
-            <v-btn class="mainBtn" dark color="#DB3539" @click="loadStart(1)"><span class="hidden-sm-and-down">Bathroom Remodel</span>
+            <v-btn class="mainBtn" dark color="#DB3539" @click="loadProdType(1)"><span class="hidden-sm-and-down">Bathroom Remodel</span>
                 <v-icon dark >mdi-paper-roll-outline</v-icon>
             </v-btn>
     
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadStart(2)"><span class="hidden-sm-and-down">Kitchen Remodel</span>
+            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(2)"><span class="hidden-sm-and-down">Kitchen Remodel</span>
                 <v-icon dark >mdi-fridge-outline</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadStart(3)"><span class="hidden-sm-and-down">Multi-Room Remodel</span>
+            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(3)"><span class="hidden-sm-and-down">Multi-Room Remodel</span>
                 <v-icon dark>mdi-floor-plan</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadStart(4)"><span class="hidden-sm-and-down">Home Remodel</span>
+            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(4)"><span class="hidden-sm-and-down">Home Remodel</span>
                 <v-icon dark>mdi-home-edit-outline</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539" @click="loadStart(5)"><span class="hidden-sm-and-down">New Home Construction</span>
+            <v-btn class="mainBtn" dark color="#DB3539" @click="loadProdType(5)"><span class="hidden-sm-and-down">New Home Construction</span>
                 <v-icon dark>mdi-home-analytics</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadStart(6)"><span class="hidden-sm-and-down">Roofing</span>
+            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(6)"><span class="hidden-sm-and-down">Roofing</span>
                 <v-icon dark>mdi-home-roof</v-icon>
             </v-btn>
-            <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadStart(7)"><span class="hidden-sm-and-down">Solar Installation</span>
+            <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadProdType(7)"><span class="hidden-sm-and-down">Solar Installation</span>
                 <v-icon dark>mdi-solar-panel</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadStart(8)"><span class="hidden-sm-and-down">New Commerical Remodel</span>
+            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(8)"><span class="hidden-sm-and-down">New Commerical Remodel</span>
                 <v-icon dark >mdi-office-building</v-icon>
             </v-btn>
         </v-layout>
@@ -60,7 +60,10 @@
 <script>
 export default {
   data: () => ({
-   
+
+    projectType:"",
+    startTime:"",
+    propertyType: "",
     whatsNext: [
       {
         text: 'Explore components',
@@ -81,8 +84,17 @@ export default {
       //alert("NExt page");
       this.$router.push('/')
     },//end page2()
-    loadStart(projectType) {
-      console.log("Project type selected: ", projectType )
+    loadProdType(projectType) {
+      console.log("Project type selected: ", projectType );
+      // set the propertype in the store
+      
+      switch(projectType) {
+        case 1:
+          this.$store.dispatch('setProjType', 'bathroom')
+        break;
+
+      }//end switch
+
       this.$router.push('/page2')
     }//end page2()
   }//end methods

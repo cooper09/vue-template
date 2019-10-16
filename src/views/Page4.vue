@@ -34,8 +34,8 @@
               </v-stepper-content>
               <v-stepper-content step="3">
                 
-                <v-text-field label="Budget" type="number"
-                              v-model="registration.budget" required></v-text-field>
+                <v-select label="Budget" v-model="registration.budget" 
+                  :items="budgets"required></v-select>
                 <v-select label="Relationship" v-model="registration.relationship" 
                           :items="relationships" required></v-select>
                 <v-text-field label="Project Description" 
@@ -66,11 +66,12 @@ export default {
         state:null,
         zip: null,
         relationship: "owner",
-        budget: null,
+        budget: "$100",
         numtickets:0,
         shirtsize:'XL'
       },
-      relationships:['owner','renter','manager']
+      relationships:['owner','renter','manager'],
+      budgets: ["$1000", "$10000", "100000"]
     }),
     methods: {
         closeMe() {
@@ -82,8 +83,13 @@ export default {
             this.$router.push('/')
         },//end page2()
         submit() {
-            alert('Your info has be posted. We should be in touch for you shortly!');
-            this.$router.push('/')
+           // alert('Your info has be posted. We should be in touch for you shortly! '+ this.registration );
+            console.log("Our registration form: ", this.registration );
+            // load up our data for storage
+
+            this.$store.dispatch('setInfoData', this.registration );
+            //
+           // this.$router.push('/')
         }
   }//end methods
 }//export default

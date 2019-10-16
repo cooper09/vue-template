@@ -33,7 +33,15 @@ export default {
         case 1:
           this.$store.dispatch('setStartTime', 'flexible')
         break;
-
+        case 2:
+          this.$store.dispatch('setStartTime', 'soon as possible')
+        break;
+        case 3:
+          this.$store.dispatch('setStartTime', 'few weeks')
+        break;
+        case 4:
+          this.$store.dispatch('setStartTime', 'few months')
+        break;
       }//end switch
       //
       this.$router.push('/page3')

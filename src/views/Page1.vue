@@ -92,6 +92,27 @@ export default {
         case 1:
           this.$store.dispatch('setProjType', 'bathroom')
         break;
+        case 2:
+          this.$store.dispatch('setProjType', 'kitchen')
+        break;
+        case 3:
+          this.$store.dispatch('setProjType', 'multi-room')
+        break;
+        case 4:
+          this.$store.dispatch('setProjType', 'home remodel')
+        break;
+        case 5:
+          this.$store.dispatch('setProjType', 'new home')
+        break;
+        case 6:
+          this.$store.dispatch('setProjType', 'roofing')
+        break;
+        case 7:
+          this.$store.dispatch('setProjType', 'solar installation')
+        break;
+        case 8:
+          this.$store.dispatch('setProjType', 'commercial remodel')
+        break;
 
       }//end switch
 

@@ -23,7 +23,7 @@
     </v-content>
      <br/><br/>Project Type: {{projType}}
      <br/>Start Time: {{startTime}}
-     <br/>Property Tytpe {{propType}}
+     <br/>Property Tytpe: {{propType}}
   </v-app>
 
 </template>

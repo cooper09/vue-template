@@ -11,7 +11,7 @@
             <v-icon dark>mdi-domain</v-icon>
         </v-btn>
         <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(3)"><span class="hidden-sm-and-down">Office/Commercial</span>
-            <v-icon dark>mdi-office-building</span></v-icon>
+            <v-icon dark>mdi-office-building</v-icon>
         </v-btn>
         <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(4)"><span class="hidden-sm-and-down">Other</span>
             <v-icon dark>mdi-account-question</v-icon>
@@ -33,7 +33,15 @@ export default {
         case 1:
           this.$store.dispatch('setPropType', 'Single Family')
         break;
-
+        case 2:
+          this.$store.dispatch('setPropType', 'condo/apartment')
+        break;
+        case 3:
+          this.$store.dispatch('setPropType', 'office/commercial')
+        break;
+        case 4:
+          this.$store.dispatch('setPropType', 'other')
+        break;
       }//end switch
       //
       this.$router.push('/page4')

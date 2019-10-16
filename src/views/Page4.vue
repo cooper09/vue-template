@@ -19,7 +19,7 @@
                  <v-text-field label="Phone" v-model="registration.phone" required></v-text-field>
                  <v-text-field label="Email" v-model="registration.email" required></v-text-field>
                                     
-                <v-btn color="#DB3539" flat dark @click.native="step = 2">Continue</v-btn>
+                <v-btn color="#DB3539"  dark @click.native="step = 2">Continue</v-btn>
               </v-stepper-content>
               <v-stepper-content step="2">
                   
@@ -29,7 +29,7 @@
                   <v-text-field label="Zip" v-model="registration.zip" required></v-text-field>
 
                 <v-btn text @click.native="step = 1"  color="#DB3539">Previous</v-btn>
-                <v-btn color="#DB3539" flat dark @click.native="step = 3">Continue</v-btn>
+                <v-btn color="#DB3539"  dark @click.native="step = 3">Continue</v-btn>
                 
               </v-stepper-content>
               <v-stepper-content step="3">
@@ -41,7 +41,7 @@
                 <v-text-field label="Project Description" 
                               v-model="registration.description" required></v-text-field>
                 <v-btn text @click.native="step = 2">Previous</v-btn>
-                <v-btn color="#DB3539" flat dark @click.prevent="submit">Save</v-btn>
+                <v-btn color="#DB3539"  dark @click.prevent="submit">Save</v-btn>
                 
               </v-stepper-content>
             </v-stepper-items>

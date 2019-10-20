@@ -34,5 +34,9 @@ export default {
   data: () => ({
     //
   }),
+  //end computed
+  created() {
+    this.$store.dispatch('getData');
+   } //end created
 };
 </script>

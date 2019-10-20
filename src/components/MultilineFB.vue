@@ -23,14 +23,23 @@
           >
            {{  next.source }}
           </a>
+
         </v-layout>
-      
+          <pure-vue-chart
+            :points="[3,5,2,5,4]"
+            :width="400"
+            :height="200"
+          />
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import PureVueChart from 'pure-vue-chart';
 export default {
+  components: {
+    PureVueChart,
+},
   data: () => ({
    
   }),

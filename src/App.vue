@@ -16,18 +16,20 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <MultilineFB />
+
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
+import MultilineFB from './components/MultilineFB';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    MultilineFB
   },
   data: () => ({
     //

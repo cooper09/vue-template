@@ -13,16 +13,18 @@
         ></v-img>
       </v-flex>
 
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>{{startData}}
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-flex>
+      <v-layout justify-center>
+          <a
+            v-for="(next, i) in startData"
+            :key="i"
+            :href="next.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+           {{  next.source }}
+          </a>
+        </v-layout>
+      
     </v-layout>
   </v-container>
 </template>

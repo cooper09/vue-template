@@ -88,8 +88,9 @@ export default {
             // load up our data for storage
 
             this.$store.dispatch('setInfoData', this.registration );
+            alert('Your info has be posted. We should be in touch for you shortly! ' );
             //
-           // this.$router.push('/')
+            this.$router.push('/')
         }
   }//end methods
 }//export default

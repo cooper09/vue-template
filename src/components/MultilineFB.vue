@@ -6,7 +6,7 @@
     >
       <v-flex xs12>
         <v-img
-          :src="require('../assets/logo.svg')"
+          :src="require('../assets/B+C-logo.png')"
           class="my-3"
           contain
           height="200"
@@ -33,7 +33,7 @@
             v-for="(ad, i) in getAds"
             :key="i"
           >
-             <li> {{  ad }}</li><br/>
+        <!--     <li> {{  ad }}</li><br/> -->
           </ul>
           <v-layout>
           <br/><br/>

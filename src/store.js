@@ -26,6 +26,12 @@ export default new Vuex.Store({
       } catch (error) {
           alert('Data Load error: ' + error);
       }
-    },//end getData
-  }
+    }//end getData
+  },//end actions
+  getters:{
+    getAds() {
+      var testArr = ["one","two","three"]
+      return testArr;
+    }
+  }//end getters
 })

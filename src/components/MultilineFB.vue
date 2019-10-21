@@ -14,22 +14,26 @@
       </v-flex>
 
       <v-layout justify-center>
-          <a
+          <ul
             v-for="(next, i) in startData"
             :key="i"
             :href="next.href"
             class="subheading mx-3"
             target="_blank"
           >
-           {{  next.source }}
-          </a>
+           <li> {{  next.source }}</li>
+          </ul>
 
+<!-- sort out the number of ads and their dates
+      Y= ad source X=time   -->
         </v-layout>
+       
           <pure-vue-chart
             :points="[3,5,2,5,4]"
             :width="400"
             :height="200"
           />
+    
     </v-layout>
   </v-container>
 </template>
@@ -41,7 +45,8 @@ export default {
     PureVueChart,
 },
   data: () => ({
-   
+    adArr: this.$store.getters.getAds,
+    timeArr:[]
   }),
   computed: {
     startData() {

@@ -14,28 +14,30 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar>
-    <v-content   class="animated fadeIn">
-      <p>App.vue</p>
-      <HelloWorld/> 
-    </v-content>
-    <v-content transition="slide-x-transition">
-      <router-view></router-view>
+
+    <v-content>
+      <MultilineFB />
     </v-content>
 
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
+import MultilineFB from './components/MultilineFB';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    MultilineFB
   },
   data: () => ({
     //
   }),
+  //end computed
+  created() {
+    this.$store.dispatch('getData');
+   } //end created
 };
 </script>
 <style>

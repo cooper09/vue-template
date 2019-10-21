@@ -14,26 +14,37 @@
       </v-flex>
 
       <v-layout justify-center>
-          <ul
+         <!--   <ul
             v-for="(next, i) in startData"
             :key="i"
             :href="next.href"
             class="subheading mx-3"
             target="_blank"
           >
-           <li> {{  next.source }}</li>
-          </ul>
+         <li> {{  next.source }}</li> 
+          </ul> -->
 
 <!-- sort out the number of ads and their dates
       Y= ad source X=time   -->
+      <p>Ads by Popularity</p><br/><br/>
         </v-layout>
-       
+
+          <ul
+            v-for="(ad, i) in getAds"
+            :key="i"
+          >
+             <li> {{  ad }}</li><br/>
+          </ul>
+          <v-layout>
+          <br/><br/>
           <pure-vue-chart
-            :points="[3,5,2,5,4]"
+            :points="[`${getAd2}`,`${getAd3}`,`${getAd4}`,`${getAd5}`,`${getAd6}`]"
             :width="400"
             :height="200"
+            :show-values="true"
+
           />
-    
+      </v-layout>
     </v-layout>
   </v-container>
 </template>
@@ -45,13 +56,31 @@ export default {
     PureVueChart,
 },
   data: () => ({
-    adArr: this.$store.getters.getAds,
+    adArr: [],
     timeArr:[]
   }),
   computed: {
     startData() {
       return this.$store.state.startData;
     },
+    getAds() {
+      return this.$store.getters.getAds;
+    },
+    getAd2() {
+      return this.$store.state.ad2;
+    },
+    getAd3() {
+      return this.$store.state.ad3;
+    },
+    getAd4() {
+      return this.$store.state.ad4;
+    },
+    getAd5() {
+      return this.$store.state.ad5;
+    },
+    getAd6() {
+      return this.$store.state.ad6;
+    }
   },//end computed
 };
 </script>

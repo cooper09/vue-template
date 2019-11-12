@@ -1,6 +1,7 @@
 <template>
   <div class="animated fadeInUp myPage">
-  <v-btn class="closeBtn"  fab dark color="#DB3539"  @click="closeMe()">X</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
     <h3 color="#DB3539" class="red--text display-5 font-weight-italic dark mb-5">When would you like to start?</h3>
       <p></p>
     <center><v-layout row wrap align-center align-content-space-between>
@@ -22,9 +23,13 @@
 <script>
 export default {
     methods: {
-    closeMe() {
+    prev() {
+      //alert("Prev page");
+      this.$router.push('/page1')
+    },
+    next() {
       //alert("NExt page");
-      this.$router.push('/')
+      this.$router.push('/page3');
     },//end page2()
     loadStartTime(startTime) {
       console.log("Start time selected: ", startTime )

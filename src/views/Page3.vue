@@ -1,6 +1,7 @@
 <template>
   <div class="animated fadeInUp myPage">
-    <v-btn class="closeBtn"  fab dark color="#DB3539"  @click="closeMe()">X</v-btn>
+      <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
     <h3 class="red--text display-5 font-weight-italic dark mb-5">Type of Property</h3>
     <p></p>
     <center><v-layout row wrap align-center align-content-space-between>
@@ -22,9 +23,13 @@
 <script>
 export default {
     methods: {
-    closeMe() {
+    prev() {
       //alert("NExt page");
-      this.$router.push('/')
+      this.$router.push('/page2')
+    },
+    next() {
+      //alert("NExt page");
+      this.$router.push('/page4');
     },//end page2()
     loadPropertyType(propType) {
       console.log("Property Type selected: ", propType )

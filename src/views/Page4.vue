@@ -1,6 +1,7 @@
 <template>
   <div class="animated fadeInUp myPage">
-    <v-btn class="closeBtn"  fab dark color="#DB3539"  @click="closeMe()">X</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
     <h3 class="red--text display-5 font-weight-italic dark mb-5">Please provide the rest of your information.</h3>
     <v-content>
 		<v-container>
@@ -74,10 +75,14 @@ export default {
       budgets: ["$1000", "$10000", "100000"]
     }),
     methods: {
-        closeMe() {
-        //alert("NExt page");
-            this.$router.push('/')
-        },//end page2()
+    prev() {
+      //alert("NExt page");
+      this.$router.push('/page3')
+    },
+    next() {
+      //alert("Prev page");
+      this.$router.push('/');
+    },//end page2()
         loadPropertyType(startTime) {
             console.log("Property Type selected: ", startTime )
             this.$router.push('/')

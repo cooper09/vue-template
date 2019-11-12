@@ -1,7 +1,9 @@
 <template>
 <div class="animated fadeInUp myPage  ">
   <v-container>
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="closeMe()">X</v-btn>
+
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
     <v-layout
       text-center
       wrap
@@ -84,6 +86,14 @@ export default {
       //alert("NExt page");
       this.$router.push('/')
     },//end page2()
+    prev() {
+      //alert("NExt page");
+      this.$router.push('/')
+    },
+    next() {
+      //alert("NExt page");
+      this.$router.push('/page2');
+    },
     loadProdType(projectType) {
       console.log("Project type selected: ", projectType );
       // set the propertype in the store

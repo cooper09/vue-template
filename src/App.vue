@@ -30,7 +30,7 @@
 
       <v-footer
       absolute
-      class="font-weight-medium"
+      class="font-weight-medium footer"
     >
       <v-col
         class="text-center"
@@ -98,5 +98,7 @@ body {
   width: 45%;
   margin: .25em;
 }
-
+.footer {
+  background: red;
+}
 </style>

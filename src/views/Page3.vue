@@ -1,14 +1,14 @@
 <template>
   <div class="animated fadeInUp myPage">
-      <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()"><v-icon dark >mdi-arrow-right-bold</v-icon></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><v-icon dark >mdi-arrow-left-bold</v-icon></v-btn>
     <h3 class="red--text display-5 font-weight-italic dark mb-5">Type of Property</h3>
     <p></p>
     <center><v-layout row wrap align-center align-content-space-between>
         <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(1)"><span class="hidden-sm-and-down">Single Family Home</span>
             <v-icon dark>mdi-home-floor-1</v-icon>
         </v-btn>
-        <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(2)"><span class="hidden-sm-and-down">Condo/Apartment</span>
+        <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(2)"><span class="hidden-sm-and-down">Single Family Home</span>
             <v-icon dark>mdi-domain</v-icon>
         </v-btn>
         <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadPropertyType(3)"><span class="hidden-sm-and-down">Office/Commercial</span>

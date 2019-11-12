@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeInUp myPage">
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()"><v-icon dark >mdi-arrow-right-bold</v-icon></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><v-icon dark >mdi-arrow-left-bold</v-icon></v-btn>
     <h3 class="red--text display-5 font-weight-italic dark mb-5">Please provide the rest of your information.</h3>
     <v-content>
 		<v-container>
@@ -71,8 +71,8 @@ export default {
         numtickets:0,
         shirtsize:'XL'
       },
-      relationships:['owner','renter','manager'],
-      budgets: ["$1000", "$10000", "100000"]
+      relationships:['owner','architect'],
+      budgets: ["<$20,000", "$20,000 - $50,000", "$100,000 - $250,000", "$250,000 - $500,000", "$500,000+"]
     }),
     methods: {
     prev() {

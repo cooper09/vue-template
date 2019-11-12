@@ -2,8 +2,8 @@
 <div class="animated fadeInUp myPage  ">
   <v-container>
 
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()"><v-icon dark >mdi-arrow-right-bold</v-icon></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><v-icon dark >mdi-arrow-left-bold</v-icon></v-btn>
     <v-layout
       text-center
       wrap
@@ -47,12 +47,10 @@
             <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(6)"><span class="hidden-sm-and-down">Roofing</span>
                 <v-icon dark>mdi-home-roof</v-icon>
             </v-btn>
-            <v-btn class="mainBtn"  dark  color="#DB3539"  @click="loadProdType(7)"><span class="hidden-sm-and-down">Solar Installation</span>
-                <v-icon dark>mdi-solar-panel</v-icon>
+              <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(7)"><span class="hidden-sm-and-down">Other</span>
+                <v-icon dark>mdi-account-question</v-icon>
             </v-btn>
-            <v-btn class="mainBtn" dark color="#DB3539"  @click="loadProdType(8)"><span class="hidden-sm-and-down">New Commerical Remodel</span>
-                <v-icon dark >mdi-office-building</v-icon>
-            </v-btn>
+
         </v-layout>
     
   </v-container>
@@ -117,12 +115,7 @@ export default {
         case 6:
           this.$store.dispatch('setProjType', 'roofing')
         break;
-        case 7:
-          this.$store.dispatch('setProjType', 'solar installation')
-        break;
-        case 8:
-          this.$store.dispatch('setProjType', 'commercial remodel')
-        break;
+
 
       }//end switch
 

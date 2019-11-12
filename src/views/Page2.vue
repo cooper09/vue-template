@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeInUp myPage">
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()">></v-btn>
-    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><</v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="next()"><v-icon dark >mdi-arrow-right-bold</v-icon></v-btn>
+    <v-btn class="closeBtn" fab dark color="#DB3539" @click="prev()"><v-icon dark >mdi-arrow-left-bold</v-icon></v-btn>
     <h3 color="#DB3539" class="red--text display-5 font-weight-italic dark mb-5">When would you like to start?</h3>
       <p></p>
     <center><v-layout row wrap align-center align-content-space-between>

@@ -64,6 +64,7 @@ body {
 }
 .closeBtn {
     float: right;
+    margin-right: 0.5em;
   }
 .myPage {
   border:#db3539  1px solid;

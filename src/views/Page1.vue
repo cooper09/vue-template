@@ -115,7 +115,9 @@ export default {
         case 6:
           this.$store.dispatch('setProjType', 'roofing')
         break;
-
+        case 7:
+          this.$store.dispatch('setProjType', 'other')
+        break
 
       }//end switch
 

@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
@@ -21,11 +22,32 @@
     <v-content class="animated fadeIn">
       <router-view></router-view>
     </v-content>
-     <br/><br/>Project Type: {{projType}}
-     <br/>Start Time: {{startTime}}
-     <br/>Property Tytpe: {{propType}}
   </v-app>
+    <hr />
+    <br/><br/>Project Type: {{projType}}
+    <br/>Start Time: {{startTime}}
+    <br/>Property Tytpe: {{propType}}  
 
+      <v-footer
+      absolute
+      class="font-weight-medium"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        Kweku Development <br/>
+        2 Hamilton Avenue <br/>
+        New Rochelle, New York 10801 <br/>
+        <br/><br/>
+        Office Phone: 914-229-3445<br/>
+        Emergency Phone: 914-586-3004<br/>
+        Email: reno@kweku.com<br/><br/>
+        {{ new Date().getFullYear() }} — <strong>© Kweku Development Corporation 2018 All Right Reserved</strong>
+
+      </v-col>
+    </v-footer>
+  </div>
 </template>
 
 <script>

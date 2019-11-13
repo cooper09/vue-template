@@ -24,13 +24,13 @@
     </v-content>
   </v-app>
     <hr />
-    <br/><br/>Project Type: {{projType}}
+<!--    <br/><br/>Project Type: {{projType}}
     <br/>Start Time: {{startTime}}
-    <br/>Property Tytpe: {{propType}}  
+    <br/>Property Tytpe: {{propType}}  -->
 
       <v-footer
       absolute
-      class="font-weight-medium footer"
+      class="red lighten-1 white--text text-center footer"
     >
       <v-col
         class="text-center"

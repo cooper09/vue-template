@@ -33,7 +33,7 @@
       class="red dark white--text text-center"
     >
       <v-col
-        class="text-center footer "
+        class="text-center footer ex"
         cols="12"
       >
       <span>
@@ -47,7 +47,7 @@
         Email: reno@kweku.com<br/><br/>
       </span>
         <br/><br/>
-        {{ new Date().getFullYear() }} — <strong>© Kweku Development Corporation 2018 All Right Reserved</strong>
+        {{ new Date().getFullYear() }} — <strong>© Kweku Development Corporation All Right Reserved</strong>
 
       </v-col>
     </v-footer>
@@ -86,7 +86,7 @@ body {
   padding: 2em;
 }
 .startBtn {
- background: red;
+ background: #db3539;
 }
 .closeBtn {
     float: right;
@@ -114,5 +114,15 @@ body {
   float:right;
   position: relative;
   bottom: 2em;
+  
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+ {
+   .right {
+     display: none;
+   }
 }
 </style>

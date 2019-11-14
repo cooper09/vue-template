@@ -30,19 +30,23 @@
 
       <v-footer
       absolute
-      class="red lighten-1 white--text text-center footer"
+      class="red dark white--text text-center"
     >
       <v-col
-        class="text-center"
+        class="text-center footer "
         cols="12"
       >
+      <span>
         Kweku Development <br/>
         2 Hamilton Avenue <br/>
-        New Rochelle, New York 10801 <br/>
-        <br/><br/>
+        New Rochelle, New York 10801 
+      </span>
+      <span class="right">
         Office Phone: 914-229-3445<br/>
         Emergency Phone: 914-586-3004<br/>
         Email: reno@kweku.com<br/><br/>
+      </span>
+        <br/><br/>
         {{ new Date().getFullYear() }} — <strong>© Kweku Development Corporation 2018 All Right Reserved</strong>
 
       </v-col>
@@ -99,6 +103,16 @@ body {
   margin: .25em;
 }
 .footer {
-  background: red;
+  background: #d93940;
+  font-family: verdana;
+  font-size: 0.8em;
+  font-style: strong;
+  color: #fff;
+  padding: 2em;
+}
+.right {
+  float:right;
+  position: relative;
+  bottom: 2em;
 }
 </style>

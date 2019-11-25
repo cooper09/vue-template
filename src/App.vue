@@ -29,7 +29,7 @@
     <br/>Property Tytpe: {{propType}}  -->
 
       <v-footer
-      absolute
+
       class="red dark white--text text-center"
     >
       <v-col
@@ -37,7 +37,7 @@
         cols="12"
       >
       <span>
-        Kweku Development <br/>
+        Kweku Development Corporation<br/>
         2 Hamilton Avenue <br/>
         New Rochelle, New York 10801 
       </span>
@@ -122,6 +122,10 @@ body {
   and (max-device-width: 480px)
  {
    .right {
+     display: none;
+   }
+
+   .footer {
      display: none;
    }
 }

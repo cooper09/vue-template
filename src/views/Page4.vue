@@ -96,6 +96,14 @@ export default {
             alert('Your info has be posted. We should be in touch for you shortly! ' );
             //
             this.$router.push('/')
+
+            console.log('email body object: ', this.registration.name )
+            let body = "Name: "+this.registration.name+"%0D%0A project type: "+ this.registration.projectType+"%0D%0A startTime: "+ this.registration.startTime;
+            //let body = "Hello World. \r\n My name is Jennifer. %0D%0A What is your name?"
+            //JSON.stringify(this.registration )
+            console.log('email body string: ', body )
+;            //cooper s - send out email here...
+            window.open('mailto:cooper.smith@boucherco.com?subject=kweku_project&body='+ body );
         }
   }//end methods
 }//export default

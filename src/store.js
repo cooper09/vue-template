@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     dataURL: './data.json',
     postURL: 'https://sleepy-everglades-99189.herokuapp.com/kwekuproject',
+    emailURL: 'https://sleepy-everglades-99189.herokuapp.com/sendmail',
     startData: new Date(),
     projType: "TEST",
     startTime: "TEST",
@@ -74,6 +75,13 @@ export default new Vuex.Store({
             alert('Data Post error: ' + error);
         }
 
+        try {
+          let email_resp = await axios.post(`${state.emailURL}`, dataObj);
+            console.log("store -  email Infodata:  ", email_resp.data );
+          } catch (error) {
+              console.log('Email sent: ' + error);
+          }
+  
     }//end setInfoData
     
   }//end actions

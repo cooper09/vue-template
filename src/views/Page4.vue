@@ -98,12 +98,26 @@ export default {
             this.$router.push('/')
 
             console.log('email body object: ', this.registration.name )
-            let body = "Name: "+this.registration.name+"%0D%0A project type: "+ this.registration.projectType+"%0D%0A startTime: "+ this.registration.startTime;
+          /*  let body = "Name: "+this.registration.name+"%0D%0A project type: "+ this.registration.projectType+"%0D%0A startTime: "+ this.registration.startTime;
             //let body = "Hello World. \r\n My name is Jennifer. %0D%0A What is your name?"
             //JSON.stringify(this.registration )
             console.log('email body string: ', body )
 ;            //cooper s - send out email here...
-            window.open('mailto:cooper.smith@boucherco.com?subject=kweku_project&body='+ body );
+            window.open('mailto:cooper.smith@boucherco.com?subject=kweku_project&body='+ body ); 
+
+        const sgMail = require('@sendgrid/mail');
+          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+          //sgMail.setApiKey('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');
+          const msg = {
+            to: 'cooper.smith@boucherco.com',
+            from: 'cooperatkmba@gmail.com',
+            subject: 'Sending with SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+          };
+          console.log("Send msg: ", msg );
+          sgMail.send(msg);
+  */
         }
   }//end methods
 }//export default

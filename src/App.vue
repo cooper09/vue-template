@@ -16,18 +16,18 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <Datatable />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Datatable from './components/Datatable';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Datatable,
   },
   data: () => ({
     //

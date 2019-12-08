@@ -1,5 +1,7 @@
 <template>
+
   <v-app>
+    <span class="bg"></span>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
@@ -15,8 +17,7 @@
       </v-btn>
     </v-app-bar>
     <v-content>
-      <p>App.vue</p>
-      <HelloWorld/> 
+    <HelloWorld/> 
     </v-content>
     <v-content transition="slide-x-transition">
       <router-view></router-view>

@@ -1,0 +1,109 @@
+<template>
+
+  <div class="myform">
+    <v-btn class="closeBtn" @click="closeMe">X</v-btn>
+            <v-form px3>
+            <v-text-field
+                v-model="name"
+                :error-messages="nameErrors"
+                :counter="10"
+                label="Name"
+                required
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+                ></v-text-field>
+            <v-text-field
+                v-model="email"
+                :error-messages="emailErrors"
+                label="E-mail"
+                required
+                @input="$v.email.$touch()"
+                @blur="$v.email.$touch()"
+                ></v-text-field>
+            <v-text-field 
+                label="Phone"  
+                v-model="phone"
+                @input="$v.phone.$touch()"
+                @blur="$v.phone.$touch()" 
+                ></v-text-field>
+
+                <v-btn class="mr-4" @click="submit">submit</v-btn>
+        </v-form>
+  </div>
+</template>
+<script>
+import axios from 'axios';
+
+export default {
+    computed:{
+        campaign() {
+            return this.$store.state.campaign;
+        },
+        selection() {
+            return this.$store.state.selection;
+        }
+    },
+  methods: {
+    submit() {
+        //cooper s - get campaign identifier from URL
+        let campaign = this.$store.state.campaign;
+        let selection = this.$store.state.selection;
+
+        switch (selection ){
+            case 1:
+                selection = "Insurance Policies"
+            break;
+            case 2:
+                selection = "Defensive Driving Course"
+            break;
+            case 3:
+                selection = "Defensive Driving Instructor"
+            break;
+            case 4:
+                selection = "Become an Agent"
+            break;
+        }//end switch
+   
+      var timestamp = new Date();
+
+      var infoObj = {
+        name: this.name,
+        phone: this.phone,
+        email: this.email,
+        campaign: campaign,
+        selection: selection,
+        timestamp: timestamp
+      }
+
+            const url = `https://sleepy-everglades-99189.herokuapp.com/multiline`;
+
+      axios.post(url,infoObj)
+        .then(function (response) {
+          console.log("POST: ", response.data);
+
+        })
+        .catch(function (error) {
+          console.log("POST Error: ",  error);
+        });
+      
+          this.name = "";
+          this.phone="";
+          this.email="";
+        
+    },//end submit
+    closeMe(){
+      this.$router.push('/');
+    }
+  }
+}//export
+</script>
+<style scoped>
+    .myform {
+        background: aqua;
+        padding: 1em;
+        margin: -3em 3em 3em;
+    }
+  .closeBtn {
+    float: right;
+  }
+</style>

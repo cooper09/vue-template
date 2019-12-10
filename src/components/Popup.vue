@@ -9,8 +9,9 @@
           color="red lighten-2"
           dark
           v-on="on"
+          class="mb-4"
         >
-          Click Me
+          Check Address
         </v-btn>
       </template>
 
@@ -19,11 +20,11 @@
           class="headline grey lighten-2"
           primary-title
         >
-          Privacy Policy
+          Locate Conversion
         </v-card-title>
 
         <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Check for address location here...
         </v-card-text>
 
         <v-divider></v-divider>
@@ -35,7 +36,7 @@
             text
             @click="dialog = false"
           >
-            I accept
+            Close
           </v-btn>
         </v-card-actions>
       </v-card>

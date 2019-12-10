@@ -4,28 +4,30 @@
     :headers="headers"
     :items="startData"
     :single-select="singleSelect"
-    item-key="name"
+    item-key="timestamp"
     show-select
     class="elevation-1"
   >
     <template v-slot:top>
       <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
+    {{selected}}
     </template>
   </v-data-table>
 </template>
 
 <script>
-import axios from 'axios';
+
 export default {
+
   data: () => ({
-        singleSelect: false,
+        singleSelect: true,
         selected: [],
         headers: [
           {
             text: 'Timestamp',
             align: 'left',
-            sortable: false,
-            value: 'name',
+            sortable: true,
+            value: 'timestamp',
           },
           { text: 'Campaign', value: 'campaign' },
           { text: 'Ad Set', value: 'medium' },
@@ -34,6 +36,11 @@ export default {
         ],
       
   }),//end data
+  methods: {
+      updateSelected(){
+          alert("We have made a selection")
+      }
+  },
   computed: {
             startData() {
                 return this.$store.state.startData;

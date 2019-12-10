@@ -46,6 +46,7 @@
 
 <script>
 export default {
+    name: 'Popup',
     data () {
       return {
         dialog: false,

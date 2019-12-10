@@ -9,7 +9,8 @@ export default new Vuex.Store({
     dataURL:'https://sleepy-everglades-99189.herokuapp.com/multiline_facebook_conversions',
     contactsURL: "https://sleepy-everglades-99189.herokuapp.com/multilines",
     startData: [],
-    contactData: []
+    contactData: [], 
+    selected:[]
   },//end state
   mutations: {
     setData(state, payload) {

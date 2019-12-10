@@ -16,18 +16,25 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <DataTable/>
+    </v-content>
+    <v-content>
+      <Popup/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import DataTable from './components/DataTable';
+import Popup from './components/Popup';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    DataTable,
+    Popup
   },
   data: () => ({
     //

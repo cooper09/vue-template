@@ -2,6 +2,7 @@
 
   <div class="myform">
     <v-btn class="closeBtn" @click="closeMe">X</v-btn>
+    <br/><br/>
             <v-form px3>
             <v-text-field
                 v-model="name"
@@ -44,6 +45,9 @@ export default {
         }
     },
   methods: {
+    clearFields () {
+      alert("clear the fields")
+    },
     submit() {
         //cooper s - get campaign identifier from URL
         let campaign = this.$store.state.campaign;
@@ -75,21 +79,17 @@ export default {
         timestamp: timestamp
       }
 
-            const url = `https://sleepy-everglades-99189.herokuapp.com/multiline`;
+      const url = `https://sleepy-everglades-99189.herokuapp.com/multiline`;
 
       axios.post(url,infoObj)
         .then(function (response) {
           console.log("POST: ", response.data);
-
+        alert("Thank you, we will contact you shortly " )
         })
         .catch(function (error) {
           console.log("POST Error: ",  error);
-        });
-      
-          this.name = "";
-          this.phone="";
-          this.email="";
-        
+        });//end post
+
     },//end submit
     closeMe(){
       this.$router.push('/');
@@ -99,7 +99,7 @@ export default {
 </script>
 <style scoped>
     .myform {
-        background: aqua;
+        background: #eee;
         padding: 1em;
         margin: -3em 3em 3em;
     }

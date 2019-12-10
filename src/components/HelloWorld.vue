@@ -1,7 +1,6 @@
 <template>
   <v-container  id="kahuna">
     <v-layout row wrap align-center>
-
         <v-btn class="btn" @click="nextPage(1)">Insurance Policies</v-btn>
         <v-btn class="btn" @click="nextPage(2)">Defensive Driving Courses</v-btn>
         <v-btn class="btn" @click="nextPage(3)">Become a Defensive Driving Instructor</v-btn><br/>
@@ -42,7 +41,7 @@ export default {
 </script>
 <style scoped>
   #kahuna {
-    background: #ccc; 
+    background: transparent; 
     margin-top: 3em;
   }
   .btn {

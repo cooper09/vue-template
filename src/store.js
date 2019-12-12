@@ -11,7 +11,7 @@ export default new Vuex.Store({
     startData: [],
     contactData: [], 
     selected:[],
-    addresses:"addresses"
+    addresses:""
   },//end state 
   mutations: {
     setData(state, payload) {
@@ -54,8 +54,11 @@ export default new Vuex.Store({
       }
     },
     getAddresses(context, data ){
-      alert("store - getAddresses: "+ data);
-      context.commit('setAddresses', data)
+      alert("store - getAddresses: "+ data[0] );
+      //data = data.split(',');
+      console.log("getAddresses set data: ", typeof(data) );
+      console.log("getAddresses set data: ", data[0][1] );
+      context.commit('setAddresses', data[0])
     }
   },// end actions
   getters: {

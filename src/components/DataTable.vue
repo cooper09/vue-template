@@ -14,7 +14,6 @@
         label="Single select" 
         class="pa-3"
         ></v-switch>
-    {{selected}}
         <Popup v-bind:selection="selected"/>
     </template>
 

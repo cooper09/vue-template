@@ -23,12 +23,12 @@
           Locate Conversion
         </v-card-title>
 
-        <v-card-text @click='test()'>
-          Check for address location here...
-
+        <v-card-text>
+        <v-btn  @click='test()'>Search for possible Addresses</v-btn>
+ 
+        <v-content>
         {{myAddresses}}
-        IS
-
+        </v-content>
         </v-card-text>
 
         <v-divider></v-divider>

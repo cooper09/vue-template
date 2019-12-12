@@ -54,7 +54,7 @@ export default new Vuex.Store({
       }
     },
     getAddresses(context, data ){
-      alert("store - getAddresses: "+ data[0] );
+      //alert("store - getAddresses: "+ data[0] );
       //data = data.split(',');
       console.log("getAddresses set data: ", typeof(data) );
       console.log("getAddresses set data: ", data[0][1] );

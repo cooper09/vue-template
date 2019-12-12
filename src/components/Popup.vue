@@ -24,8 +24,8 @@
         </v-card-title>
 
         <v-card-text>
-        <v-btn  @click='test()'>Search for possible Addresses</v-btn>
- 
+        <v-btn class="mt-3" @click='test()'>Search for possible Addresses</v-btn>
+
         <v-content>
         {{myAddresses}}
         </v-content>

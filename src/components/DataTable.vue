@@ -16,7 +16,6 @@
         ></v-switch>
         <Popup v-bind:selection="selected"/>
     </template>
-
   </v-data-table>
 </template>
 

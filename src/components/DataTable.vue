@@ -16,7 +16,7 @@
         label="Single select" 
         class="pa-3"
         ></v-switch>
-    {{selected}}
+    {{addresses}}
     {{msg}}
         <Popup v-bind:selection="selected"/>
     </template>
@@ -60,12 +60,12 @@ components: {
             contactData() {
                 return this.$store.state.contactData;
             },
-            msg() {
+            addresses() {
                 const selectedRow= this.selected[0];
-                console.log("selected: ", this.selected[0]);
+                //console.log("selected: ", selecteRow);
                 //this.$store.state.stinky('data')
                 
-                return selectedRow ? `${selectedRow.postal}` : "no data selected";
+              //  return selectedRow ? `${selectedRow.postal}` : "no data selected";
             }
         },//end computed
         created() {

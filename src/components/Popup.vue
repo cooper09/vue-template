@@ -80,8 +80,8 @@ export default {
   methods: {
       test() {
           console.log('test popup: ', this.selection[0].addresses );
-          //let addressList = this.selection[0].addressess;
-          this.$store.dispatch("getAddresses", "stinky");
+          let addressList = this.selection[0].addresses;
+          this.$store.dispatch("getAddresses", addressList );
       }//end test
   },//end methods
 };//end export

@@ -14,25 +14,19 @@
         <span class="mr-2">First make Selection using the checkbox <br/>Then click the "Check Address" button.</span>
       </v-btn>
     </v-app-bar>
-
     <v-content>
       <DataTable/>
-    </v-content>
-    <v-content>
-      <Popup/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 import DataTable from './components/DataTable';
 import Popup from './components/Popup';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     DataTable,
     Popup
   },

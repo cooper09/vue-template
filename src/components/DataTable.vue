@@ -3,22 +3,33 @@
     v-model="selected"
     :headers="headers"
     :items="startData"
-    :single-select="singleSelect"
+    :single-select="selected"
     item-key="timestamp"
     show-select
     class="elevation-1"
+
   >
+
     <template v-slot:top>
-      <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
+      <v-switch 
+        v-model="singleSelect" 
+        label="Single select" 
+        class="pa-3"
+        ></v-switch>
     {{selected}}
+    {{msg}}
+        <Popup v-bind:selection="selected"/>
     </template>
+
   </v-data-table>
 </template>
 
 <script>
-
+import Popup from './Popup';
 export default {
-
+components: {
+    Popup
+  },
   data: () => ({
         singleSelect: true,
         selected: [],
@@ -37,8 +48,9 @@ export default {
       
   }),//end data
   methods: {
-      updateSelected(){
-          alert("We have made a selection")
+      updateSelected(data){
+          alert("We have made a selection: "  );
+          console.log("We have made a selection: " , data );
       }
   },
   computed: {
@@ -47,6 +59,13 @@ export default {
             },
             contactData() {
                 return this.$store.state.contactData;
+            },
+            msg() {
+                const selectedRow= this.selected[0];
+                console.log("selected: ", this.selected[0]);
+                //this.$store.state.stinky('data')
+                
+                return selectedRow ? `${selectedRow.postal}` : "no data selected";
             }
         },//end computed
         created() {

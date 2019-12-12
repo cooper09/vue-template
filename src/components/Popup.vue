@@ -23,8 +23,12 @@
           Locate Conversion
         </v-card-title>
 
-        <v-card-text>
+        <v-card-text @click='test()'>
           Check for address location here...
+        {{selection}}
+        {{addresses}}
+        IS
+
         </v-card-text>
 
         <v-divider></v-divider>
@@ -47,10 +51,33 @@
 <script>
 export default {
     name: 'Popup',
+    props: {
+        selection: {
+            addresses: [],
+            campaign: String,
+            city: String,
+            country: String,
+            ip: String,
+            postal: String,
+            latitude: String,
+            longitude: String,
+            medium: String,
+            state: String,
+            timestamp: String
+        }
+    },
     data () {
       return {
         dialog: false,
+        addresses: selection[0].addresses
       }
-  }//end default
+  },//end data
+  methods: {
+      test() {
+          console.log('test popup: ', this.selection[0].addresses );
+          let addressList = this.selection[0].addresses;
+          this.$store.dispatch('getAddresses(addressList)');
+      }//end test
+  },//end methods
 };//end export
 </script>

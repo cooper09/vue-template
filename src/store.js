@@ -5,7 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    data: "The good stuff..."
+    data: [{ name: "john",
+            address:  "two",
+            email: "three"
+        }]
   },
   mutations: {
     setData(state,payload) {

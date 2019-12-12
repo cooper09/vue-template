@@ -7,17 +7,14 @@
     item-key="timestamp"
     show-select
     class="elevation-1"
-
   >
-
     <template v-slot:top>
       <v-switch 
         v-model="singleSelect" 
         label="Single select" 
         class="pa-3"
         ></v-switch>
-    {{addresses}}
-    {{msg}}
+    {{selected}}
         <Popup v-bind:selection="selected"/>
     </template>
 
@@ -60,9 +57,10 @@ components: {
             contactData() {
                 return this.$store.state.contactData;
             },
-            addresses() {
+            selected() {
+              alert("asdljflakj")
                 const selectedRow= this.selected[0];
-                //console.log("selected: ", selecteRow);
+                console.log("selected: ", selecteRow);
                 //this.$store.state.stinky('data')
                 
               //  return selectedRow ? `${selectedRow.postal}` : "no data selected";

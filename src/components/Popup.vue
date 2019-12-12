@@ -25,8 +25,8 @@
 
         <v-card-text @click='test()'>
           Check for address location here...
-        {{selection}}
-        {{addresses}}
+
+        {{myAddresses}}
         IS
 
         </v-card-text>
@@ -66,17 +66,22 @@ export default {
             timestamp: String
         }
     },
+    computed:{
+      myAddresses() {
+        return this.$store.state.addresses
+      }
+    },
     data () {
       return {
         dialog: false,
-        addresses: selection[0].addresses
+       // addresses: this.$store.state.addresses
       }
   },//end data
   methods: {
       test() {
           console.log('test popup: ', this.selection[0].addresses );
-          let addressList = this.selection[0].addresses;
-          this.$store.dispatch('getAddresses(addressList)');
+          //let addressList = this.selection[0].addressess;
+          this.$store.dispatch("getAddresses", "stinky");
       }//end test
   },//end methods
 };//end export

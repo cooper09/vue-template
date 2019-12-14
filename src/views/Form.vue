@@ -1,9 +1,9 @@
 <template>
 
-  <div class="myform">
-    <v-btn class="closeBtn" @click="closeMe">X</v-btn>
+  <div class="myform blue-lighten-5">
+    <v-btn class="closeBtn indigo white--text" @click="closeMe">X</v-btn>
     <br/><br/>
-            <v-form px3>
+            <v-form px3 class="indigo--text ">
             <v-text-field
                 v-model="name"
                 :error-messages="nameErrors"
@@ -12,6 +12,7 @@
                 required
                 @input="$v.name.$touch()"
                 @blur="$v.name.$touch()"
+                color="indigo"
                 ></v-text-field>
             <v-text-field
                 v-model="email"
@@ -28,7 +29,7 @@
                 @blur="$v.phone.$touch()" 
                 ></v-text-field>
 
-                <v-btn class="mr-4" @click="submit">submit</v-btn>
+                <v-btn class="mr-4 indigo white--text" @click="submit">submit</v-btn>
         </v-form>
   </div>
 </template>

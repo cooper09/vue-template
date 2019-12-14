@@ -1,10 +1,10 @@
 <template>
   <v-container  id="kahuna">
     <v-layout row wrap align-center>
-        <v-btn class="btn" @click="nextPage(1)">Insurance Policies</v-btn>
-        <v-btn class="btn" @click="nextPage(2)">Defensive Driving Courses</v-btn>
-        <v-btn class="btn" @click="nextPage(3)">Become a Defensive Driving Instructor</v-btn><br/>
-        <v-btn class="btn" @click="nextPage(4)">Become a Multi-Line Agent</v-btn>
+        <v-btn class="indigo white--text btn" @click="nextPage(1)">Insurance Policies</v-btn>
+        <v-btn class="indigo white--text btn" @click="nextPage(2)">Defensive Driving Courses</v-btn>
+        <v-btn color="indigo white--text btn" @click="nextPage(3)">Become a Defensive Driving Instructor</v-btn><br/>
+        <v-btn class="indigo white--text btn" @click="nextPage(4)">Become a Multi-Line Agent</v-btn>
 
     </v-layout>
   </v-container>

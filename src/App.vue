@@ -2,7 +2,7 @@
 
   <v-app>
     <span class="bg"></span>
-    <v-app-bar app>
+    <v-app-bar class="indigo white--text" app>
       <v-toolbar-title class="headline text-uppercase">
         <span class="font-weight-light">Multi-Line Insurance Agency</span>
       </v-toolbar-title>
@@ -12,20 +12,20 @@
         href="http://www.multilineins.com/"
         target="_blank"
       >
-        <span class="mr-2">Go to Website</span>
+        <span class="mr-2 white--text">Go to Website</span>
       </v-btn>
 
 
     </v-app-bar>
     
     <v-content>
-            <v-card>
+    <v-card>
       <v-card-title>
-        <h3>Please tell us more about yourself.</h3>
+        <h3 class="indigo--text">Please tell us more about yourself.</h3>
         <v-spacer></v-spacer>
-        <p>Call Now: 914-485-4463</p>
+        <p class="indigo--text">Call Now: 914-485-4463</p>
       </v-card-title>
-      <v-flex xs12 copy >
+      <v-flex xs12 copy class="indigo--text">
       At Multi-line Insurance Agency we are continuously working to provide the individual coverage you require. When it comes to protecting your auto, home, business and family, don't leave it up to chance, or fly-by-night brokers. At Multi-line Insurance Agency we take pride in our business and strive to be relationship specialists providing you with the total insurance solution for all your needs. Being insured with the best has its advantages.]
       </v-flex>
       </v-card>

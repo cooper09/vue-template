@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <v-btn class="closeBtn" @click="closeMe">X</v-btn>
+    <v-btn class="closeBtn indigo white--text" @click="closeMe">X</v-btn>
   </div>
 </template>
 <script>

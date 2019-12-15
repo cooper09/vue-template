@@ -5,12 +5,15 @@ var modulesML = {
   },
   decisionTree(data) {
     console.log("makeaDecision.decisionTree: "+ data );
+    return data;
   },
   LSTM (data) {
-    console.log("makeaDecision.LSTM: "+ data );  
+    console.log("makeaDecision.LSTM: "+ data ); 
+    return data; 
   },
   neuralNet(data) {
     console.log("makeaDecision.neuralNet: "+ data );
+    return data;
   },
   //cooper s - within7dys is the "Boucher" check
 doYourThing(conversion, trainingData ) {

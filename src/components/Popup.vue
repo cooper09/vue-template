@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import modulesML from '@/helpers/modulesML'
 export default {
     name: 'Popup',
     props: {
@@ -79,9 +80,13 @@ export default {
   },//end data
   methods: {
       test() {
-          console.log('test popup: ', this.selection[0].addresses );
-          let addressList = this.selection[0].addresses;
-          this.$store.dispatch("getAddresses", addressList );
+          console.log('test popup: ', this.selection[0]._id );
+          let stinky = this.selection[0]
+          console.log("Stinky1 says: ", stinky.addresses[0].split(', '));
+          let addrList = stinky.addresses[0].split(', ');
+
+          modulesML.decisionTree(addrList);
+        //  this.$store.dispatch("getAddresses",addrList );
       }//end test
   },//end methods
 };//end export

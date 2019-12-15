@@ -56,8 +56,11 @@ export default new Vuex.Store({
     getAddresses(context, data ){
       //alert("store - getAddresses: "+ data[0] );
       //data = data.split(',');
+      data.map(item =>{
+        console.log("store.getAddresses address data: ", item );
+      })
       console.log("getAddresses set data: ", typeof(data) );
-      console.log("getAddresses set data: ", data[0][1] );
+      console.log("getAddresses set data: ", data[1] );
       context.commit('setAddresses', data[0])
     }
   },// end actions

@@ -21,12 +21,13 @@
     <v-content transition="slide-x-transition">
       <router-view></router-view>
     </v-content>
-
+    <v-btn @click="runAI()">AI</v-btn>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import makeaDecision from '@/helpers/makeaDecision';
 
 export default {
   name: 'App',
@@ -36,7 +37,16 @@ export default {
   data: () => ({
     //
   }),
-};
+  methods: {
+  runAI(){
+    alert("AI Baby!!");
+            //var conversions = this.makeaDecision.doYourThing("Data", "Baby" );  
+            var conversions = makeaDecision.Test( );  
+            alert("Confirmed-decisionTreeConversions: " + conversions );
+            console.log("Confirmed - conversion: ",  conversions )
+        },//end runAI
+    }//end methods
+};//end default
 </script>
 <style>
 body {

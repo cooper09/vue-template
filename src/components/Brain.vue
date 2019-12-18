@@ -9,6 +9,9 @@
 
 <script>
 export default {
+  mounted () {
+    this.$store.dispatch('setData')
+  },
   data: () => ({
        singleSelect: false,
         selected: [],
@@ -26,9 +29,7 @@ export default {
       let hello = "We shall Overcome"
       //this.$store.dispatch('setData', "more stuff");
     },
-    selected() {
-      alert("Selected Something")
-    }
+
   },//end methods
 };//end export
 </script>

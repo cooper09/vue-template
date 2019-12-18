@@ -16,7 +16,7 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
-      <HelloWorld/> 
+      <Brain /> 
     </v-content>
     <v-content transition="slide-x-transition">
       <router-view></router-view>
@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Brain from '@/components/Brain';
 import makeaDecision from '@/helpers/makeaDecision';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Brain,
   },
   data: () => ({
     //

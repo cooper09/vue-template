@@ -2,11 +2,13 @@ import { VAppBarNavIcon } from "vuetify/lib";
 
 var modulesML = {
 
-  
 
-  Test(data) {
+  
+// Test function that returns a promise
+   Test(data) {
     console.log("makeaDecision.Test: "+ data );
-    return data;
+    return Promise.resolve(this.decisionTree(data))
+    //return data;
   },
   decisionTree(data) {
     console.log("makeaDecision.decisionTree: "+ data );

@@ -85,8 +85,12 @@ export default {
           console.log("Stinky1 says: ", stinky.addresses[0].split(', '));
           let addrList = stinky.addresses[0].split(', ');
 
-         const smoozy = modulesML.LSTM(addrList);
-         this.$store.dispatch("getAddresses", smoozy );
+       //  const smoozy = modulesML.LSTM(addrList);
+        const smoozy =  modulesML.Test(addrList).then(result =>{
+          console.log("smoozy: ", result )
+          this.$store.dispatch("getAddresses", result );
+        });
+
       }//end test
   },//end methods
 };//end export

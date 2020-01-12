@@ -1,7 +1,7 @@
 <template>
   <v-container   class="animated fadeIn container">
    BasketCheckout Page
-   <v-btn @click="nextPage()">What do I say here?</v-btn>
+   <v-btn @click="nextPage()">Submit</v-btn>
   </v-container>
 </template>
 

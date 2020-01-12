@@ -2,9 +2,7 @@
   <v-app>
    
     <Navigation />
-    <v-content   class="animated fadeIn">
-      <p>App.vue</p>
-      <v-img src="assets/logo.jpg"></v-img>
+    <v-content   class="animated fadeIn" xs12>
       <router-view></router-view>      
       <HelloWorld/> 
     </v-content>

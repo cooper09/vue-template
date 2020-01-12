@@ -15,9 +15,6 @@
     </v-navigation-drawer>
     <v-toolbar dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title color="#3e99ee">The Beat 139</v-toolbar-title>
-
-        <v-spacer></v-spacer>
         <v-flex xs12>
             <v-img
                 src="@/assets/logo.jpg"
@@ -27,6 +24,8 @@
                 >
             </v-img>
         </v-flex>
+
+        <v-spacer></v-spacer>
 
             <v-toolbar-items>
                 <v-btn >

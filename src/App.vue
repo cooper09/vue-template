@@ -1,5 +1,6 @@
 <template>
   <v-app>
+   
     <Navigation />
     <v-content   class="animated fadeIn">
       <p>App.vue</p>

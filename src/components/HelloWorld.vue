@@ -3,14 +3,15 @@
   <v-container>
     <h2 class="display-2 mb-4">The Beat 139 Merchandise</h2>
     <v-btn @click="showCart()" class="blue right">Show Cart</v-btn>
+    <br/><br/>git st
     <v-layout row wrap>
       <template v-for="(product, index) in products">
-        <v-flex xs4 pa-1 :key="index">
+        <v-flex xs12 md4 pa-1 :key="index">
           <v-hover>
             <v-card slot-scope="{hover}" class="mx-auto" color="gray lighten-4" max-width="100%" height="350" @click="addToCart(product)">
               <v-img :src="product.src" :aspect-ratio="16/9">
                 <v-expand-transition>
-                  <div v-if="hover" class="d-flex transition-fast-in-fast-out blue darken-2 display-3 v-card--reveal display3 black--text" style="height: 100%;">
+                  <div v-if="hover" class="d-flex transition-fast-in-fast-out blue darken-2 display-3 v-card--reveal display3 white--text" style="height: 100%;">
                     ${{product.price}}
                   </div>
                 </v-expand-transition>

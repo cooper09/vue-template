@@ -9,18 +9,25 @@ export default new Vuex.Store({
     cartItems: [],
     products: [{
       product_id: "item-1",
-      price: 14.99,
-      src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-      category: 'For the perfect meal',
-      title: 'The Cool Joint',
-      description: 'Looking good in the hood...'
+      price: 24.99,
+      src: 'https://sonyainc.net/beat139/caps.jpg',
+      category: 'Looking Good in the Hood',
+      title: 'Hats: Snap Back',
+      description: 'Colors: Red, Blue,Black, Gray'
     },{
       product_id: "item-2",
-      price: 64.99,
-      src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-      category: 'Life after death',
-      title: 'The Beat 139 Goes on',
-      description: 'The bomb b-diddy...'
+      price: 59.99,
+      src: 'https://sonyainc.net/beat139/jacket.jpg',
+      category: 'Chic and Elite',
+      title: 'Varsity Jacket',
+      description: 'Sizes: L,XL,XXL'
+    },{
+      product_id: "item-3",
+      price: 34.99,
+      src: 'https://sonyainc.net/beat139/sweat-shirt.jpg',
+      category: 'Stay Warm in the Storm',
+      title: 'Sweat Shirts (Regular)',
+      description: 'Sizes: L,XL,XXL'
     }]
   },//end data
   mutations: {

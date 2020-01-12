@@ -1,7 +1,7 @@
 <template>
   <v-container   class="animated fadeIn">
    Basket Page
-    <v-btn @click="nextPage()">Checkout</v-btn><v-btn @click="closePage()" class="right">X</v-btn>
+    <v-btn @click="nextPage()" color='blue'>Checkout</v-btn><v-btn @click="closePage()" class="right blue">X</v-btn>
 
     <hr />
     <br/><br/>

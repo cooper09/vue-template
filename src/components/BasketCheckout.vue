@@ -33,7 +33,7 @@
         </form>
 
         <hr />
-        <v-btn @click="nextPage()" class="right">Complete Order</v-btn>
+        <v-btn @click="nextPage()" class="right blue">Complete Order</v-btn>
         <br/><br/>
         <hr />
   </v-container>

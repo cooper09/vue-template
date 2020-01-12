@@ -2,7 +2,7 @@
 
   <v-container>
     <h2 class="display-2 mb-4">The Beat 139 Merchandise</h2>
-    <v-btn @click="showCart()" class="right">Show Cart</v-btn>
+    <v-btn @click="showCart()" class="blue right">Show Cart</v-btn>
     <v-layout row wrap>
       <template v-for="(product, index) in products">
         <v-flex xs4 pa-1 :key="index">
@@ -20,9 +20,9 @@
                 <v-btn absolute color="#3e99ee" class="white--text" fab medium right top>
                   <v-icon>fa-shopping-cart</v-icon>
                 </v-btn>
-
-                <div class="font-weight-light grey--text title mb-2">{{product.category}}</div>
-                <h3 class="display-1 font-weight-light orange--text mb-2">{{product.title}}</h3>
+                <br/>
+                <div class="font-weight-bold grey--text title mb-2">{{product.category}}</div>
+                <h3 class="display-1 font-weight-bold blue--text mb-2">{{product.title}}</h3>
 
                 <div class="font-weight-light mb-2">{{product.description}}</div>
               </v-card-text>

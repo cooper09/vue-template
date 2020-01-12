@@ -15,7 +15,7 @@
     </v-navigation-drawer>
     <v-toolbar dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Shopping Cart</v-toolbar-title>
+      <v-toolbar-title color="#3e99ee">Shopping Cart</v-toolbar-title>
         <v-spacer></v-spacer>
             <v-toolbar-items>
                 <v-btn >
@@ -24,7 +24,7 @@
                 <v-btn :to="{name: 'basket'}">
                     <v-badge left color="green">
                         <span slot="badge">{{numberOfItems}}</span>
-                        <v-icon>shopping_cart</v-icon> 
+                        <v-icon>fa-shopping-cart</v-icon> 
                     </v-badge>
                 </v-btn>
             </v-toolbar-items>

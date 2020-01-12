@@ -4,6 +4,7 @@
     <Navigation />
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
+      <v-img src="assets/logo.jpg"></v-img>
       <router-view></router-view>      
       <HelloWorld/> 
     </v-content>

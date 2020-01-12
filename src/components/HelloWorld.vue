@@ -4,9 +4,9 @@
     <v-btn @click="showCart()" class="right">Show Cart</v-btn>
     <v-layout row wrap>
       <template v-for="(product, index) in products">
-        <v-flex xs2 pa-1 :key="index">
+        <v-flex xs4 pa-1 :key="index">
           <v-hover>
-            <v-card slot-scope="{hover}" class="mx-auto" color="gray lighten-4" max-width="1000" height="350" @click="addToCart(product)">
+            <v-card slot-scope="{hover}" class="mx-auto" color="gray lighten-4" max-width="100%" height="350" @click="addToCart(product)">
               <v-img :src="product.src" :aspect-ratio="16/9">
                 <v-expand-transition>
                   <div v-if="hover" class="d-flex transition-fast-in-fast-out orange draken-2 display-3 v-card--reveal display3 black--text" style="height: 100%;">
@@ -16,7 +16,7 @@
               </v-img>
 
               <v-card-text class="pt-4" style="position: relative;">
-                <v-btn absolute color="orange" class="white--text" fab medium right top>
+                <v-btn absolute color="#3e99ee" class="white--text" fab medium right top>
                   <v-icon>fa-shopping-cart</v-icon>
                 </v-btn>
 

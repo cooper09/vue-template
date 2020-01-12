@@ -24,7 +24,7 @@
         </v-navigation-drawer>
 
         <v-toolbar dark>
-            <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+            <v-appbar-nav-icon @click="drawer = !drawer"></v-appbar-nav-icon>
             <v-toolbar-title><a href="/">ShoppingCart</a></v-toolbar-title>
             <v-spacer></v-spacer>
 

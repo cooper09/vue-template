@@ -1,8 +1,10 @@
 <template>
   <v-container   class="animated fadeIn">
    Basket Page
-    <v-btn @click="nextPage()">Checkout</v-btn><v-btn @click="closePage()">X</v-btn>
+    <v-btn @click="nextPage()">Checkout</v-btn><v-btn @click="closePage()" class="right">X</v-btn>
 
+    <hr />
+    <br/><br/>
     <v-list disabled>
       <v-subheader>Items</v-subheader>
       <v-list-item-group v-model="cartItems" color="primary">
@@ -24,12 +26,12 @@
             <v-list>
               <v-text-field label="Quantity" reverse :value="item.qty"></v-text-field>
             </v-list>
-            <v-list>
+            <v-list class="cursor">
               {{item.price * item.qty}}$
             </v-list>
 
-            <v-btn icon ripple @click='deleteItem(item)'>
-              <v-icon color="red lighten-1" class="fa fa-trash" @click='deleteItem(item)'>fa-trash</v-icon>
+            <v-btn icon ripple @click='deleteItem(item)' class="cursor">
+              <v-icon color="red lighten-1" class="fa fa-trash cursor" @click='deleteItem(item)'>fa-trash</v-icon>
             </v-btn>
     
         </v-list-item>

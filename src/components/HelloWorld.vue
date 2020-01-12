@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h2 class="display-2 mb-4">Hot products showing</h2>
-    <v-btn @click="showCart()">Show Cart</v-btn>
+    <v-btn @click="showCart()" class="right">Show Cart</v-btn>
     <v-layout row wrap>
       <template v-for="(product, index) in products">
         <v-flex xs2 pa-1 :key="index">

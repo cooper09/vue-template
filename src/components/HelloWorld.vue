@@ -1,9 +1,9 @@
 <template>
 
   <v-container>
-    <h2 class="display-2 mb-4">The Beat 139 Merchandise</h2>
-    <v-btn @click="showCart()" class="blue right">Show Cart</v-btn>
-    <br/><br/>git st
+    <h2 class="display-2 mb-4 zingy">The Beat 139 Merchandise</h2>
+    <v-btn @click="showCart()" class="blue right white--text">Show Cart</v-btn>
+    <br/><br/>
     <v-layout row wrap>
       <template v-for="(product, index) in products">
         <v-flex xs12 md4 pa-1 :key="index">
@@ -71,6 +71,10 @@
 
 .v-card h3.display-1 {
   font-size: 24px !important;
+}
+
+.zingy {
+  font-family: 'Lexend Deca';
 }
 </style>
 

@@ -1,6 +1,5 @@
 <template>
   <v-container   class="animated fadeIn container">
-   BasketCheckout Page
 
   <form action="">
             <v-layout>
@@ -33,7 +32,7 @@
         </form>
 
         <hr />
-        <v-btn @click="nextPage()" class="right blue">Complete Order</v-btn>
+        <v-btn @click="nextPage()" class="right blue white--text">Complete Order</v-btn>
         <br/><br/>
         <hr />
   </v-container>

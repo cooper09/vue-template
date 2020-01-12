@@ -1,8 +1,7 @@
 <template>
   <v-container   class="animated fadeIn">
-   Basket Page
-    <v-btn @click="nextPage()" color='blue'>Checkout</v-btn><v-btn @click="closePage()" class="right blue">X</v-btn>
-
+    <v-btn @click="nextPage()" color='blue white--text'>Checkout</v-btn><v-btn @click="closePage()" class="right blue white--text">X</v-btn>
+    <br/>
     <hr />
     <br/><br/>
     <v-list disabled>
@@ -11,9 +10,10 @@
         <v-list-item
           v-for="(item, i) in cartItems"
           :key="i"
+          class="outline"
         >
-          <v-list-avatar>
-            <img :src="item.photo" width="24" height="24">
+          <v-list-avatar class="margins">
+            <img :src="item.photo" width="24" height="24" >
           </v-list-avatar>
           <v-list-item-content>
             <v-list-item-title v-text="item.title"></v-list-item-title>
@@ -69,5 +69,11 @@ export default {
   .btn {
     background: #ddd;
     cursor: pointer;
+  }
+  .outline {
+    border: 1px solid #3e99ee;
+  }
+  .margins {
+    margin-right: 1em;
   }
 </style>

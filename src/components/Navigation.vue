@@ -24,7 +24,7 @@
         </v-navigation-drawer>
 
         <v-toolbar dark>
-            <v-appbar-side-icon @click="drawer = !drawer"></v-appbar-side-icon>
+            <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title><a href="/">ShoppingCart</a></v-toolbar-title>
             <v-spacer></v-spacer>
 
@@ -34,7 +34,7 @@
                 </v-btn>
                 <v-btn :to="{name: 'basket'}">
                     <v-badge left color="green">
-                        <span slot="badge">5</span>
+                        <span slot="badge">{{numberOfItems}}</span>
                         <v-icon>shopping_cart</v-icon> 
                     </v-badge>
                 </v-btn>
@@ -45,6 +45,11 @@
 
 <script>
 export default {
+        computed: {
+      numberOfItems () {
+        return this.$store.state.numberOfItems;
+      } 
+    },//end computed
     data: () => ({
         drawer: false,
         items: [{

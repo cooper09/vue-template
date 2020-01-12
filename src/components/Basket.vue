@@ -5,9 +5,9 @@
 
     <v-list disabled>
       <v-subheader>Items</v-subheader>
-      <v-list-item-group v-model="products" color="primary">
+      <v-list-item-group v-model="cartItems" color="primary">
         <v-list-item
-          v-for="(item, i) in products"
+          v-for="(item, i) in cartItems"
           :key="i"
         >
           <v-list-avatar>
@@ -42,29 +42,13 @@
 
 <script>
 export default {
-      data: () => ({
-      products: [{
-        product_id: 'kitchen-1',
-        photo: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        title: 'QW cooking utensils',
-        sub_title: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand',
-        price: 14.99,
-        qty: 1
-      },{
-        product_id: 'kitchen-1',
-        photo: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        title: 'QW cooking utensils',
-        sub_title: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand',
-        price: 44.99,
-        qty: 2
-      },{
-        product_id: 'kitchen-1',
-        photo: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        title: 'QW cooking utensils',
-        sub_title: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand',
-        price: 64.99,
-        qty: 2
-      }]
+  computed: {
+    cartItems () {
+      return this.$store.state.cartItems;
+    } 
+  },//end computed
+  data: () => ({
+
     }),
   methods: {
     nextPage() {

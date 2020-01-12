@@ -36,48 +36,19 @@
 
 <script>
   export default {
+    computed: {
+      products () {
+        return this.$store.state.products;
+      } 
+    },//end computed
     data: () => ({
-      products: [{
-        price: 14.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      },{
-        price: 24.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      },{
-        price: 34.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      },{
-        price: 44.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      },{
-        price: 54.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      },{
-        price: 64.99,
-        src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png',
-        category: 'For the perfect meal',
-        title: 'QW cooking utensils',
-        description: 'Our vintage kitchen utenils delight any chef. Made of bamboo by hand'
-      }]
+      
     }),//end data
     methods: {
       addToCart(data) {
         console.log("Add data to cart, ", data )
+        this.$store.dispatch("addToCart", data )
+
       },//end addToCart
       showCart(){
         this.$router.push('/basket')

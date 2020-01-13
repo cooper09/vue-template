@@ -12,16 +12,16 @@
           :key="i"
           class="outline"
         >
-          <v-list-avatar class="margins">
+          <v-list-item-avatar class="margins">
             <img :src="item.photo" width="24" height="24" >
-          </v-list-avatar>
+          </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title v-text="item.title"></v-list-item-title>
-            <v-list-sub-title v-html="item.sub_title"></v-list-sub-title>
+            <v-list-item-subtitle v-html="item.sub_title"></v-list-item-subtitle>
 
           </v-list-item-content>
             <v-list>
-              {{item.price}}$
+              ${{item.price}}
             </v-list>
             <v-list>
               <v-text-field label="Quantity" reverse :value="item.qty"></v-text-field>

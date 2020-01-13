@@ -1,11 +1,14 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { mapActions } from 'vuex'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     numberOfItems:  0,
+    itemOne: 0,
+    itemTwo: 0,
+    itemThree: 0,
     cartItems: [],
     products: [{
       product_id: "item-1",
@@ -28,20 +31,40 @@ export default new Vuex.Store({
       category: 'Stay Warm in the Storm',
       title: 'Sweat Shirts (Regular)',
       description: 'Sizes: L,XL,XXL'
-    }]
-  },//end data
+    }],
+  },//end state
   mutations: {
     setCart(state, payload) {
 
       ++state.numberOfItems;
 
+      let qty;
+
+console.log("setCart - project id: ", payload.product_id );
+
+      switch(payload.product_id) {
+        case 'item-1':
+          console.log("set qty to item-1...");
+        //  var newArr = state.cartItems.map(item => ({ id: item.product_id, count: ++itemOne}))
+        //  console.log("new Array: ", newArr )
+          qty =  ++state.itemOne
+        break;
+        case 'item-2':
+          qty =  ++state.itemTwo
+        break;
+        case 'item-3':
+          qty =  ++state.itemThree
+        break;
+      }//end switch
+
+      console.log("setCart qty: ", qty )
       var cartObj = {
         product_id: payload.product_id,
         photo: payload.src,
         title: payload.title,
         sub_title: payload.description,
         price: payload.price,
-        qty: 1
+        qty: Number(qty)
       }
       state.cartItems.push(cartObj);
 

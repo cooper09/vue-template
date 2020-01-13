@@ -2,13 +2,13 @@
     <div>
        <v-navigation-drawer v-model="drawer" app temporary>
       <v-list>
-        <v-list-tile>
-          <v-list-tile-content>
-            <v-list-title-title>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>
               Menu
-            </v-list-title-title>
-          </v-list-tile-content>
-        </v-list-tile>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-divider></v-divider>
       
       </v-list>

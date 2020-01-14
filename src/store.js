@@ -42,31 +42,61 @@ export default new Vuex.Store({
 
 console.log("setCart - project id: ", payload.product_id );
 
-      switch(payload.product_id) {
-        case 'item-1':
-          console.log("set qty to item-1...");
-        //  var newArr = state.cartItems.map(item => ({ id: item.product_id, count: ++itemOne}))
-        //  console.log("new Array: ", newArr )
-          qty =  ++state.itemOne
-        break;
-        case 'item-2':
-          qty =  ++state.itemTwo
-        break;
-        case 'item-3':
-          qty =  ++state.itemThree
-        break;
-      }//end switch
+      let exists = state.cartItems.some(a => typeof a == 'object');
 
-      console.log("setCart qty: ", qty )
-      var cartObj = {
-        product_id: payload.product_id,
-        photo: payload.src,
-        title: payload.title,
-        sub_title: payload.description,
-        price: payload.price,
-        qty: Number(qty)
-      }
-      state.cartItems.push(cartObj);
+      //cooper s - need a function to create objects - Factory Pattern?
+      console.log("Is there something in the carts array: " ,exists);
+      if (exists) {
+        switch(payload.product_id) {
+          case 'item-1':
+            console.log("set qty to item-1...");
+
+              state.cartItems.map(item => {
+                console.log("setCart - cartItems: ",item.qty ," this: ", item);
+                item.qty = ++state.itemOne;
+                })
+            
+          break;
+          case 'item-2':
+            state.cartItems.map(item => {
+              console.log("setCart - cartItems: ",item.qty ," this: ", item);
+              item.qty = ++state.itemTwo;
+              })
+          
+          break;
+          case 'item-3':
+            state.cartItems.map(item => {
+              console.log("setCart - cartItems: ",item.qty ," this: ", item);
+              item.qty = ++state.itemThree;
+              })
+          break;
+        }//end switch
+      } else {
+        console.log("No items in cart yet, lets create one: ", payload.product_id )
+
+        switch(payload.product_id) {
+          case 'item-1':
+            payload.product_id = 'item-1';
+          break;
+          case 'item-2':
+            payload.product_id = 'item-2';;
+          break;
+          case 'item-3':
+            payload.product_id = 'item-3';
+          break;
+        }//end switch
+
+        var cartObj = {
+          product_id: payload.product_id,
+          photo: payload.src,
+          title: payload.title,
+          sub_title: payload.description,
+          price: payload.price,
+          qty: ++state.itemOne
+        }
+        state.cartItems.push(cartObj);
+      }//end iffy
+
 
   }, //end set Campaigns
   },

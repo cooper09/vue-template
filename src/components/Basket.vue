@@ -24,10 +24,10 @@
               ${{item.price}}
             </v-list>
             <v-list>
-              <v-text-field label="Quantity" reverse :value="item.qty"></v-text-field>
+              <v-text-field label="Quantity" dense counter-value :value="item.qty" class="margins"></v-text-field>
             </v-list>
             <v-list class="cursor">
-              {{item.price * item.qty}}$
+              ${{item.price * item.qty}}
             </v-list>
 
             <v-btn icon ripple @click='deleteItem(item)' class="cursor">
@@ -74,6 +74,8 @@ export default {
     border: 1px solid #3e99ee;
   }
   .margins {
-    margin-right: 1em;
+    margin: 1em;
+    background: aqua;
+    padding: 1em;
   }
 </style>

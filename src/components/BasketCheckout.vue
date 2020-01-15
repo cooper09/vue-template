@@ -57,7 +57,7 @@ export default {
   }),
   methods: {
     nextPage() {
-      this.$router.push('/')
+      this.$router.push('/pay')
     }
   }
 };//end export

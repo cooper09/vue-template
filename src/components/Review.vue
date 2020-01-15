@@ -41,6 +41,7 @@
       </v-list-item-group>
     </v-list>
         <br/><br/>
+        Total: ${{totalPrice}}
         <hr />
   </v-container>
 </template>
@@ -52,6 +53,9 @@ export default {
      getCartItems () {
       return this.$store.getters.getCartItems;
     },
+    totalPrice () {
+      return this.$store.state.totalPrice;
+    }
   },//end computed
   data: () => ({
     delivery_address: false

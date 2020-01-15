@@ -9,6 +9,7 @@ export default new Vuex.Store({
     itemOne: 0,
     itemTwo: 0,
     itemThree: 0,
+    totalPrice:0,
     cartItems: [],
     products: [{
       product_id: 0,
@@ -106,11 +107,14 @@ console.log("setCart - project id: ", payload.product_id );
   getters: {
     getCartItems(state) {
       let currentItems = [];
-
+      state.totalPrice = 0;
+      
       state.cartItems.map((item) => {
         console.log("What do we have here: ", item.title , " qty: ", item.qty );
+
         if (item.qty) {
-          currentItems.push(item)
+          currentItems.push(item);
+          state.totalPrice = state.totalPrice + item.price;
         }
     })
       return currentItems;

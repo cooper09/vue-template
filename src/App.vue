@@ -27,7 +27,7 @@ export default {
     //
   }),
   created() {
-    this.$store.dispatch('createCart');
+    this.$store.dispatch('createCart', 3 );
   } //end created
 };//end export
 </script>

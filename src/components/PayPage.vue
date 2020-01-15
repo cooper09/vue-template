@@ -36,7 +36,7 @@ export default {
     loaded: false,
     paidFor: false,
     product: {
-        price: this.$store.state.totalPrice,
+        price: 9.99,
         description: "Beat 139 Apparel"
     }
   }),
@@ -54,7 +54,8 @@ export default {
                             {
                                 description: this.product.description,
                                 amount:{
-                                    currency_code: "USD"
+                                    currency_code: "USD", 
+                                    value: this.product.price
                                 }
                             }
                         ]
@@ -63,7 +64,10 @@ export default {
 
             })//end windows.paypal.Buttons
             .render(this.$refs.paypal )
-    }//setLoaded
+    },//setLoaded
+    testFunc(){
+        alert("This working??")
+    }
   },//end methods
 };//end export
 </script>

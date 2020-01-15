@@ -1,6 +1,6 @@
 <template>
   <v-container   class="animated fadeIn">
-    <v-btn @click="nextPage()" color='blue white--text'>Checkout</v-btn><v-btn @click="closePage()" class="right blue white--text">X</v-btn>
+    <v-btn @click="closePage()" class="right blue white--text">X</v-btn>
     <br/>
     <hr />
     <br/><br/>
@@ -24,7 +24,7 @@
               ${{item.price}}
             </v-list>
             <v-list>
-              <v-text-field label="Quantity" dense counter-value :value="item.qty" class="margins"></v-text-field>
+              <v-text-field label="Quantity" dense counter-value :value="item.qty" class="margins" width="10"></v-text-field>
             </v-list>
             <v-list class="cursor">
               ${{item.price * item.qty}}
@@ -37,7 +37,7 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-  
+    <v-btn @click="nextPage()" color='blue white--text' class='right'>Checkout</v-btn>
   </v-container>
 </template>
 
@@ -73,9 +73,5 @@ export default {
   .outline {
     border: 1px solid #3e99ee;
   }
-  .margins {
-    margin: 1em;
-    background: aqua;
-    padding: 1em;
-  }
+
 </style>

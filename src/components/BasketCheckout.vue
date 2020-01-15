@@ -21,15 +21,21 @@
                         <v-text-field label="Address"></v-text-field>
                         <v-text-field label="Zipcode"></v-text-field>
                         <v-text-field label="City"></v-text-field>
+                      
                     </div>
+                    
                     <div v-else>
                         <v-alert type="info" :value="true">
                             The delivery address is the same as the payment address
                         </v-alert>
+                        <Review />
                     </div>
                 </v-flex>
+
             </v-layout>
+
         </form>
+
 
         <hr />
         <v-btn @click="nextPage()" class="right blue white--text">Complete Order</v-btn>
@@ -40,7 +46,12 @@
 
 
 <script>
+import Review from '@/components/Review';
+
 export default {
+  components: {
+    Review
+  },
   data: () => ({
     delivery_address: false
   }),

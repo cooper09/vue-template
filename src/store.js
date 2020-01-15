@@ -46,10 +46,7 @@ console.log("setCart - project id: ", payload.product_id );
 
         switch(payload.product_id) {
           case 0:
-            console.log("set qty to item-1...");
-
-              state.cartItems.map(item => {
-                console.log('Item 1 - item: ', item.product_id , " payload id: ", payload.product_id)
+            state.cartItems.map(item => {
                 if (item.product_id === payload.product_id ) {
                   console.log("Update Item 1")
                   item.qty = ++state.itemOne;
@@ -59,15 +56,19 @@ console.log("setCart - project id: ", payload.product_id );
           break;
           case 1:
             state.cartItems.map(item => {
-              console.log("setCart - cartItems: ",item.qty ," this: ", item);
-              item.qty = ++state.itemTwo;
+               if (item.product_id === payload.product_id ) {
+                console.log("Update Item 2")
+                item.qty = ++state.itemTwo;
+              }
               })
           
           break;
           case 2:
             state.cartItems.map(item => {
-              console.log("setCart - cartItems: ",item.qty ," this: ", item);
-              item.qty = ++state.itemThree;
+                if (item.product_id === payload.product_id ) {
+                  console.log("Update Item 1")
+                  item.qty = ++state.itemThree;
+                }
               })
           break;
         }//end switch
@@ -101,5 +102,18 @@ console.log("setCart - project id: ", payload.product_id );
 
     }//end createCart
 
-  }//end actions
+  },//end actions
+  getters: {
+    getCartItems(state) {
+      let currentItems = [];
+
+      state.cartItems.map((item) => {
+        console.log("What do we have here: ", item.title , " qty: ", item.qty );
+        if (item.qty) {
+          currentItems.push(item)
+        }
+    })
+      return currentItems;
+   },
+  }
 })//end export default

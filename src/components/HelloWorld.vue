@@ -53,6 +53,7 @@
 
       },//end addToCart
       showCart(){
+        console.log("Show our cart...")
         this.$router.push('/basket')
       }
     }//end methods

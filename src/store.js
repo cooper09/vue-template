@@ -11,21 +11,21 @@ export default new Vuex.Store({
     itemThree: 0,
     cartItems: [],
     products: [{
-      product_id: "item-1",
+      product_id: 0,
       price: 24.99,
       src: 'https://sonyainc.net/beat139/caps.jpg',
       category: 'Looking Good in the Hood',
       title: 'Hats: Snap Back',
       description: 'Colors: Red, Blue,Black, Gray'
     },{
-      product_id: "item-2",
+      product_id: 1,
       price: 59.99,
       src: 'https://sonyainc.net/beat139/jacket.jpg',
       category: 'Chic and Elite',
       title: 'Varsity Jacket',
       description: 'Sizes: L,XL,XXL'
     },{
-      product_id: "item-3",
+      product_id: 2,
       price: 34.99,
       src: 'https://sonyainc.net/beat139/sweat-shirt.jpg',
       category: 'Stay Warm in the Storm',
@@ -42,32 +42,29 @@ export default new Vuex.Store({
 
 console.log("setCart - project id: ", payload.product_id );
 
-      let exists = state.cartItems.some(a => typeof a == 'object');
+    //  let exists = state.cartItems.some(a => typeof a == 'object');
 
-      //cooper s - need a function to create objects - Factory Pattern?
-      console.log("Is there something in the carts array: " ,exists);
-    //  if (exists) {
         switch(payload.product_id) {
-          case 'item-1':
+          case 0:
             console.log("set qty to item-1...");
 
               state.cartItems.map(item => {
-                console.log('Item 1 - item: ', item )
-                if (item.id == payload.product-Id ) {
+                console.log('Item 1 - item: ', item.product_id , " payload id: ", payload.product_id)
+                if (item.product_id === payload.product_id ) {
                   console.log("Update Item 1")
                   item.qty = ++state.itemOne;
                 }
               })
             
           break;
-          case 'item-2':
+          case 1:
             state.cartItems.map(item => {
               console.log("setCart - cartItems: ",item.qty ," this: ", item);
               item.qty = ++state.itemTwo;
               })
           
           break;
-          case 'item-3':
+          case 2:
             state.cartItems.map(item => {
               console.log("setCart - cartItems: ",item.qty ," this: ", item);
               item.qty = ++state.itemThree;
@@ -78,14 +75,13 @@ console.log("setCart - project id: ", payload.product_id );
     }, //end set Campaigns
     createCart(state, payload) {
       console.log("Mutate - createCart: ", payload );
-      for (var i ; i < payload ; ++i) {
-        alert("createCart: ", state.cartItems )
+      for (var i=0 ; i < payload ; ++i) {
         var cartObj = {
           product_id: i,
-          photo: "",
-          title: "",
-          sub_title: "",
-          price: "",
+          photo: state.products[i].src,
+          title: state.products[i].title,
+          sub_title: state.products[i].category,
+          price: state.products[i].price,
           qty: 0
         }
         state.cartItems.push(cartObj);

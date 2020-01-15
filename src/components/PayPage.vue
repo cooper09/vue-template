@@ -36,7 +36,7 @@ export default {
     loaded: false,
     paidFor: false,
     product: {
-        price: 9.99,
+        price: 9.99,// how do I get getTotal here...???
         description: "Beat 139 Apparel"
     }
   }),

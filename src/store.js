@@ -46,15 +46,18 @@ console.log("setCart - project id: ", payload.product_id );
 
       //cooper s - need a function to create objects - Factory Pattern?
       console.log("Is there something in the carts array: " ,exists);
-      if (exists) {
+    //  if (exists) {
         switch(payload.product_id) {
           case 'item-1':
             console.log("set qty to item-1...");
 
               state.cartItems.map(item => {
-                console.log("setCart - cartItems: ",item.qty ," this: ", item);
-                item.qty = ++state.itemOne;
-                })
+                console.log('Item 1 - item: ', item )
+                if (item.id == payload.product-Id ) {
+                  console.log("Update Item 1")
+                  item.qty = ++state.itemOne;
+                }
+              })
             
           break;
           case 'item-2':
@@ -71,40 +74,36 @@ console.log("setCart - project id: ", payload.product_id );
               })
           break;
         }//end switch
-      } else {
-        console.log("No items in cart yet, lets create one: ", payload.product_id )
-
-        switch(payload.product_id) {
-          case 'item-1':
-            payload.product_id = 'item-1';
-          break;
-          case 'item-2':
-            payload.product_id = 'item-2';;
-          break;
-          case 'item-3':
-            payload.product_id = 'item-3';
-          break;
-        }//end switch
-
+    //  }//end iffy 
+    }, //end set Campaigns
+    createCart(state, payload) {
+      console.log("Mutate - createCart: ", payload );
+      for (var i ; i < payload ; ++i) {
+        alert("createCart: ", state.cartItems )
         var cartObj = {
-          product_id: payload.product_id,
-          photo: payload.src,
-          title: payload.title,
-          sub_title: payload.description,
-          price: payload.price,
-          qty: ++state.itemOne
+          product_id: i,
+          photo: "",
+          title: "",
+          sub_title: "",
+          price: "",
+          qty: 0
         }
         state.cartItems.push(cartObj);
-      }//end iffy
-
-
-  }, //end set Campaigns
-  },
+        console.log("Mutate - createCart: ", state.cartItems )
+      }//end for
+      
+    }//end createCart
+  },//end mutations
   actions: {
     addToCart({commit}, data) {
       console.log("Add this to the cart: ", data  );
       commit('setCart', data);
-    }
+    },
+    createCart({commit}, num ) {
+      console.log("Create are cart Items");
+      commit('createCart', 3);
+
+    }//end createCart
 
   }//end actions
 })//end export default

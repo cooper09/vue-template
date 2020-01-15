@@ -26,7 +26,10 @@ export default {
   data: () => ({
     //
   }),
-};
+  created() {
+    this.$store.dispatch('createCart');
+  } //end created
+};//end export
 </script>
 <style>
 body {

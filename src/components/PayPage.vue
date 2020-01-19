@@ -39,10 +39,12 @@ export default {
         return this.$store.state.totalPrice;
     },
   },//end computed
- /* data: () => ({
+ /* 
+ cooper s - picks up the THIS from the current scope and NOT the component scope
+ 
+  data: () => ({
     loaded: false,
-    paidFor: false,
-
+    paidFor: false
   }), */
   data () {
     return {

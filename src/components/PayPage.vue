@@ -3,10 +3,16 @@
 
         <h3> Please complete your purchase using PayPal </h3>
         <p> Your Total is:  ${{getTotal}}
-        <div v-if="!paidFor">
+         <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
+        <br/><br/>
 
+        <div v-if="!paidFor">
+          <div ref="paypal"></div>
         </div>
-        <div ref="paypal"></div>
+
+        <div v-if="paidfor">
+          <h3>Thanx for Shopping with the Beat 139 Crew. Stay Live!</h3>
+        </div>
     <hr />
     <br/><br/>
    
@@ -19,10 +25,10 @@
 <script>
 export default {
   mounted: function() {
-      const script = document.createElement('script');
+    /*  const script = document.createElement('script');
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
-      script.addEventListener("load", this.setLoaded );
-      document.body.appendChild(script);
+      script.addEventListener("load", this.setLoaded);
+      document.body.appendChild(script); */
   },
   computed: {
      getCartItems () {
@@ -41,10 +47,17 @@ export default {
     }
   }),
   methods: {
+    payMethod() {
+      const script = document.createElement('script');
+      script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
+      script.addEventListener("load", this.setLoaded);
+      document.body.appendChild(script);
+    },
     nextPage() {
       this.$router.push('/')
     },
     setLoaded: function() {
+      console.log("setLoaded this is: ", this)
         this.loaded = true;
         window.paypal
             .Buttons({

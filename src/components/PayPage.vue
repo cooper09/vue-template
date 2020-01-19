@@ -1,21 +1,22 @@
 <template>
   <v-container   class="animated fadeIn container">
 
-        <h3> Please complete your purchase using PayPal </h3>
-        <p> Your Total is:  ${{getTotal}}
-         <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
-        <br/><br/>
 
         <div v-if="!paidFor">
+
+        <h3> Please complete your purchase using PayPal </h3>
+        <p> Your Total is:  ${{getTotal}}
+          <br/><br/>
+         <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
+        <br/><br/>
           <div ref="paypal"></div>
         </div>
 
-        <div v-if="paidfor">
-          <h3>Thanx for Shopping with the Beat 139 Crew. Stay Live!</h3>
-        </div>
     <hr />
     <br/><br/>
-   
+        <div v-if="paidFor">
+            <h3>Thanx for Shopping with the Beat 139 Crew. Stay Live!</h3>
+          </div>
     <br/><br/>
     <hr />
   </v-container>
@@ -36,16 +37,19 @@ export default {
     },
     getTotal () {
         return this.$store.state.totalPrice;
-    }
+    },
   },//end computed
-  data: () => ({
+ /* data: () => ({
     loaded: false,
     paidFor: false,
-    product: {
-        price: 9.99,
-        description: "Beat 139 Apparel"
+
+  }), */
+  data () {
+    return {
+      loaded: false,
+      paidFor: false
     }
-  }),
+  },
   methods: {
     payMethod() {
       const script = document.createElement('script');
@@ -65,22 +69,24 @@ export default {
                     return actions.order.create({
                         purchase_units:[
                             {
-                                description: this.product.description,
+                                description: "test",
                                 amount:{
                                     currency_code: "USD", 
-                                    value: this.product.price
+                                    value:  this.getTotal
                                 }
                             }
                         ]
                     })
                 },
+                onApprove: async (data, actions ) => {
+                  console.log("What the fuck: ", this.completeSale )
+                  const order = await actions.order.capture();
+                  this.paidFor = true;
 
+                }
             })//end windows.paypal.Buttons
             .render(this.$refs.paypal )
     },//setLoaded
-    testFunc(){
-        alert("This working??")
-    }
   },//end methods
 };//end export
 </script>

@@ -3,8 +3,7 @@
 
 
         <div v-if="!paidFor">
-
-        <h3> Please complete your purchase using PayPal </h3>
+        <h3> Please complete your purchase using PayPal {{name}} {{address}}</h3>
         <p> Your Total is:  ${{getTotal}}
           <br/><br/>
          <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
@@ -24,6 +23,8 @@
 
 
 <script>
+import axios from 'axios';
+
 export default {
   mounted: function() {
     /*  const script = document.createElement('script');
@@ -39,21 +40,21 @@ export default {
         return this.$store.state.totalPrice;
     },
   },//end computed
- /* 
- cooper s - picks up the THIS from the current scope and NOT the component scope
- 
-  data: () => ({git mer
-    loaded: false,
-    paidFor: false,
-    product: {
-        price: 9.99,// how do I get getTotal here...???
-        description: "Beat 139 Apparel"
-    paidFor: false
-  }), */
+  
+ //cooper s - picks up the THIS from the current scope and NOT the component scope
+  props:['name',
+          'address',
+          'city',
+          'state',
+          'country',
+          'zip',
+          'phone',
+          'email'
+    ],
   data () {
     return {
       loaded: false,
-      paidFor: fals
+      paidFor: false
     }
   },
   methods: {
@@ -62,7 +63,40 @@ export default {
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
-    },
+
+      // cooper s - send captured data to DB
+      console.log("Send data to DB " , this.name , " address: ", this.address, " city: ", this.city," state: ", this.state, " zip: ", this.zip, " phone: ", this.phone, " email: ", this.email );
+
+      var timestamp = new Date();
+
+      var infoObj = {
+        items: this.getCartItems,
+        amount:this.getTotal,
+        name: this.name,
+        address: this.address,
+        city: this.city,
+        state: this.state,
+        country: this.country,
+        zip: this.zip,
+        phone: this.phone,
+        email: this.email,
+        timestamp: timestamp
+      }
+
+    console.log("PayPage sending data: ",  infoObj, " to database ");
+      const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
+
+      axios.post(url,infoObj)
+        .then(function (response) {
+          console.log("POST: ", response.data);
+
+        })
+        .catch(function (error) {
+          console.log("POST Error: ",  error);
+        });
+    
+    
+    },//end payMethos
     nextPage() {
       this.$router.push('/')
     },
@@ -75,7 +109,7 @@ export default {
                     return actions.order.create({
                         purchase_units:[
                             {
-                                description: "test",
+                                description: this.name,
                                 amount:{
                                     currency_code: "USD", 
                                     value:  this.getTotal
@@ -85,7 +119,6 @@ export default {
                     })
                 },
                 onApprove: async (data, actions ) => {
-                  console.log("What the fuck: ", this.completeSale )
                   const order = await actions.order.capture();
                   this.paidFor = true;
 

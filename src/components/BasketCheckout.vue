@@ -1,11 +1,11 @@
 <template>
   <v-container   class="animated fadeIn container">
 
-  <form action="" class="myform">
+  <form action="" class="myform" x12 m6>
             <v-layout>
-                <v-flex x12 m12 l12>
+                <v-flex x12 m6>
                     <strong>Payment address</strong>
-                    <v-text-field label="Name" v-model="name"></v-text-field>
+                    <v-text-field label="Name" v-model="name" rules="inputRules"></v-text-field>
                     <v-text-field label="Address" v-model="address"></v-text-field>
                     <v-text-field label="Zipcode" v-model="zip"></v-text-field>
                     <v-text-field label="City" v-model="city"></v-text-field>
@@ -74,7 +74,10 @@ export default {
       phone: "",
       email: "",
       delivery_address: false,
-      showPay: false
+      showPay: false,
+      inputRules: [
+        v => v.length  >=1 || alert("Field is required.")
+      ]
     }
   },//end data
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <v-container   class="animated fadeIn container">
+  <v-container   class="animated fadeIn container" m3 l3>
 
         <h3> Your Cart </h3>
 
@@ -41,7 +41,7 @@
       </v-list-item-group>
     </v-list>
         <br/><br/>
-        Total: ${{totalPrice}}
+
         <hr />
   </v-container>
 </template>

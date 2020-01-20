@@ -3,7 +3,7 @@
 
   <form action="">
             <v-layout>
-                <v-flex x6>
+                <v-flex x12 m12 l12>
                     <strong>Payment address</strong>
                     <v-text-field label="Name"></v-text-field>
                     <v-text-field label="Address"></v-text-field>
@@ -24,7 +24,7 @@
                       
                     </div>
                     
-                    <div v-else>
+                    <div v-else m3>
                         <v-alert type="info" :value="true">
                             The delivery address is the same as the payment address
                         </v-alert>
@@ -35,29 +35,30 @@
             </v-layout>
 
         </form>
-
-
+      <div v-if: showPay >
+        <PayPage />
+      </div>
         <hr />
-        <v-btn @click="nextPage()" class="right blue white--text">Complete Order</v-btn>
-        <br/><br/>
-        <hr />
+
   </v-container>
 </template>
 
 
 <script>
 import Review from '@/components/Review';
+import PayPage from '@/components/PayPage'
 
 export default {
   components: {
-    Review
+    Review,
+    PayPage
   },
   data: () => ({
     delivery_address: false
   }),
   methods: {
     nextPage() {
-      this.$router.push('/pay')
+      //this.$router.push('/pay')
     }
   }
 };//end export

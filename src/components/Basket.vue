@@ -38,6 +38,7 @@
       </v-list-item-group>
     </v-list>
     <v-btn @click="nextPage()" color='blue white--text' class='right'>Checkout</v-btn>
+    <br/><br />
   </v-container>
 </template>
 

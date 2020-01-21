@@ -96,4 +96,8 @@ export default {
     margin-right: 1em;
     background: aqua;
   }
+  .container {
+    background: pink;
+    padding: 0;
+  }
 </style>

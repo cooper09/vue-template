@@ -4,7 +4,7 @@
 
         <div v-if="!paidFor">
         <h3> Please complete your purchase using PayPal {{name}} {{address}}</h3>
-        <p> Your Total is:  ${{getTotal}}
+        <p> Your Total is:   {{getQty}} ${{getTotal}} ${{getFinal}}
           <br/><br/>
          <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
         <br/><br/>
@@ -38,6 +38,12 @@ export default {
     },
     getTotal () {
         return this.$store.state.totalPrice;
+    },
+    getFinal () {
+        return this.$store.state.total;
+    },
+    getQty() {
+      return this.$store.getters.getQty;
     },
   },//end computed
   
@@ -86,7 +92,7 @@ export default {
     console.log("PayPage sending data: ",  infoObj, " to database ");
       const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
 
-      axios.post(url,infoObj)
+  /*    axios.post(url,infoObj)
         .then(function (response) {
           console.log("POST: ", response.data);
 
@@ -94,7 +100,7 @@ export default {
         .catch(function (error) {
           console.log("POST Error: ",  error);
         });
-    
+  */  
     
     },//end payMethos
     nextPage() {
@@ -133,5 +139,9 @@ export default {
   .btn {
     background: #ddd;
     cursor: pointer;
+  }
+    .container {
+    background: pink;
+    padding: 0;
   }
 </style>

@@ -10,6 +10,7 @@ export default new Vuex.Store({
     itemTwo: 0,
     itemThree: 0,
     totalPrice:0,
+    total:0,
     cartItems: [],
     products: [{
       product_id: 0,
@@ -119,5 +120,22 @@ console.log("setCart - project id: ", payload.product_id );
     })
       return currentItems;
    },
-  }
+   getQty(state ) {
+     console.log("Get total of all goods: ",  state.cartItems  );
+     let total = 0;
+     let items = state.cartItems;
+
+     for (var i=0; i < 3 ; ++i) {
+      console.log("Current Item `${i}`: ", items[i].qty );
+      console.log("Current Price: ", items[i].price )
+
+      if (items[i].qty != 0 ){
+        total = items[i].price * items[i].qty;
+        state.total = state.total + total;
+       }//end if
+      } //end iffy */
+      console.log("Sum Total: ", total );
+    return total;
+   }//end getQuantity
+  }//end getters
 })//end export default

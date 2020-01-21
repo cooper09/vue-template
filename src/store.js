@@ -124,8 +124,9 @@ console.log("setCart - project id: ", payload.product_id );
      console.log("Get total of all goods: ",  state.cartItems  );
      let total = 0;
      let items = state.cartItems;
-
-     for (var i=0; i < 3 ; ++i) {
+     total = (state.itemOne * 24.99) + (state.itemTwo * 59.99) + (state.itemThree * 34.99)
+     console.log("Sum Total: ", total );
+    /* for (var i=0; i < 3 ; ++i) {
       console.log("Current Item `${i}`: ", items[i].qty );
       console.log("Current Price: ", items[i].price )
 
@@ -134,7 +135,7 @@ console.log("setCart - project id: ", payload.product_id );
         state.total = state.total + total;
        }//end if
       } //end iffy */
-      console.log("Sum Total: ", total );
+      
     return total;
    }//end getQuantity
   }//end getters

@@ -4,7 +4,7 @@
 
         <div v-if="!paidFor">
         <h3> Please complete your purchase using PayPal {{name}} {{address}}</h3>
-        <p> Your Total is:   {{getQty}} ${{getTotal}} ${{getFinal}}
+        <p> Your Total is:   ${{getQty}}
           <br/><br/>
          <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
         <br/><br/>
@@ -39,8 +39,14 @@ export default {
     getTotal () {
         return this.$store.state.totalPrice;
     },
-    getFinal () {
-        return this.$store.state.total;
+    getOne () {
+        return this.$store.state.itemOne;
+    },
+        getTwo () {
+        return this.$store.state.itemTwo;
+    },
+        getThree () {
+        return this.$store.state.itemThree;
     },
     getQty() {
       return this.$store.getters.getQty;
@@ -61,8 +67,8 @@ export default {
     return {
       loaded: false,
       paidFor: false
-    }
-  },
+    }//end return
+  },//end data
   methods: {
     payMethod() {
       const script = document.createElement('script');
@@ -77,7 +83,7 @@ export default {
 
       var infoObj = {
         items: this.getCartItems,
-        amount:this.getTotal,
+        amount:this.getQty,
         name: this.name,
         address: this.address,
         city: this.city,
@@ -92,15 +98,14 @@ export default {
     console.log("PayPage sending data: ",  infoObj, " to database ");
       const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
 
-  /*    axios.post(url,infoObj)
+      axios.post(url,infoObj)
         .then(function (response) {
           console.log("POST: ", response.data);
 
         })
         .catch(function (error) {
           console.log("POST Error: ",  error);
-        });
-  */  
+        }); 
     
     },//end payMethos
     nextPage() {
@@ -118,7 +123,7 @@ export default {
                                 description: this.name,
                                 amount:{
                                     currency_code: "USD", 
-                                    value:  this.getTotal
+                                    value:  this.getQty
                                 }
                             }
                         ]
@@ -141,7 +146,6 @@ export default {
     cursor: pointer;
   }
     .container {
-    background: pink;
     padding: 0;
   }
 </style>

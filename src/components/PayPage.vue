@@ -111,6 +111,7 @@ export default {
 
                   var infoObj = {
                     orderId: data.orderID,
+                    paymentId: data.paymentID,
                     payerId:data.payerID,
                     items: this.getCartItems,
                     amount:this.getQty,
@@ -138,6 +139,7 @@ export default {
                     }); 
 
               this.$store.dispatch("clearCart");
+              //this.$router.push('/')
               
         }// on Approval
       })//end windows.paypal.Buttons

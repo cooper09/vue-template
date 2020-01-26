@@ -76,38 +76,7 @@ export default {
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
 
-      // cooper s - send captured data to DB
-      console.log("Send data to DB " , this.name , " address: ", this.address, " city: ", this.city," state: ", this.state, " zip: ", this.zip, " phone: ", this.phone, " email: ", this.email );
-
-      var timestamp = new Date();
-
-      var infoObj = {
-        items: this.getCartItems,
-        amount:this.getQty,
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        country: this.country,
-        zip: this.zip,
-        phone: this.phone,
-        email: this.email,
-        timestamp: timestamp
-      }
-
-    console.log("PayPage sending data: ",  infoObj, " to database ");
-      const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
-
-      axios.post(url,infoObj)
-        .then(function (response) {
-          console.log("POST: ", response.data);
-
-        })
-        .catch(function (error) {
-          console.log("POST Error: ",  error);
-        }); 
-    
-    },//end payMethos
+    },//end payMethods
     nextPage() {
       this.$router.push('/')
     },
@@ -132,10 +101,47 @@ export default {
                 onApprove: async (data, actions ) => {
                   const order = await actions.order.capture();
                   this.paidFor = true;
+                  console.log("Payment approved: ", data.ID );
+                  console.log("Payment info: ", JSON.stringify(data));
 
-                }
-            })//end windows.paypal.Buttons
-            .render(this.$refs.paypal )
+                  // cooper s - send captured data to DB
+                  console.log("Send data to DB " , this.name , " address: ", this.address, " city: ", this.city," state: ", this.state, " zip: ", this.zip, " phone: ", this.phone, " email: ", this.email );
+
+                  var timestamp = new Date();
+
+                  var infoObj = {
+                    orderId: data.orderID,
+                    payerId:data.payerID,
+                    items: this.getCartItems,
+                    amount:this.getQty,
+                    name: this.name,
+                    address: this.address,
+                    city: this.city,
+                    state: this.state,
+                    country: this.country,
+                    zip: this.zip,
+                    phone: this.phone,
+                    email: this.email,
+                    timestamp: timestamp
+                  }
+
+                console.log("PayPage sending data: ",  infoObj, " to database ");
+                  const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
+
+                  axios.post(url,infoObj)
+                    .then(function (response) {
+                      console.log("POST: ", response.data);
+                    //clear fields
+                    })
+                    .catch(function (error) {
+                      console.log("POST Error: ",  error);
+                    }); 
+
+              this.$store.dispatch("clearCart");
+              
+        }// on Approval
+      })//end windows.paypal.Buttons
+      .render(this.$refs.paypal )
     },//setLoaded
   },//end methods
 };//end export

@@ -37,9 +37,7 @@ export default new Vuex.Store({
   },//end state
   mutations: {
     setCart(state, payload) {
-
       ++state.numberOfItems;
-
       let qty;
 
 console.log("setCart - project id: ", payload.product_id );
@@ -91,7 +89,12 @@ console.log("setCart - project id: ", payload.product_id );
         console.log("Mutate - createCart: ", state.cartItems )
       }//end for
       
-    }//end createCart
+    },//end createCart
+    clearCart(state ) {
+      state.cartItems =[];
+      state.total=0;
+      state.totalPrice = 0;
+    }//end clear Cart
   },//end mutations
   actions: {
     addToCart({commit}, data) {
@@ -102,8 +105,11 @@ console.log("setCart - project id: ", payload.product_id );
       console.log("Create are cart Items");
       commit('createCart', 3);
 
-    }//end createCart
-
+    },//end createCart
+    clearCart({commit}, data) {
+      console.log("Add this to the cart: ", data  );
+      commit('clearCart');
+    },
   },//end actions
   getters: {
     getCartItems(state) {

@@ -75,9 +75,13 @@ export default {
 
     payMethod() {
       console.log("payMethod");
-      if ((this.name == "") || (this.address == "")  ||(this.city == "")  ||(this.state == "country")  || (this.zip == "") || (this.zip == "") || (this.phone == "") || (this.email == "")) {
+
+      
+      if ((this.name == "") || (this.address == "")  ||(this.city == "")  ||(this.state == "country")  || (this.zip == "") || (this.zip == "") || (this.phone == "") || (this.email == ""))  {
         alert("Please fill in EVERY item on the form. It's important!")
-      } else {
+      } else if  (this.getQty == 0) {
+        alert("Sorry, you can't check out until you purchase an item!")
+       } else {
       const script = document.createElement('script');
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
       script.addEventListener("load", this.setLoaded);
@@ -147,7 +151,7 @@ export default {
                     }); 
 
               this.$store.dispatch("clearCart");
-              //this.$router.push('/')
+              this.$router.push('/')
               
         }// on Approval
       })//end windows.paypal.Buttons

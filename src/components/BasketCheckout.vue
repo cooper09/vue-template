@@ -94,7 +94,7 @@ export default {
   }
   .myform {
     margin-right: 1em;
-
+    padding: 0.5em;
   }
   .container {
 

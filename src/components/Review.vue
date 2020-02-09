@@ -1,5 +1,5 @@
 <template>
-  <v-container   class="animated fadeIn container" x12 m6 >
+  <v-container   class="animated fadeIn container" s12 m6 >
 
         <h3> Your Cart </h3>
 

@@ -1,9 +1,10 @@
 <template>
-  <v-container   class="animated fadeIn container">
+  <v-container   class="animated fadeIn container" >
 
 
         <div v-if="!paidFor">
         <h3> Please complete your purchase using PayPal {{name}} {{address}}</h3>
+        {{name}}
         <p> Your Total is:   ${{getQty}}
           <br/><br/>
          <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
@@ -31,6 +32,7 @@ export default {
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script); */
+      console.log("form name: ", this.name )
   },
   computed: {
      getCartItems () {
@@ -70,13 +72,19 @@ export default {
     }//end return
   },//end data
   methods: {
+
     payMethod() {
+      console.log("payMethod");
+      if ((this.name == "") || (this.address == "")  ||(this.city == "")  ||(this.state == "country")  || (this.zip == "") || (this.zip == "") || (this.phone == "") || (this.email == "")) {
+        alert("Please fill in EVERY item on the form. It's important!")
+      } else {
       const script = document.createElement('script');
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
-
+      }
     },//end payMethods
+
     nextPage() {
       this.$router.push('/')
     },

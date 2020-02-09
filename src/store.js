@@ -91,9 +91,13 @@ console.log("setCart - project id: ", payload.product_id );
       
     },//end createCart
     clearCart(state ) {
-      state.cartItems =[];
-      state.total=0;
-      state.totalPrice = 0;
+      console.log("Store.clearCartP " + state.itemOne );
+      state.itemOne = 0;
+      state.itemTwo = 0;
+      state.itemThree = 0;
+      state.cartItems.map ( (item) => {
+        item.qty = 0;
+      })
     }//end clear Cart
   },//end mutations
   actions: {
@@ -106,8 +110,8 @@ console.log("setCart - project id: ", payload.product_id );
       commit('createCart', 3);
 
     },//end createCart
-    clearCart({commit}, data) {
-      console.log("Add this to the cart: ", data  );
+    clearCart({commit}) {
+      console.log(" Store.Action Clear items from cart: "  );
       commit('clearCart');
     },
   },//end actions

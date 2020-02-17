@@ -17,17 +17,20 @@
 
     <v-content>
       <HelloWorld/>
+      <SelectBox />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from '@/components/HelloWorld';
+import SelectBox from '@/components/SelectBox';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    SelectBox
   },
   data: () => ({
     //

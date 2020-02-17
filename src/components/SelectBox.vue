@@ -10,7 +10,7 @@
         <option value="M" >medium</option>
         <option value="L" >large</option>
     </select>
-    <button onclick="selectSize()">Select Size</button>        
+    <button @click="submit()">Select Size</button>        
 
     </v-layout>
   </v-container>
@@ -23,12 +23,13 @@ export default {
        
       }
     },
-    methods(){
-        function selectSize() {
-            console.log("Select me, baby!!")
+    methods: {
+        submit() {
             let size = document.getElementById('selectBox')
-            alert("time to boogie size: " + size.options[size.selectedIndex].value ); 
-        }
+        alert("time to boogie size: " + size.options[size.selectedIndex].value );
+
+        }//end  submit
+
     },//end methodss
  
 };

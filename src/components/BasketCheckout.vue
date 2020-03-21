@@ -1,10 +1,10 @@
 <template>
   <v-container   class="animated fadeIn container">
 
-  <form action="" class="myform" x12 m6>
+  <form action=""  >
             <v-layout>
-                <v-flex x12 m6>
-                    <strong>Payment address</strong>
+                <v-flex xs12 md6 lg4 class="myform">
+                    <strong>Payment Information</strong>
                     <v-text-field label="Name" v-model="name" rules="inputRules"></v-text-field>
                     <v-text-field label="Address" v-model="address" rules="inputRules"></v-text-field>
                     <v-text-field label="Zipcode" v-model="zip" rules="inputRules"></v-text-field>
@@ -94,7 +94,7 @@ export default {
   }
   .myform {
     margin-right: 1em;
-
+    padding: 0.5em;
   }
   .container {
 

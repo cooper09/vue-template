@@ -38,10 +38,11 @@
       </v-list-item-group>
     </v-list>
     <v-btn @click="nextPage()" color='blue white--text' class='right'>Checkout</v-btn>
+    <v-btn @click="clearCart()" color='blue white--text' class='right btn'>Clear Cart</v-btn>
+
     <br/><br />
   </v-container>
 </template>
-
 
 <script>
 export default {
@@ -62,6 +63,9 @@ export default {
     },
     deleteItem(item){
       console.log("Delete Item: ", item.product_id )
+    },
+    clearCart() {
+      this.$store.dispatch('clearCart' );
     }
   }//end methods
 };//end export
@@ -70,6 +74,7 @@ export default {
   .btn {
     background: #ddd;
     cursor: pointer;
+    margin-right: 0.5em;
   }
   .outline {
     border: 1px solid #3e99ee;

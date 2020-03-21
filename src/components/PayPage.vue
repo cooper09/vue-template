@@ -1,9 +1,10 @@
 <template>
-  <v-container   class="animated fadeIn container">
+  <v-container   class="animated fadeIn container" >
 
 
         <div v-if="!paidFor">
         <h3> Please complete your purchase using PayPal {{name}} {{address}}</h3>
+        {{name}}
         <p> Your Total is:   ${{getQty}}
           <br/><br/>
          <v-btn @click="payMethod()" color='blue white--text' >Pay Now</v-btn>
@@ -31,6 +32,7 @@ export default {
       script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script); */
+      console.log("form name: ", this.name )
   },
   computed: {
      getCartItems () {
@@ -70,44 +72,26 @@ export default {
     }//end return
   },//end data
   methods: {
+
     payMethod() {
+      console.log("payMethod");
+
+      
+      if ((this.name == "") || (this.address == "")  ||(this.city == "")  ||(this.state == "country")  || (this.zip == "") || (this.zip == "") || (this.phone == "") || (this.email == ""))  {
+        alert("Please fill in EVERY item on the form. It's important!")
+      } else if  (this.getQty == 0) {
+        alert("Sorry, you can't check out until you purchase an item!")
+       } else {
       const script = document.createElement('script');
-      script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
+      //development
+      //script.src = "https://www.paypal.com/sdk/js?client-id=AYvEZYKAlTLeErYUz9KdH_2twNwANrX9gWVlmR3D16GHndWk0lcrSXfDjle3TF-1jdiwfKMyUslZIHrW"
+      //production
+      script.src = "https://www.paypal.com/sdk/js?client-id=AajrrhIOM-Pup_gMF1VA0StsL9mhknzsGuuAdvZWNSeoPER6Q45sd0kCKk6yv_YU3fVeTiR_j3J74uZs"
       script.addEventListener("load", this.setLoaded);
       document.body.appendChild(script);
-
-      // cooper s - send captured data to DB
-      console.log("Send data to DB " , this.name , " address: ", this.address, " city: ", this.city," state: ", this.state, " zip: ", this.zip, " phone: ", this.phone, " email: ", this.email );
-
-      var timestamp = new Date();
-
-      var infoObj = {
-        items: this.getCartItems,
-        amount:this.getQty,
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        country: this.country,
-        zip: this.zip,
-        phone: this.phone,
-        email: this.email,
-        timestamp: timestamp
       }
+    },//end payMethods
 
-    console.log("PayPage sending data: ",  infoObj, " to database ");
-      const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
-
-      axios.post(url,infoObj)
-        .then(function (response) {
-          console.log("POST: ", response.data);
-
-        })
-        .catch(function (error) {
-          console.log("POST Error: ",  error);
-        }); 
-    
-    },//end payMethos
     nextPage() {
       this.$router.push('/')
     },
@@ -132,10 +116,49 @@ export default {
                 onApprove: async (data, actions ) => {
                   const order = await actions.order.capture();
                   this.paidFor = true;
+                  console.log("Payment approved: ", data.ID );
+                  console.log("Payment info: ", JSON.stringify(data));
 
-                }
-            })//end windows.paypal.Buttons
-            .render(this.$refs.paypal )
+                  // cooper s - send captured data to DB
+                  console.log("Send data to DB " , this.name , " address: ", this.address, " city: ", this.city," state: ", this.state, " zip: ", this.zip, " phone: ", this.phone, " email: ", this.email );
+
+                  var timestamp = new Date();
+
+                  var infoObj = {
+                    orderId: data.orderID,
+                    paymentId: data.paymentID,
+                    payerId:data.payerID,
+                    items: this.getCartItems,
+                    amount:this.getQty,
+                    name: this.name,
+                    address: this.address,
+                    city: this.city,
+                    state: this.state,
+                    country: this.country,
+                    zip: this.zip,
+                    phone: this.phone,
+                    email: this.email,
+                    timestamp: timestamp
+                  }
+
+                console.log("PayPage sending data: ",  infoObj, " to database ");
+                  const url = `https://sleepy-everglades-99189.herokuapp.com/beatcart`;
+
+                  axios.post(url,infoObj)
+                    .then(function (response) {
+                      console.log("POST: ", response.data);
+                    //clear fields
+                    })
+                    .catch(function (error) {
+                      console.log("POST Error: ",  error);
+                    }); 
+
+              this.$store.dispatch("clearCart");
+              this.$router.push('/')
+              
+        }// on Approval
+      })//end windows.paypal.Buttons
+      .render(this.$refs.paypal )
     },//setLoaded
   },//end methods
 };//end export

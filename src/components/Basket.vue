@@ -3,7 +3,7 @@
     <v-btn @click="closePage()" class="right blue white--text">X</v-btn>
     <br/>
     <hr />
-    <br/><br/>
+    <br/>
     <v-list disabled>
       <v-subheader>Items</v-subheader>
       <v-list-item-group v-model="cartItems" color="primary">
@@ -24,7 +24,7 @@
               ${{item.price}}
             </v-list>
             <v-list>
-              <v-text-field label="Quantity" dense counter-value :value="item.qty" class="margins" width="10"></v-text-field>
+              <v-text-field label="Quantity" dense counter-value :value="item.qty" class="pa-0 ma-1"></v-text-field>
             </v-list>
             <v-list class="cursor">
               ${{item.price * item.qty}}

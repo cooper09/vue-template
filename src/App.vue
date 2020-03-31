@@ -16,9 +16,9 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
-      <MainView />
 
       <router-view></router-view>
+            <MainView />
     </v-content>
     <v-content transition="slide-x-transition">
 

@@ -16,8 +16,8 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
+      <MainView />
 
-      <HelloWorld/> 
       <router-view></router-view>
     </v-content>
     <v-content transition="slide-x-transition">
@@ -29,11 +29,13 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import MainView from './views/MainView';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    MainView
   },
   data: () => ({
     //

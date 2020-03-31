@@ -55,8 +55,8 @@ export default {
     },
     addToCart(item){ 
         //add to cart update state selected list with an action
-        console.log ("Add "+ item + " to the Cart")   
-        this.$router.push('/basket');
+        console.log ("Card.addToCart - Add ", item, " to the Cart")   
+     //   this.$router.push('/basket');
         this.$store.dispatch('setData', item )
     }
   },//end methods
@@ -67,9 +67,5 @@ export default {
     background: #ddd;
     cursor: pointer;
     float: right;
-  }
-  .addBtn {
- /*align-items:    background: blue;
-    cursor: pointer;  */
   }
 </style>

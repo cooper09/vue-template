@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     selected: [],
+    total: 0,
     products: [
       {
         id: 1,
@@ -132,13 +133,37 @@ export default new Vuex.Store({
   mutations: {
     setData(state,payload) {
       state.selected.push( payload);
-      console.log("store.setData: ", state.selected)
+      state.total = state.total + parseInt(payload.price)
+      //console.log("store.setData: ", state.selected)
+    },
+    updateCart(state,payload) {
+      console.log("update selected: ", payload.title )
+      let newCart = state.selected.filter(item => {
+          console.log("item to remove: ", item.title );
+          if (item.title != payload.title) {
+            return item;
+          } 
+      })
+      console.log("New Cart: ", newCart );
+      state.selected = newCart;
+      state.total = state.total - payload.price;
+
+      //state.total = state.total + parseInt(payload.price)
+      //console.log("store.setData: ", state.selected)
     }
-  },
+  }, 
   actions: {
     setData(context, data ) {
-      alert("Hit it kid: " + data );
+      //alert("Hit it kid: " + data );
       context.commit('setData', data);
+    },
+    updateCart(context, data) {
+      context.commit('updateCart', data);
     }
-  }
+  },//end actions
+  getters: {
+    addTotal: state => {
+     return  "$20"
+    }
+  },
 })

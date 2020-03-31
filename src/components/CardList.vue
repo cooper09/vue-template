@@ -2,6 +2,7 @@
 
   <v-container class="animated fadeIn">
     <!-- for the length of the product list, build a card and display it -->
+    Currently selected: {{selected}}
     <v-layout row wrap >
       <v-flex xs12 sm6 md4 lg3 v-for="product in mydata" :key="product.id">
         <Card v-bind:product="product" /> 
@@ -25,6 +26,9 @@ export default {
   computed:{
     mydata () {
       return this.$store.state.products;
+    },
+    selected () {
+      return this.$store.state.selected;
     }
   },
   methods: {

@@ -116,11 +116,29 @@ export default new Vuex.Store({
         quantity: 1
       }
     ],
+    userInfo: {
+      isLoggedIn: false,
+      isSignedUp: false,
+      hasSearched: false,
+      name: '',
+      productTitleSearched: ''
+    },
+    systemInfo: {
+      openLoginModal: false,
+      openSignupModal: false,
+      openCheckoutModal: false
+    }  
   },//end state
   mutations: {
-
+    setData(state,payload) {
+      state.selected.push( payload);
+      console.log("store.setData: ", state.selected)
+    }
   },
   actions: {
-
+    setData(context, data ) {
+      alert("Hit it kid: " + data );
+      context.commit('setData', data);
+    }
   }
 })

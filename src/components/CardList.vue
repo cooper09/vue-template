@@ -16,8 +16,8 @@
             v-for="(item,i) in mydata"
             :key="i"
             :src="item.image"
-            reverse-transition="fade-transition"
-            transition="fade-transition"
+            reverse-transition="scroll-y-transition"
+            transition="scroll-y-transition"
           ></v-carousel-item>
         </v-carousel>
       </v-flex>

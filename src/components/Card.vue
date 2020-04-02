@@ -6,11 +6,13 @@
     <v-card class="pa-1">
         <v-responsive class="pt-4">
             
-            <center><img src="https://via.placeholder.com/300" /></center>
+ <!-- <center><img src="https://via.placeholder.com/300" /></center> -->
+            <center><img src="masks.jpg" /></center>
         </v-responsive>
         <v-card-text>
             <div class="subheading">{{this.product.title}}</div>
             <div class="grey--text">{{this.product.description}}</div>
+            <span class="right">Price: <b>${{this.product.price}}</b></span>
         </v-card-text>
         <v-card-actions>
             <v-btn color="blue light" class="addBtn" @click="addToCart(product)">
@@ -48,7 +50,7 @@ export default {
       alert("next page please")
       this.$router.push('/about')
       let hello = "We shall Overcome"
-      //this.$store.dispatch('setData', "more stuff");
+
     },
     selected() {
       alert("Selected Something")
@@ -67,5 +69,8 @@ export default {
     background: #ddd;
     cursor: pointer;
     float: right;
+  }
+  .right {
+      float: right;
   }
 </style>

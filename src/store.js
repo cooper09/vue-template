@@ -18,7 +18,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 2,
@@ -30,7 +32,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 3,
@@ -42,7 +46,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 4,
@@ -54,7 +60,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 5,
@@ -66,7 +74,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 6,
@@ -78,7 +88,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 7,
@@ -90,7 +102,11 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg',
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 8,
@@ -102,7 +118,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       },
       {
         id: 9,
@@ -114,7 +132,9 @@ export default new Vuex.Store({
         isAddedToCart: false,
         isAddedBtn: false,
         isFavourite: false,
-        quantity: 1
+        quantity: 1,
+        category: 0,
+        image: 'masks.jpg'
       }
     ],
     userInfo: {

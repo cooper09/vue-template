@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h3>Handy Dandy Blockchain</h3>
+    <h3>Proto-Chain Blockchain</h3>
+    Each card represents a block on the uploaded blockchain. Click "Show Transactions" to see the transactions stored inside.
+    <p></p>
      <v-container class="animated fadeIn">
         <v-layout row wrap >
           <v-flex  xs12 sm6 md4 lg3 :key="block.id" v-for="block in blocks" class="blocks">

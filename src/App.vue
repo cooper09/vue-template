@@ -2,20 +2,19 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span class="btn"><img src="./logo.png" width="40"></span>
+        <span class="font-weight-light">Proto-Chain</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
         text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://penta.solutions/"
         target="_blank"
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Do it yourself Blockchain</span>
       </v-btn>
     </v-app-bar>
     <v-content   class="animated fadeIn">
-      <p>App.vue</p>
       <router-view></router-view>
       <HelloWorld :bchain="blockchain"/> 
     </v-content>
@@ -80,5 +79,14 @@ body {
   }
  .btn {
    margin-right: 1em;
- };
+ }
+  .border {
+    border: 1px solid #333;
+  }
+  .submit {
+    background: purple;
+    padding: 0.5em;
+    color: white;
+    
+  }
 </style>

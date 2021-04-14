@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Settings from './components/Settings.vue'
 import Create from './components/Create.vue'
 import Transactions from './components/Transactions.vue'
+import Pending from './components/Pending.vue'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/transactions',
       name: 'Transactions',
       component: Transactions
+    },
+    {
+      path: '/pending',
+      name: 'Pending Transactions',
+      component: Pending
     }
   ]
 })

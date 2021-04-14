@@ -1,15 +1,29 @@
 <template>
   <div>
-  <h3>Block</h3>   {{block.id}} 
-  <div class="block">
-    Hash: {{block.hash}}<br/>
-    Previous Hash: {{block.previousHash}}<br/>
-    Data: {{block.data }}<br/>
-    Timestamp: {{block.timestamp}}
-    <br/>
-    <v-btn @click="showTransactions()">Show Transactions</v-btn>
-  </div>
-  </div>
+  <v-container class="animated fadeIn">
+    <v-card class="pa-1">
+      <v-responsive class="pt-4"> 
+       <center><img src="../logo.png" width="35"/></center>
+      </v-responsive>
+        <h3>Block</h3>   {{block.index}} 
+         <v-card-text>
+                <div class="subheading wrap">Hash: {{block.hash}}</div>
+                <div>Previous Hash: {{block.previousHash}}</div>
+                <div>Data: {{block.data }}</div>
+                <div>Timestamp: {{block.timestamp}}</div>
+            </v-card-text>
+              <v-card-actions>
+                <span class="right"><v-btn
+                  depressed
+                  color="primary"
+                  @click="showTransactions()"
+                >
+                  Show Transactions
+                </v-btn></span>
+        </v-card-actions>
+    </v-card>
+  </v-container>
+  </div><!-- end main div -->
 </template>
 
 <script>
@@ -27,20 +41,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .block-item {
-        background: #f4f4f4;
-        padding: 1em;
-        border: 2px #ff0 dotted;
-        margin: 1em;
-    }
+.right {
+  float:right;
+}
 
-    .block {
-      border: 1px solid #333;
-      background: #ccc;
-      padding: 1em;
-      border-radius: 5px;
-      text-align: center;
-      position: relative;
-      cursor:pointer;
-    }
+
 </style>

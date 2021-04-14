@@ -1,9 +1,11 @@
 <template>
   <v-container class="animated fadeIn container">
+
       <div>
         <div class="right">
-           <span class="btn"><v-btn @click="settingsPage()">Settings </v-btn></span><v-btn @click="createPage()">Create Transaction</v-btn>
+           <span class="btn"><v-btn color=primary @click="settingsPage()">Settings </v-btn></span><v-btn color=primary  @click="createPage()">Create Transaction</v-btn>
         </div>
+        <br/><br/>
       <div class="container">
           <BlockChain v-bind:blocks="newChain" /> 
       </div>
@@ -48,6 +50,6 @@ export default {
     margin-right: 1em;
   }
   .container {
-    background: pink;
+    background: #ccc;
   }
 yle>

@@ -1,7 +1,8 @@
 <template>
   <v-container   class="animated fadeIn container">
   Transactions Page
-    <span class="btn"><v-btn @click="exitPage()">Exit</v-btn></span>
+    <span class="right"><v-btn @click="exitPage()">Exit</v-btn></span>
+    <p>List of transactions for the selected block go here....</p>
   </v-container>
 </template>
 

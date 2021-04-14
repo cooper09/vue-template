@@ -2,57 +2,35 @@
   <v-container   class="animated fadeIn container">
    Create Transaction Page
     <span class="right"><v-btn @click="exitPage()">Exit</v-btn></span>
-    <v-form v-model="valid">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="firstname"
-            :rules="nameRules"
-            :counter="10"
-            label="First name"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="lastname"
-            :rules="nameRules"
-            :counter="10"
-            label="Last name"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-
-        </v-col>
-      </v-row>
+       <v-container>
+        <form  @submit="submitTransaction()">
+            From Address: <input type="text" v-model="from" placeholder ="0x100000000" ><br/>
+            To Address:  <input type="text" v-model="to" placeholder ="" ><br/>
+            Amount: <input type="text" v-model="amount" placeholder ="" ><br/>
+            <input type="submit" value="Sign & Create transaction" ><br/>
+        </form>
+       </v-container>
     </v-container>
-  </v-form>
-  </v-container>
 </template>
 
 <script>
 export default {
-  data: () => ({
-  
-  }),
+  data () {
+      return {
+          from: '',
+          to: '',
+          amount: ''
+      }
+  },
   methods: {
     exitPage() {
       this.$router.push('/')
-    }
+    },
+  submitTransaction(e){
+    e.preventDefault()
+    console.log("Submit Transaction")
   }
+  }//end methods
 };//end export
 </script>
 <style scoped>

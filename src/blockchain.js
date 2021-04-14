@@ -1,4 +1,3 @@
-console.log("Let the new era begin...");
 
 const sha256 = require('crypto-js/sha256');
 

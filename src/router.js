@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Basket from './components/Basket.vue'
-import BasketCheckout from './components/BasketCheckout.vue'
+import Settings from './components/Settings.vue'
+import Create from './components/Create.vue'
+import Transactions from './components/Transactions.vue'
 
 Vue.use(Router)
 
@@ -24,14 +25,19 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/basket',
-      name: 'basket',
-      component: Basket
+      path: '/settings',
+      name: 'Settings',
+      component: Settings
     },
     {
-      path: '/checkout',
-      name: 'checkout',
-      component: BasketCheckout
+      path: '/create',
+      name: 'Create Transaction',
+      component: Create
+    },
+    {
+      path: '/transactions',
+      name: 'Transactions',
+      component: Transactions
     }
   ]
 })

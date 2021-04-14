@@ -1,7 +1,7 @@
 <template>
   <v-container   class="animated fadeIn container">
-   Settings Page
-    <v-btn @click="nextPage()">Checkout</v-btn>
+   Pending Page
+    <v-btn @click="exitPage()">Exit</v-btn>
   </v-container>
 </template>
 
@@ -11,8 +11,8 @@ export default {
   
   }),
   methods: {
-    nextPage() {
-      this.$router.push('/checkout')
+    exitPage() {
+      this.$router.push('/')
     }
   }
 };//end export

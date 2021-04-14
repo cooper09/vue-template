@@ -1,17 +1,16 @@
 <template>
   <div>
     <h3>Handy Dandy Blockchain</h3>
-        <div class="container">
-        <div class="row">
-                <div v-bind:key="block.id" v-for="block in blocks" class="blocks">
-                  <div class="col-sn">
-                    <BlockItem v-bind:block="block"/>
-                  </div>
-                </div>
-        </div>
-    </div>
-
-  </div>
+     <v-container class="animated fadeIn">
+        <v-layout row wrap >
+          <v-flex  xs12 sm6 md4 lg3 :key="block.id" v-for="block in blocks" class="blocks">
+            <div class="col-sn">
+                <BlockItem v-bind:block="block"/>
+            </div>
+          </v-flex>
+      </v-layout>
+    </v-container>
+  </div><!-- end main div -->
 </template>
 
 <script>

@@ -29,6 +29,9 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import Block from './block';
+import Blockchain from './blockchain';
+
 
 export default {
   name: 'App',
@@ -37,8 +40,20 @@ export default {
   },
   data: () => ({
     //
-  }),
-};
+  }),//end data
+  created() {
+    console.log("App created...");
+    const blockCoin = new Blockchain();
+    console.log("new blockchain: ", blockCoin.chain);
+    const timestamp =  new Date().getTime();
+    const firstBlock = new Block (1,timestamp, {amount: 4});
+    const secondBlock = new Block (2,timestamp, {amount: 10});
+
+    blockCoin.addBlock(firstBlock);
+    blockCoin.addBlock(secondBlock);
+    
+  }//end created
+};//end export
 </script>
 <style>
 body {

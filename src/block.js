@@ -8,6 +8,7 @@ export default class Block {
         this.data = data;
         this.previousHash = previousHash;
         this.hash = this.createHash();
+        console.log("External Block...")
     }
     //getPreviousHash
 

@@ -16,7 +16,9 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <router-view></router-view>
-      <HelloWorld :bchain="blockchain"/> 
+       {{blockchain}}
+     <HelloWorld :bchain="blockchain"/>  
+    <p>Store Chain: {{this.$store.testChain}}</p>
     </v-content>
     <v-content transition="slide-x-transition">
 
@@ -31,7 +33,8 @@ import { mapGetters,mapActions } from 'vuex';
 
 import HelloWorld from './components/HelloWorld';
 import Block from './block';
-import Blockchain from './blockchain';
+//import Blockchain from './blockchain';
+import Blockchain from './blockchain_proof_of_work';
 
 export default {
   name: 'App',
@@ -44,10 +47,14 @@ export default {
   created() {
     console.log("App created...");
     const blockCoin = new Blockchain();
-    console.log("new blockchain: ", blockCoin.chain);
+
+  console.log ("About to add my own blocks...")
     const timestamp =  new Date().getTime();
-    const firstBlock = new Block (1,timestamp, {amount: 4});
+    const firstBlock = new Block (1,'pizza',timestamp, '4');
     const secondBlock = new Block (2,timestamp, {amount: 10});
+
+    //const thirdBlock = new Block(3, timestamp ,{amount: 100} , '0' );
+    console.log("current blockchain: ", blockCoin.chain);
 
     blockCoin.addBlock(firstBlock);
     blockCoin.addBlock(secondBlock);
@@ -64,7 +71,7 @@ export default {
   },//end created
   computed: {
     blockchain() {
-      //console.log("store blockchain: ", this.$store.testChain)
+      console.log("computed - store blockchain: ", this.$store.testChain);
       return this.$store.testChain;
     }
   }

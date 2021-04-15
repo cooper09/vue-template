@@ -1,32 +1,43 @@
-/* Starter Blockchain
-    creates simple blockchain with hashed links 
+/* Proof-of-Work Blockchain
+    creates blockchain with simple proof-of-work algorithm
 */
 const sha256 = require('crypto-js/sha256');
 
 class Block {
-    
     constructor (index,timestamp, data, previousHash ='') {
         this.index = index;
         this.timestamp = timestamp;
         this.data = data;
         this.previousHash = previousHash;
         this.hash = this.createHash();
-
-        console.log("A Block is being created data: ", data, " timestamp: ", timestamp )
+        //add nonce for mining
+        this.nonce = 0;
+        console.log("class Block: ", data )
     }
     //getPreviousHash
-
-
+  
+    //getNewHash
     createHash() {
-        //getNewHash
         return sha256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+        //return CryptoJS.SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)+ this.nonce ).toString()
     }//end createHash
-
-}//end Block
-
-export default class Blockchain {
+  
+    //Set up Proof of Work
+    mineBlock(difficulty ) {
+        console.log("Whistle while you work!");
+        while(this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")) {
+            this.nonce++;
+            this.hash = this.createHash();
+        }//end while
+        console.log("New Block has been mined: ", this.hash );
+    }//end mineBlock
+  
+ }//end Block
+  
+ export default class Blockchain {
     constructor () {
         this.chain = [this.createGenesisBlock()];
+        this.difficulty = 2;
     }
     //create genesis block
     createGenesisBlock () {
@@ -41,9 +52,9 @@ export default class Blockchain {
     // create new block
     addBlock(newBlock) {
         //console.log("newBlock: ", this.getLatestBlock().hash);
-        newBlock = new Block();
         newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.hash = newBlock.createHash();
+        //newBlock.hash = newBlock.createHash();
+        newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
     }
     // validate block
@@ -51,39 +62,21 @@ export default class Blockchain {
         for (let i=1 ; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i-1];
-            
+           
             //console.log("validate = currentBlock: ", this.chain[i] );
             if ( currentBlock.hash !== currentBlock.createHash()) {
                 return false;
             }//end iffy
-
+  
             if (currentBlock.previousHash !== previousBlock.hash ) {
                 return false;
             }
-
+  
         }//end for
-
+  
         // if we reach here, the chain is valid
         return true;
     }//end validate
-
-}//end Blockchain
-
-const timestamp =  new Date().getTime();
-
-let testCoin = new Blockchain();
-/*
-testCoin.addBlock(new Block (1,timestamp, {amount: 4}));  //hash is generated inside the block
-
-testCoin.addBlock(new Block (2,timestamp, {amount: 10}));
-
-console.log("TSC ", testCoin );
-console.log("UIs chain valid 1: ", testCoin.validate());
-
-testCoin.chain[1].data = {amount: 100000}
-
-console.log("change data: ", testCoin.validate());
-
-testCoin.chain[1].hash = testCoin.chain[1].createHash();
-console.log("change hash: ", testCoin.validate());
-*/
+  
+ }//end Blockchain
+ 

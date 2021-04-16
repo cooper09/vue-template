@@ -23,7 +23,7 @@ class Block {
         this.hash = this.createHash();
         //add nonce for mining
         this.nonce = 0;
-        console.log("Internal class Block: ", transactions )
+        console.log("Internal class Block: ", this )
     }
     //getPreviousHash
   
@@ -35,7 +35,7 @@ class Block {
   
     //Set up Proof of Work
     mineBlock(difficulty ) {
-        console.log("Whistle while you work! "); 
+        console.log("Whistle while you work: ", this ); 
         while(this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")) {
             this.nonce++;
             this.hash = this.createHash();

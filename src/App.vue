@@ -33,9 +33,10 @@ import { mapGetters,mapActions } from 'vuex';
 import HelloWorld from './components/HelloWorld';
 import Block from './block';
 //import Blockchain from './blockchain';
-import Blockchain from './blockchain_proof_of_work-2';
+//import Blockchain from './blockchain_proof_of_work';
+//import Blockchain from './blockchain_proof_of_work-2';
 //import Blockchain from './blockchain_transactions';
-//import {Blockchain, Transaction} from './blockchain_signing';
+import {Blockchain, Transaction} from './blockchain_signing';
 
 export default {
   name: 'App',
@@ -50,9 +51,6 @@ export default {
 
     const blockCoin = new Blockchain();
     const currentChain = blockCoin.getBlockChain();
-
-    const timestamp =  new Date().getTime();
-
     console.log("current blockchain: ", currentChain.chain);
 
     //Add data to props

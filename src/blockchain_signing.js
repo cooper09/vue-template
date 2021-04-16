@@ -109,7 +109,10 @@ class Blockchain {
   
     //Instead of mining block by block, queue them up as transactions and go from there...
     minePendingTransactions (miningRewardAddress) {
+        
+        //newBlock.previousHash = this.getLatestBlock().hash;
         let block = new Block(Date.now(), this.pendingTransactions);
+        block.previousHash = this.getLatestBlock().hash;
         block.mineBlock(this.difficulty);
   
         console.log("Transaction block successfully mined.");

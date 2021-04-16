@@ -43,7 +43,7 @@ class Transaction {
   
  }//end Block
   
-export default class Blockchain {
+class Blockchain {
     constructor () {
         this.chain = [this.createGenesisBlock()];
         this.difficulty = 0;
@@ -135,6 +135,7 @@ export default class Blockchain {
   
  }//end Blockchain
   
- 
+ module.exports.Blockchain = Blockchain;
+ module.exports.Transaction = Transaction;
  
  

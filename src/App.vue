@@ -34,7 +34,8 @@ import { mapGetters,mapActions } from 'vuex';
 import HelloWorld from './components/HelloWorld';
 import Block from './block';
 //import Blockchain from './blockchain';
-import Blockchain from './blockchain_proof_of_work';
+//import Blockchain from './blockchain_proof_of_work';
+import Blockchain from './blockchain_transactions';
 
 export default {
   name: 'App',

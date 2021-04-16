@@ -48,20 +48,14 @@ export default {
     console.log("App created...");
     const blockCoin = new Blockchain();
 
-  console.log ("About to add my own blocks...")
+    const currentChain = blockCoin.getBlockChain();
     const timestamp =  new Date().getTime();
-    const firstBlock = new Block (1,'pizza',timestamp, '4');
-    const secondBlock = new Block (2,timestamp, {amount: 10});
 
-    //const thirdBlock = new Block(3, timestamp ,{amount: 100} , '0' );
-    console.log("current blockchain: ", blockCoin.chain);
-
-    blockCoin.addBlock(firstBlock);
-    blockCoin.addBlock(secondBlock);
+    console.log("current blockchain: ", currentChain.chain);
 
     //Add data to props
 
-    this.$store.dispatch('setBlockChain', blockCoin.chain)
+    this.$store.dispatch('setBlockChain', currentChain.chain)
 
     //we now have a working blockchain.
     //  1) add to store

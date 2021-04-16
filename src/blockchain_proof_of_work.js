@@ -24,7 +24,7 @@ class Block {
   
     //Set up Proof of Work
     mineBlock(difficulty ) {
-        console.log("Whistle while you work!");
+        console.log("Whistle while you work! "); 
         while(this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")) {
             this.nonce++;
             this.hash = this.createHash();
@@ -37,7 +37,7 @@ class Block {
  export default class Blockchain {
     constructor () {
         this.chain = [this.createGenesisBlock()];
-        this.difficulty = 2;
+        this.difficulty = 0;
     }
     //create genesis block
     createGenesisBlock () {
@@ -77,6 +77,18 @@ class Block {
         // if we reach here, the chain is valid
         return true;
     }//end validate
+    
+    //Retrieve our blockchain whole
+    getBlockChain () {
+        console.log("Retrieve your blockchain here: ", this);
+        const timestamp =  new Date().getTime();
+
+        this.addBlock(new Block (1,timestamp, {amount: 4}));  //hash is generated inside the block
+
+        this.addBlock(new Block (2,timestamp, {amount: 10}));
+
+        return this;
+    }
   
  }//end Blockchain
  

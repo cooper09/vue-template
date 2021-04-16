@@ -12,7 +12,7 @@ class Block {
         this.previousHash = previousHash;
         this.hash = this.createHash();
 
-        console.log("A Block is being created data: ", data, " timestamp: ", timestamp )
+        console.log("Internal Block ", data, " timestamp: ", timestamp )
     }
     //getPreviousHash
 
@@ -67,12 +67,23 @@ export default class Blockchain {
         return true;
     }//end validate
 
+    getBlockChain () {
+        console.log("Retrieve your blockchain here: ", this);
+        const timestamp =  new Date().getTime();
+
+        this.addBlock(new Block (1,timestamp, {amount: 4}));  //hash is generated inside the block
+
+        this.addBlock(new Block (2,timestamp, {amount: 10}));
+
+        return this;
+    }
 }//end Blockchain
 
+/*
 const timestamp =  new Date().getTime();
 
 let testCoin = new Blockchain();
-/*
+
 testCoin.addBlock(new Block (1,timestamp, {amount: 4}));  //hash is generated inside the block
 
 testCoin.addBlock(new Block (2,timestamp, {amount: 10}));
@@ -81,7 +92,7 @@ console.log("TSC ", testCoin );
 console.log("UIs chain valid 1: ", testCoin.validate());
 
 testCoin.chain[1].data = {amount: 100000}
-
+/*
 console.log("change data: ", testCoin.validate());
 
 testCoin.chain[1].hash = testCoin.chain[1].createHash();

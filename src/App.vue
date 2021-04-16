@@ -35,7 +35,8 @@ import HelloWorld from './components/HelloWorld';
 import Block from './block';
 //import Blockchain from './blockchain';
 //import Blockchain from './blockchain_proof_of_work';
-import Blockchain from './blockchain_transactions';
+//import Blockchain from './blockchain_transactions';
+import Blockchain from './blockchain_signing';
 
 export default {
   name: 'App',

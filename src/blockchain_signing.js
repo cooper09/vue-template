@@ -1,16 +1,52 @@
 /* Wallet/Signed Transactions Blockchain
     creates blockchain with simple proof-of-work, transactions queues and signed transactions
 */
+const { toExponential } = require('core-js/fn/number/epsilon');
 const sha256 = require('crypto-js/sha256');
+
+const EC = require('elliptic').ec;
+const ec = new EC('secp256k1');
 
 class Transaction {
     constructor (fromAddress, toAddress, amount ){
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.amount = amount;
-  
     }//end constructor
   
+    calculateHash() {
+        return sha256(this.fromAddress + this.toAddress + this.amount).toString();
+    }//end calculateHash
+
+    signTransaction(keySignature ){
+        console.log("signTransaction: ", keySignature.getPublic('hex') )
+        //check public key to make sure we have the right wallet
+    
+    /* if(keySignature.getPublic('hex') !== this.fromAddress ) {
+            throw new Error("This wallet cannot sign this transaction. Sorry!")
+        }//end if
+        */
+        const hashTx = this.calculateHash();
+        const signature = keySignature.sign(hashTx, 'base64');
+        this.signature = signature.toDER('hex');
+
+    }//end signTransaction
+
+    isValid() {
+        if ( this.fromAddress === null)  return true;
+
+        if (!this.signature || this.signature.length === 0 ) {
+            throw new Error ('This Transaction has not been signed')
+        }
+
+        
+
+        const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
+
+        return publicKey.verify(this.calculateHash(), this.signature );
+
+    }//end isValid
+
  }//end Transaction
   
  class Block {
@@ -41,6 +77,15 @@ class Transaction {
         console.log("New Block has been mined: ", this.hash );
     }//end mineBlock
   
+    hasValidTransactions () {
+        for ( const tx of this.transactions ) {
+            if  (!tx.isValid()) {
+                return false;
+            } 
+        }//end for loop
+        return true;
+    }//end hasValidTransactions
+
  }//end Block
   
 class Blockchain {
@@ -75,7 +120,16 @@ class Blockchain {
         ]
     }//end minePendingTransactions
   
-    createTransaction(transaction) {
+    addTransaction(transaction) {
+
+        if (!transaction.fromAddress || !transaction.toAddress ) {
+            throw new Error('Transaction must include to and from address')
+        }//end if
+
+        if (!transaction.isValid() ) {
+            throw new Error('Transaction is invalid. Cannot be added to blockchain')
+        } //end if  
+
         this.pendingTransactions.push(transaction);
     }//end createTransaction
   
@@ -101,6 +155,10 @@ class Blockchain {
         for (let i=1 ; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i-1];
+
+            if (!currentBlock.hasValidTransactions()) {
+                return false;
+            }
            
             //console.log("validate = currentBlock: ", this.chain[i] );
             if ( currentBlock.hash !== currentBlock.createHash()) {
@@ -120,15 +178,23 @@ class Blockchain {
             //Retrieve our blockchain whole
             getBlockChain () {
                 console.log("Retrieve your blockchain here: ", this);
+
+                const EC = require('elliptic').ec;
+                const ec = new EC('secp256k1');
+            
+                const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');
+                const walletAddress = walletKey.getPublic('hex');
+
                 const timestamp =  new Date().getTime();
-        
-                this.createTransaction(new Transaction('address1','address2', 100));
-                this.createTransaction(new Transaction('address2','address1', 50));
+
+                const tx1 = new Transaction(walletKey, walletAddress, 10 )
+                tx1.signTransaction(walletKey);
+                this.addTransaction(tx1);
                 
                 console.log("\n Starting up the 7 dwarfs...");
-                this.minePendingTransactions('mystery-address');
+                this.minePendingTransactions(walletAddress);
                 
-                console.log('\n Mystery Balance: ', this.getBalanceOfAddress('mystery-address'));
+                console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
         
                 return this;
              }//end getBlockChain

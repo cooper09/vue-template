@@ -7,7 +7,7 @@
         </div>
         <br/><br/>
       <div class="container">
-          HelloWorld chain: {{newChain}}
+        <!--  HelloWorld chain: {{newChain}} -->
           <BlockChain v-bind:blocks="newChain" /> 
       </div>
     </div>

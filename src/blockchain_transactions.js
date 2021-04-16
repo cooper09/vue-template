@@ -130,6 +130,12 @@ class Transaction {
         
         console.log('\n Mystery Balance: ', this.getBalanceOfAddress('mystery-address'));
 
+                
+        console.log("\n Starting up the 7 dwarfs...");
+        this.minePendingTransactions('mystery-address');
+        
+        console.log('\n Mystery Balance: ', this.getBalanceOfAddress('mystery-address'));
+
         return this;
      }//end getBlockChain
 

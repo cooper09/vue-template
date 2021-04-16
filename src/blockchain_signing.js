@@ -195,6 +195,11 @@ class Blockchain {
                 this.minePendingTransactions(walletAddress);
                 
                 console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
+
+                console.log("\n Starting up the 7 dwarfs...");
+                this.minePendingTransactions(walletAddress);
+                
+                console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
         
                 return this;
              }//end getBlockChain

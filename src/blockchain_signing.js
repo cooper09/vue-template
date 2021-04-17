@@ -94,6 +94,7 @@ class Blockchain {
         this.difficulty = 0;
         this.pendingTransactions = [];
         this.miningReward = 100;
+        this.walletAddress = 0;
     }
     //create genesis block
     createGenesisBlock () {
@@ -178,35 +179,37 @@ class Blockchain {
         return true;
     }//end validate
 
-            //Retrieve our blockchain whole
-            getBlockChain () {
-                console.log("Retrieve your blockchain here: ", this);
+    //Retrieve our blockchain whole
+    getBlockChain () {
+        console.log("Retrieve your blockchain here: ", this);
 
-                const EC = require('elliptic').ec;
-                const ec = new EC('secp256k1');
+        const EC = require('elliptic').ec;
+        const ec = new EC('secp256k1');
             
-                const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');
-                const walletAddress = walletKey.getPublic('hex');
+        const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');
+        const walletAddress = walletKey.getPublic('hex');
 
-                const timestamp =  new Date().getTime();
+        this.walletAddress = walletAddress;
 
-                const tx1 = new Transaction(walletKey, walletAddress, 10 )
-                tx1.signTransaction(walletKey);
-                this.addTransaction(tx1);
-                
-                console.log("\n Starting up the 7 dwarfs...");
-                this.minePendingTransactions(walletAddress);
-                
-                console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
+        const timestamp =  new Date().getTime();
 
-                console.log("\n Starting up the 7 dwarfs...");
-                this.minePendingTransactions(walletAddress);
+        const tx1 = new Transaction(walletKey, walletAddress, 10 )
+        tx1.signTransaction(walletKey);
+        this.addTransaction(tx1);
                 
-                console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
+        console.log("\n Starting up the 7 dwarfs...");
+        this.minePendingTransactions(walletAddress);
+                
+        console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
+
+        console.log("\n Starting up the 7 dwarfs...");
+        this.minePendingTransactions(walletAddress);
+                
+        console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress));
         
-                return this;
-             }//end getBlockChain
-  
+        return this;
+    }//end getBlockChain
+            
  }//end Blockchain
   
  module.exports.Blockchain = Blockchain;

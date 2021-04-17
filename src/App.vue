@@ -44,19 +44,20 @@ export default {
     HelloWorld,
   },
   data: () => ({
-   newchain: []
+   newchain: [],
+   wallet: ""
   }),//end data
   created() {
     console.log("Create our blockchain");
 
     const blockCoin = new Blockchain();
     const currentChain = blockCoin.getBlockChain();
-    console.log("current blockchain: ", currentChain.chain);
+    console.log("current blockchain wallet: ", currentChain.walletAddress);
 
     //Add data to props
 
-    this.$store.dispatch('setBlockChain', currentChain.chain)
-
+    this.$store.dispatch('setBlockChain', currentChain.chain);
+    this.$store.dispatch('setWalletAddr', currentChain.walletAddress);
     //we now have a working blockchain.
     //  1) add to store
     //  2) display data
@@ -67,6 +68,9 @@ export default {
     blockchain() {
       console.log("computed - store blockchain: ", this.$store.testChain);
       return this.$store.testChain;
+    },
+    walletAddr() {
+      return this.$store.walletAddr;
     }
   }
 };//end export

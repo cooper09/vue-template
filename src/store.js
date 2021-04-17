@@ -18,22 +18,35 @@ export default new Vuex.Store({
         prevHash: "0x1",
         timestamp: new Date()
       }
-    ]
+    ],
+    currentBlock: "Default Block", 
+    currentDifficulty: "0",
+    currentReward: 10,
+    walletAddr: ""
   },
   mutations: {
     setBlockChain(state, data ) {
       console.log("mutations - setBlockChain: ", data )
       state.testChain = data;  
+    },
+    setWalletAddr(state, data) {
+      console.log("mutation - setBlockChain: ", data )
+      state.walletAddr = data;
     }
   },
   actions: {
     setBlockChain ({commit}, data) {
       console.log("actions- setBlockChain: ", data )
       commit('setBlockChain', data);
+    },
+    setWalletAddr({commit}, data ) {
+      console.log("actions- setWalletAddr: ", data )
+      commit("setWalletAddr", data)
     }
   },
   getters: {
     newChain: state => state.testChain
+    
   },//end getters
   modules: {
 

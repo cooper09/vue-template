@@ -42,7 +42,8 @@ export default new Vuex.Store({
     currentDifficulty: "0",
     currentReward: 10,
     walletAddr: "", 
-    selectedBlock: "test me"
+    selectedBlock: "test me",
+    transactions:[]
   },
   mutations: {
     setBlockChain(state, data ) {
@@ -56,6 +57,10 @@ export default new Vuex.Store({
     setSelectedBlock (state, hash) {
       console.log("mutation - setSelectedBlock: ",hash )
       state.selectedBlock = hash;
+    },
+    setTransactions(state, transactions ) {
+      console.log("mutation - setTransactions: ", transactions );
+      state.transactions = transactions ;
     }
   },
   actions: {
@@ -70,6 +75,10 @@ export default new Vuex.Store({
     setSelectedBlock({commit}, hash ) {
       console.log("actions- setSelectedBlock ", hash )
       commit("setSelectedBlock", hash)
+    },
+    setTransactions({commit}, transactions ) {
+      console.log("actions- setTransactions ", transactions )
+      commit("setSelectedBlock", transactions)
     }
   },
   getters: {
@@ -77,7 +86,8 @@ export default new Vuex.Store({
     getWallet: state => state.walletAddr,
     getTransactions: state => state.transactions,
     getPending: state => state.pendingTxs,
-    getSelected: state => state.selectedBlock
+    getSelected: state => state.selectedBlock,
+    getTransactions: state => state.transactions
   },//end getters
   modules: {
 

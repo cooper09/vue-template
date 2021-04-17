@@ -5,8 +5,8 @@
     <h3>Current Block: </h3>{{getSelected}}
     <!-- Get all transactions for this particular block -->
     <!-- Need a getter to specific data  -->
-    <p>Current block has no transactions C</p>
-        {{this.newChain.getBlockTransactions()}}
+    <p>Current block has no transactions B</p>
+    {{this.getTransactions}}
   </v-container>
 </template>
 
@@ -25,9 +25,22 @@ export default {
   },//end methods
   created() {
     console.log("Let there be light....");
-  
+    const current = this.newChain;
+    //console.log("the defining edge: ", current ) 
+    current.map( block => {
+      console.log("Block hash: ", block.hash )
+      if (block.hash === this.getSelected ) {
+        //we have our block gets its transactions
+        console.log("Selected transactions: ", block.transactions )
+        const blockTxs = block.transactions;
+        this.$store.dispatch('setTransactions', blockTxs);
+      }
+    })
+
+    const selected = this.getSelected
+    console.log("Selected Block: ", selected )
   },
-  computed: mapGetters(['getSelected','newChain']),
+  computed: mapGetters(['getSelected','newChain', 'getTransactions']),
 };//end export
 </script>
 <style scoped>

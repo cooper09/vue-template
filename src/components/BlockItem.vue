@@ -1,13 +1,18 @@
 <template>
   <div>
   <v-container class="animated fadeIn">
-    <v-card class="pa-1">
+    <v-card class="pa-1 margins">
       <v-responsive class="pt-4"> 
        <center><img src="../logo.png" width="35"/></center>
       </v-responsive>
         <h3>Block</h3>   {{block.index}} 
          <v-card-text>
-                <div class="subheading wrap">Hash: {{block.hash}}</div>
+                <div class="subheading wrap">
+                 
+                <p class="wrap" >
+                   Hash: {{block.hash}}
+                </p>
+                  </div>
                 <div>Previous Hash: {{block.previousHash}}</div>
                 <div>Data: {{block.data }}</div>
                 <div>Timestamp: {{block.timestamp}}</div>
@@ -16,7 +21,7 @@
                 <span class="right"><v-btn
                   depressed
                   color="primary"
-                  @click="showTransactions()"
+                  @click="showTransactions(block.hash)"
                 >
                   Show Transactions
                 </v-btn></span>
@@ -31,7 +36,10 @@ export default {
  name: "BlockItem",
  props: ["block"],
    methods: {
-    showTransactions() {
+    showTransactions(hash) {
+      //which block was selected
+      console.log("Selected block hash: "+ hash );
+      this.$store.dispatch('setSelectedBlock', hash);
       this.$router.push('/transactions')
     }
   },//end methods
@@ -44,6 +52,9 @@ export default {
 .right {
   float:right;
 }
-
+.margins {
+  margin-right: 0.5em;
+  background: orange;
+}
 
 </style>

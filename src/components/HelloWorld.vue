@@ -8,6 +8,10 @@
         <br/><br/>
       <div class="container">
         <!--  HelloWorld chain: {{newChain}} -->
+          
+                <p class="wrap" >
+                  <b>Wallet (public) address:</b> {{getWallet}}
+                </p>
           <BlockChain v-bind:blocks="newChain" /> 
       </div>
     </div>
@@ -26,10 +30,10 @@ export default {
     BlockChain,
     BlockItem
   },
-  computed: mapGetters(['newChain']),
+  computed: mapGetters(['newChain','getWallet']),
   data() {
     return {
-    blocks: [],
+    blocks: [], 
     props: ["bchain"]
 
     }//end return
@@ -42,15 +46,18 @@ export default {
       this.$router.push('/create')
     }
   },//end methods
+
 };//end export
 </script>
 <style scoped>
-  .btn {
-    background: #ddd;
-    cursor: pointer;
-    margin-right: 1em;
-  }
   .container {
     background: #ccc;
   }
-yle>
+    .wrap {
+    white-space: nowrap ;
+    word-break: normal;
+    overflow: hidden ;
+    text-overflow: ellipsis;
+  }
+
+</style>

@@ -41,10 +41,7 @@ export default {
 };//end export
 </script>
 <style scoped>
-  .btn {
-    background: #ddd;
-    cursor: pointer;
-  }
+
   .smallFont {
     font-size: 0.8em;
     color: gray;

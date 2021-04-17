@@ -16,7 +16,6 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <router-view></router-view>
-       {{blockchain}}
      <HelloWorld :bchain="blockchain"/>  
     </v-content>
     <v-content transition="slide-x-transition">
@@ -66,12 +65,10 @@ export default {
   },//end created
   computed: {
     blockchain() {
-      console.log("computed - store blockchain: ", this.$store.testChain);
+      //console.log("computed - store blockchain: ", this.$store.testChain);
       return this.$store.testChain;
     },
-    walletAddr() {
-      return this.$store.walletAddr;
-    }
+
   }
 };//end export
 </script>
@@ -83,7 +80,8 @@ body {
     float: right;
   }
  .btn {
-   margin-right: 1em;
+  margin-right: 1em;
+  cursor: pointer;
  }
   .border {
     border: 1px solid #333;

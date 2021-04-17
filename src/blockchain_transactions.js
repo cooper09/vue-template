@@ -44,7 +44,7 @@ class Transaction {
      
     }//end Block
      
-    export default class Blockchain {
+export default class Blockchain {
        constructor () {
            this.chain = [this.createGenesisBlock()];
            this.difficulty = 0;
@@ -117,7 +117,8 @@ class Transaction {
            return true;
        }//end validate
      
-        //Retrieve our blockchain whole
+       // Blockchain setter/getter files
+       //Retrieve our blockchain whole
     getBlockChain () {
         console.log("Retrieve your blockchain here: ", this);
         const timestamp =  new Date().getTime();
@@ -138,5 +139,15 @@ class Transaction {
 
         return this;
      }//end getBlockChain
+
+    getBlockTransactions(block) {
+        console.log("find transactions for ")
+    }
+
+    getPendingTransactions() {
+        return this.pendingTransactions;
+    }
+
+
 
     }//end Blockchain

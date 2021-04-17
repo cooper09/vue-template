@@ -23,7 +23,13 @@ export default {
   components: {
     BlockItem
   },
-  props: ["blocks"]
+  props: ["blocks"],
+  computed: {
+      myWallet() {
+        return this.$store.walletAddr
+      }
+  
+  }
 
 }
 </script>

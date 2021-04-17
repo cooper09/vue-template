@@ -37,7 +37,7 @@ export default new Router({
     },
     {
       path: '/transactions',
-      name: 'Transactions',
+      name: 'Block Transactions',
       component: Transactions
     },
     {

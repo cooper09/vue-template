@@ -1,9 +1,12 @@
 <template>
   <v-container   class="animated fadeIn container">
-      <span class="right"><v-btn color=primary @click="exitPage()">Exit</v-btn></span>
-   <h3>Create Transaction </h3> current chain: {{this.getCoin}}
+      <span class="right"><v-btn                   outlined
+                  raised
+                  primary
+                  color="indigo"  @click="exitPage()">Exit</v-btn></span>
+   <h3>Create Transaction </h3>
   <p>Transfer some tokens/coins to someone!</p>
-       <v-container>
+    <v-container>
         <form  @submit="submitTransaction()">
           <br/><br/>
             From Address: <input id="from" type="text" v-model="from" :placeholder=getWallet class="border" width="700" readonly="readonly"><br/>
@@ -67,24 +70,28 @@ export default {
       //add transaction to the chain
       this.createTx(transactionObj)
       // check thats valid and set parameter
-      //this proceed to prending page.
-      //this.$router.push('/pending')
+      //this proceed to pending page.
+      this.$router.push('/pending')
     },
     createTx (newTx) {
 
-      console.log("Create Transaction: ", newTx, " private key: ", walletKey );
-        //console.log("BlockCoin wallet key: ", blockCoin.walletKey );
-    //const walletAddress = walletKey.getPublic('hex');
     const tx = new Transaction(walletKey, walletAddress, 10 );
-    console.log("new transaction:  ", tx )
-    tx.signTransaction( this.getWallet);
+  //  console.log("new transaction:  ", tx )
+    tx.signTransaction( walletKey);
 
-    //blockCoin.addTransaction(transObj)
+    console.log("Our current BlockCoin: ", this.getCoin)
+    //console.log("Our current getCoin: ", this.getCoin)
+
+    //this.getCoin.addTransaction(tx)
 
 
     }
   },//end methods
   computed: mapGetters(['getWallet','getCoin']),
+   blockcoin() {
+      console.log("computed - store blockcoiin: ", this.$store.blockCoin);
+      return this.$store.blockCoin;
+   },
 };//end export
 </script>
 <style scoped>

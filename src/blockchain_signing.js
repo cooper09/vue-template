@@ -181,7 +181,7 @@ class Blockchain {
 
     //Retrieve our blockchain whole
     getBlockChain () {
-        console.log("Retrieve your blockchain here: ", this);
+        //console.log("Blockcahin.getBlockChain: ", this);
 
         const EC = require('elliptic').ec;
         const ec = new EC('secp256k1');
@@ -193,7 +193,7 @@ class Blockchain {
 
         const timestamp =  new Date().getTime();
 
-    /*    const tx1 = new Transaction(walletKey, walletAddress, 10 )
+        const tx1 = new Transaction(walletKey, walletAddress, 10 )
         tx1.signTransaction(walletKey);
         this.addTransaction(tx1);
                 
@@ -205,7 +205,7 @@ class Blockchain {
         console.log("\n Starting up the 7 dwarfs...");
         this.minePendingTransactions(walletAddress);
                 
-        console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress)); */
+        console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress)); 
         
         return this;
     }//end getBlockChain

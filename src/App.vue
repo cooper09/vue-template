@@ -51,15 +51,16 @@ export default {
 
     const blockCoin = new Blockchain();
     const currentChain = blockCoin.getBlockChain();
-
+    console.log('Do we have our blockCoin: ', blockCoin.miningReward)
   
-    console.log("current blockchain wallet: ", currentChain.walletAddress);
+    //console.log("current blockchain wallet: ", currentChain.walletAddress);
 
     //Add data to props
 
-    this.$store.dispatch('setBlockCoin', blockCoin);
+    this.$store.dispatch('setCoin', blockCoin);
     this.$store.dispatch('setBlockChain', currentChain.chain);
     this.$store.dispatch('setWalletAddr', currentChain.walletAddress);
+
     //we now have a working blockchain.
     //  1) add to store
     //  2) display data
@@ -71,6 +72,10 @@ export default {
       //console.log("computed - store blockchain: ", this.$store.testChain);
       return this.$store.testChain;
     },
+    blockcoin() {
+      //console.log("computed - store blockchain: ", this.$store.testChain);
+      return this.$store.blockCoin;
+   }    
 
   }
 };//end export

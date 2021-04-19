@@ -1,6 +1,10 @@
 <template>
   <v-container   class="animated fadeIn container">
-       <span class="right"><v-btn color=primary @click="exitPage()">Exit</v-btn></span>
+       <span class="right"><v-btn                 
+                class="ma-2"
+                outlined
+                raised
+                primary @click="exitPage()">Exit</v-btn></span>
    <h3>Settings</h3>
    <p>Control how the blockchain behaves when new transactions or blocks are created. Changes are automatically saved.</p>
   
@@ -13,9 +17,20 @@ Default: 2</p><br/>
             <p class="smallFont">How many "coins" a miner receives for successfully creating a new block for the chain.
 Default: 100
 </p>
-            <br/>
-            <input type="submit" value="Submit" class="submit">
+ 
         </form>
+            <div>
+              <v-btn
+                class="ma-2"
+                outlined
+                raised
+                primary
+                color="indigo"
+                @click="submitSettings()"
+              >
+                Submit
+              </v-btn>
+        </div>
     </v-container>
 
   </v-container>

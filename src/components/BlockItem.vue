@@ -1,30 +1,33 @@
 <template>
   <div>
   <v-container class="animated fadeIn">
-    <v-card class="pa-1 margins">
+    <v-card class="pa-1 margins" max-width="300" min-height="400">
       <v-responsive class="pt-4"> 
        <center><img src="../logo.png" width="35"/></center>
       </v-responsive>
         <h3>Block</h3>   {{block.index}} 
          <v-card-text>
                 <div class="subheading wrap">
-                 
-                <p class="wrap" >
+                <p class="text-wrap" >
                    Hash: {{block.hash}}
                 </p>
-                  </div>
-                <div>Previous Hash: {{block.previousHash}}</div>
+                </div>
+                <div text-wrap>Previous Hash: {{block.previousHash}}</div>
                 <div>Data: {{block.data }}</div>
                 <div>Timestamp: {{block.timestamp}}</div>
             </v-card-text>
               <v-card-actions>
                 <span class="right"><v-btn
-                  depressed
-                  color="primary"
+               outlined
+                raised
+                primary
+                color="indigo"
                   @click="showTransactions(block.hash)"
                 >
                   Show Transactions
                 </v-btn></span>
+                        <div>
+        </div>
         </v-card-actions>
     </v-card>
   </v-container>
@@ -55,6 +58,7 @@ export default {
 .margins {
   margin-right: 0.5em;
   background: orange;
+  border: 3px solid #333;
 }
 
 </style>

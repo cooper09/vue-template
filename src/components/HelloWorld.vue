@@ -1,15 +1,23 @@
 <template>
   <v-container class="animated fadeIn container">
-
       <div>
         <div class="right">
-           <span class="btn"><v-btn color=primary @click="settingsPage()">Settings </v-btn></span><v-btn color=primary  @click="createPage()">Create Transaction</v-btn>
+           <span class="btn"><v-btn                
+                outlined
+                raised
+                primary
+                color="indigo" 
+                @click="settingsPage()">Settings </v-btn></span>
+                <v-btn                 
+                  outlined
+                  raised
+                  primary
+                  color="indigo"   
+                  @click="createPage()">Create Transaction</v-btn>
         </div>
         <br/><br/>
-      <div class="container">
-        <!--  HelloWorld chain: {{newChain}} -->
-          
-                <p class="wrap" >
+      <div>
+                <p class="wrap">
                   <b>Wallet (public) address:</b> {{getWallet}}
                 </p>
           <BlockChain v-bind:blocks="newChain" /> 
@@ -30,11 +38,11 @@ export default {
     BlockChain,
     BlockItem
   },
-  computed: mapGetters(['newChain','getWallet']),
+  //computed: mapGetters(['newChain','getWallet', 'getCoin']),
   data() {
     return {
     blocks: [], 
-    props: ["bchain"]
+    props: ["bchain","bcoin"]
 
     }//end return
   }, //end data,
@@ -43,16 +51,35 @@ export default {
       this.$router.push('/settings')
     },
     createPage() {
+      console.log("Create Page - blockCoin: ", this.getCoin)
       this.$router.push('/create')
     }
   },//end methods
+  created () {
+
+    if(this.getCoin) {
+      console.log("Fuck you: ",  this.getCoin)
+    }
+    //this.getCoin.then(()=>{
+      //console.log(this.getCoin);
+    //}
+    //const myGoodie = this.getCoin;
+    //console.log("blockCoin: ", this.stinkface)
+    //const myGoodie = this.getCoin;
+    //console.log("blockCoin: ", myGoodie.miningReward)
+
+  },
+   computed: mapGetters(['newChain','getWallet', 'getCoin']),
+    stinkface(){
+      return this.$store.blockCoin
+    }
 
 };//end export
 </script>
 <style scoped>
-  .container {
-    background: #ccc;
-  }
+    .container {
+      border: 1px solid indigo;
+    }
     .wrap {
     white-space: nowrap ;
     word-break: normal;

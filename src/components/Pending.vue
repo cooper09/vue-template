@@ -1,14 +1,17 @@
 <template>
   <v-container   class="animated fadeIn container">
-        <v-btn class="btn right" @click="exitPage()">Exit</v-btn>
+        <v-btn class="btn right" 
+                  outlined
+                  raised
+                  primary
+                  color="indigo" 
+        @click="exitPage()">Exit</v-btn>
    <h3>Pending Transactions</h3>
 
     <v-row>
       <v-responsive> 
-        List of pending transactions go here: {{getPending}}<br/>
-        New Transaction: {{getNewTx}}
-
-
+      <!-- List of pending transactions go here: {{getPending}}<br/> -->
+      <!--   New Transaction: {{getNewTx}} -->
       <div class="col-md-8 col-md-offset-2">
         <div id="people">
             <v-client-table :data="getPending" :columns="columns">
@@ -63,8 +66,10 @@ export default {
         to: "you",
         amount: "20",
       }
-    const addTx = this.newChain.addTransaction(txObj)
+      //add this block to the block chain
+    //const addTx = this.newChain.addTransaction(txObj)
       //this.newChain.addTransaction(this.getNewTx);
+      alert("Block Added (not really)")
     }
   },//end methods
 computed: mapGetters(['getWallet','getPending','getNewTx', 'newChain']),

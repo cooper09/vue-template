@@ -49,11 +49,11 @@ export default new Vuex.Store({
   },
   mutations: {
     setBlockChain(state, data ) {
-      console.log("mutations - setBlockChain: ", data )
+      //console.log("mutations - setBlockChain: ", data )
       state.testChain = data;  
     },
     setWalletAddr(state, data) {
-      console.log("mutation - setBlockChain: ", data )
+    //  console.log("mutation - setWalletAddr: ", data )
       state.walletAddr = data;
     },
     setSelectedBlock (state, hash) {
@@ -75,11 +75,11 @@ export default new Vuex.Store({
   },
   actions: {
     setBlockChain ({commit}, data) {
-      console.log("actions- setBlockChain: ", data )
+      //console.log("actions- setBlockChain: ", data )
       commit('setBlockChain', data);
     },
     setWalletAddr({commit}, data ) {
-      console.log("actions- setWalletAddr: ", data )
+      //console.log("actions- setWalletAddr: ", data )
       commit("setWalletAddr", data)
     },
     setSelectedBlock({commit}, hash ) {

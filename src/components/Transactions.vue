@@ -1,6 +1,10 @@
 <template>
   <v-container   class="animated fadeIn container">
-    <span class="right"><v-btn color=primary @click="exitPage()">Exit</v-btn></span>
+    <span class="right"><v-btn                   
+                  outlined
+                  raised
+                  primary
+                  color="indigo"  @click="exitPage()">Exit</v-btn></span>
   <h3>Transactions</h3>
     <span><b>Current Block:</b>  </span><span>{{getSelected}}</span>
     <!-- Get all transactions for this particular block -->

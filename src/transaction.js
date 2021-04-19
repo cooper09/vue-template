@@ -1,6 +1,9 @@
 
 const sha256 = require('crypto-js/sha256');
 
+const EC = require('elliptic').ec;
+const ec = new EC('secp256k1');
+
 export default class Transaction {
     constructor (fromAddress, toAddress, amount ){
         this.fromAddress = fromAddress;
@@ -13,7 +16,9 @@ export default class Transaction {
     }//end calculateHash
 
     signTransaction(keySignature ){
-        console.log("signTransaction: ", keySignature.getPublic('hex') )
+    
+       //console.log("signTransaction- public key: ", keySignature.getPublic('hex') )
+       //console.log("signTransaction- private key: ", keySignature.getPrivate('hex') )
         //check public key to make sure we have the right wallet
     
         // cooper s - this is supposed to work but doesn't - why?

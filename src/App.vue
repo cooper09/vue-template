@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app>PW
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span class="btn"><img src="./logo.png" width="40"></span>
@@ -51,10 +51,13 @@ export default {
 
     const blockCoin = new Blockchain();
     const currentChain = blockCoin.getBlockChain();
+
+  
     console.log("current blockchain wallet: ", currentChain.walletAddress);
 
     //Add data to props
 
+    this.$store.dispatch('setBlockCoin', blockCoin);
     this.$store.dispatch('setBlockChain', currentChain.chain);
     this.$store.dispatch('setWalletAddr', currentChain.walletAddress);
     //we now have a working blockchain.
@@ -86,10 +89,8 @@ body {
   .border {
     border: 1px solid #333;
   }
-  .submit {
-    background: purple;
-    padding: 0.5em;
-    color: white;
-    
+  .smallFont {
+      font-size: 0.8em;
+      color: indigo;
   }
 </style>

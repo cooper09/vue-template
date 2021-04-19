@@ -34,7 +34,7 @@ export default new Vuex.Store({
         to: "to his girl",
         amount: 10099,
         timestamp: new Date().getTime(),
-        value: false
+        value: false,
       }
 
     ],
@@ -43,7 +43,9 @@ export default new Vuex.Store({
     currentReward: 10,
     walletAddr: "", 
     selectedBlock: "test me",
-    transactions:[]
+    transactions:[],
+    newTransaction:{},
+    blockCoin:{}
   },
   mutations: {
     setBlockChain(state, data ) {
@@ -61,6 +63,14 @@ export default new Vuex.Store({
     setTransactions(state, transactions ) {
       console.log("mutation - setTransactions: ", transactions );
       state.transactions = transactions ;
+    },
+    newTx(state, transaction ) {
+      console.log("mutation - newTx: ", transaction );
+      state.newTransaction = transaction ;
+    },
+    setCoin(state, coin ) {
+      console.log("mutation - setCoin: ", coin );
+      state.newTransaction = coin ;
     }
   },
   actions: {
@@ -79,6 +89,14 @@ export default new Vuex.Store({
     setTransactions({commit}, transactions ) {
       console.log("actions- setTransactions ", transactions )
       commit("setSelectedBlock", transactions)
+    },
+    newTx({commit}, transaction ) {
+      console.log("actions- newTx ", transaction )
+      commit("newTx", transaction)
+    },
+    setCoin({commit}, coin) {
+      console.log("actions - setCoin ", coin )
+      commit("setCoin", coin )
     }
   },
   getters: {
@@ -87,7 +105,9 @@ export default new Vuex.Store({
     getTransactions: state => state.transactions,
     getPending: state => state.pendingTxs,
     getSelected: state => state.selectedBlock,
-    getTransactions: state => state.transactions
+    getTransactions: state => state.transactions,
+    getNewTx: state => state.newTransaction,
+    getCoin: state => state.blockCoin
   },//end getters
   modules: {
 

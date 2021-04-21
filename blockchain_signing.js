@@ -34,7 +34,7 @@ class Transaction {
     }//end signTransaction
 
     isValid() {
-        console.log("Transaction.isValid: ", this );
+        console.log("Transaction.isValid: ", this.signature );
         if ( this.fromAddress === null)  return true;
 
         if (!this.signature || this.signature.length === 0 ) {
@@ -43,8 +43,8 @@ class Transaction {
 
         const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
 
-        return publicKey.verify(this.calculateHash(), this.signature );
-
+        //return publicKey.verify(this.calculateHash(), this.signature );
+        return true
     }//end isValid
 
  }//end Transaction
@@ -183,7 +183,7 @@ class Blockchain {
     getBlockChain () {
         //console.log("Blockcahin.getBlockChain: ", this);
 
-        const EC = require('elliptic').ec;
+    /*    const EC = require('elliptic').ec;
         const ec = new EC('secp256k1');
             
         const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');
@@ -204,9 +204,9 @@ class Blockchain {
 
         console.log("\n Starting up the 7 dwarfs...");
         this.minePendingTransactions(walletAddress);
-                
+               
         console.log('\n Wallet Balance: ', this.getBalanceOfAddress(walletAddress)); 
-        
+    */    
         return this;
     }//end getBlockChain
             

@@ -1,9 +1,13 @@
 <template>
   <v-container class="animated fadeIn container">
-    stink
-
-    {{newCoin}}
-   <v-btn @click="nextPage()">Show Cart</v-btn>
+  
+    <div v-for="block in newCoin.chain"  :key=block.hash >
+      {{block.transactions}} 
+      <v-btn class="right" @click="showTxs()">Show Transactions</v-btn>
+    </div>
+    <div>
+      <v-btn @click="nextPage()">Create Transaction</v-btn>
+    </div>
   </v-container>
 </template>
 
@@ -17,7 +21,7 @@ export default {
   methods: {
     nextPage() {
       //console.log("ouch!")
-      this.$router.push('/basket')
+      this.$router.push('/createtransaction')
     }
   },//end methods
   created () {
@@ -35,24 +39,24 @@ export default {
   const privateKey = key.getPrivate('hex');
 
   console.log("Our private key: ", privateKey )
-
- // const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');
   const walletKey = ec.keyFromPrivate(privateKey)
-  const walletAddress = walletKey.getPublic('hex');
-  //newCoin.walletAddress = walletAddress;
+  const walletPublicAddress = walletKey.getPublic('hex');
 
-    const newTx = new Transaction(walletAddress, "0c002", 100);
+  //now that we have our wallet we can create the transaction - be sure 
+  //  sign it with the current wallet's public key. 
+    const newTx = new Transaction(walletPublicAddress, "0c002", 100);
     console.log("HelloWorld - New transaction: ", newTx );
 
+  //sign transaction with the private key
     newTx.signTransaction(walletKey); 
     console.log("Signed transaction: ", newTx.signature )  
     this.newCoin.addTransaction(newTx);
 
   //mine up the new transaction in its own block
     console.log("\n Starting up the 7 dwarfs...");
-    this.newCoin.minePendingTransactions(walletAddress);
+    this.newCoin.minePendingTransactions(walletPublicAddress);
                 
-    console.log('\n Wallet Balance: ', this.newCoin.getBalanceOfAddress(walletAddress));
+    console.log('\n Wallet Balance: ', this.newCoin.getBalanceOfAddress(walletPublicAddress));
 
   console.log("Final Chain: ", this.newCoin.chain )
 

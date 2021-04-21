@@ -1,7 +1,7 @@
 <template>
   <v-container   class="animated fadeIn container">
-   Basket Page
-    <v-btn @click="nextPage()">Checkout</v-btn>
+        <v-btn @click="nextPage()">Exit</v-btn>
+          Create new Transansaction
   </v-container>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   }),
   methods: {
     nextPage() {
-      this.$router.push('/checkout')
+      this.$router.push('/')
     }
   }
 };//end export

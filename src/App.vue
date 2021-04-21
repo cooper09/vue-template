@@ -15,9 +15,11 @@
       </v-btn>
     </v-app-bar>
     <v-content   class="animated fadeIn">
+      
       <p>App.vue</p>
+        <router-view></router-view>
       <HelloWorld/> 
-      <router-view></router-view>
+
     </v-content>
     <v-content transition="slide-x-transition">
 
@@ -78,5 +80,7 @@ body {
   overflow:auto;
   padding: 2rem 2rem
 }
-
+.right {
+  float: right;
+}
 </style>

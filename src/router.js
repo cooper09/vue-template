@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Basket from './components/Basket.vue'
+import CreateTransaction  from './components/CreateTransaction.vue'
 import BasketCheckout from './components/BasketCheckout.vue'
 
 Vue.use(Router)
@@ -24,9 +24,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/basket',
-      name: 'basket',
-      component: Basket
+      path: '/createtransaction',
+      name: 'Create Transaction',
+      component: CreateTransaction
     },
     {
       path: '/checkout',

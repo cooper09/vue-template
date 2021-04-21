@@ -25,6 +25,7 @@ export default {
     console.log("HelloWorld - New transaction: ", newTx );
 
   //Creat a wallet to "sign" any transaction
+  console.log("Key me up...")
   const EC = require('elliptic').ec;
   const ec = new EC('secp256k1');
   const walletKey = ec.keyFromPrivate('78c8c039744d8d863b4be8935c0d30aebc4c8c0932246eff4a901e6acf2b17fa');

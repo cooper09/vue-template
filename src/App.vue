@@ -29,6 +29,9 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 import Test from '../test.js';
+import {Blockchain} from '../blockchain_signing.js';
+//import Transaction from './transaction.js';
+
 
 export default {
   name: 'App',
@@ -45,9 +48,15 @@ export default {
     console.log("App Vue created - Test method: ", test.sideWind() );
 
     this.$store.commit('setTest', test)
-
     const newClass = this.$store.getters.getClass;
     console.log("Currently in the store: ", newClass.sideWind() )
+
+  // create blockchain class
+
+  const coin = new Blockchain ();
+  this.$store.commit('setCoin', coin)
+  const newCoin = this.$store.getters.getCoin;
+    console.log("Block Coin in the store: ", newCoin.miningReward )
   }, 
   computed: {
     getClass () {

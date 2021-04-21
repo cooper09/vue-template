@@ -11,9 +11,14 @@ export default {
   }),
   methods: {
     nextPage() {
+      //console.log("ouch!")
       this.$router.push('/basket')
     }
   },//end methods
+  created () {
+    const newClass = this.$store.getters.getClass;
+    console.log("HelloWorld - Currently in the store: ", newClass.sideWind() )
+  }
 };//end export
 </script>
 <style scoped>

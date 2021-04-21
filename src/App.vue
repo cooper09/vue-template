@@ -15,6 +15,7 @@
       </v-btn>
     </v-app-bar>
     <v-content   class="animated fadeIn">
+      {{bc}}
       <router-view></router-view>
      <HelloWorld :bchain="blockchain"/>  
     </v-content>
@@ -31,6 +32,7 @@ import { mapGetters,mapActions } from 'vuex';
 
 import HelloWorld from './components/HelloWorld';
 import Block from './block';
+//import bc from 'bc'
 //import Blockchain from './blockchain';
 //import Blockchain from './blockchain_proof_of_work';
 //import Blockchain from './blockchain_proof_of_work-2';
@@ -44,7 +46,8 @@ export default {
   },
   data: () => ({
    newchain: [],
-   wallet: ""
+   wallet: "", 
+   bc: {}
   }),//end data
   created() {
     console.log("Create our blockchain");
@@ -52,7 +55,6 @@ export default {
     const blockCoin = new Blockchain();
     const currentChain = blockCoin.getBlockChain();
     console.log('Do we have our blockCoin: ', blockCoin.miningReward)
-  
     //console.log("current blockchain wallet: ", currentChain.walletAddress);
 
     //Add data to props

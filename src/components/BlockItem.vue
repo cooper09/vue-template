@@ -57,8 +57,7 @@ export default {
 }
 .margins {
   margin-right: 0.5em;
-  background: orange;
-  border: 3px solid #333;
+  border: 1px solid indigo;
 }
 
 </style>

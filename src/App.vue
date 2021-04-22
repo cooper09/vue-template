@@ -16,6 +16,7 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
+        Wallet (Public) Address: {{keys.privateKey}}
          <router-view></router-view>
       <HelloWorld/> 
      
@@ -29,6 +30,8 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import {Blockchain} from './blockchain_signing.js';
+import {getKeys} from './helpers';
 
 export default {
   name: 'App',
@@ -37,7 +40,22 @@ export default {
   },
   data: () => ({
     //
+    keys:{}
   }),
+  created () {
+    console.log(' AppVue - Create new test class')
+
+  // create blockchain class
+    const coin = new Blockchain ();
+    this.$store.commit('setCoin', coin)
+    const newCoin = this.$store.getters.getCoin;
+    console.log("Block Coin in the store: ", newCoin.miningReward )
+
+    //get and store private and public keys
+     this.keys = getKeys();
+    console.log("Our Keys: ", this.keys);
+    this.$store.commit('setKeys', this.keys);
+    }//end created
 };
 </script>
 <style>

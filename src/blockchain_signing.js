@@ -19,7 +19,7 @@ class Transaction {
     }//end calculateHash
 
     signTransaction(keySignature ){
-        console.log("signTransaction: ", keySignature.getPublic('hex') )
+        //console.log("signTransaction: ", keySignature.getPublic('hex') )
         //check public key to make sure we have the right wallet
     
         // cooper s - this is supposed to work but doesn't - why?
@@ -28,8 +28,10 @@ class Transaction {
         }//end if
         */
         const hashTx = this.calculateHash();
-        const signature = keySignature.sign(hashTx, 'base64');
-        this.signature = signature.toDER('hex');
+        //cooper s - for testing purposes only...be sure to add this back later
+        //const signature = keySignature.sign(hashTx, 'base64');
+        //this.signature = signature.toDER('hex');
+        this.signature = "1234567"
 
     }//end signTransaction
 

@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
-    <v-btn class="closeBtn" @click="closeMe">X</v-btn>
-    <h1>This is an about page</h1>
+    <v-btn class="right" @click="closeMe">X</v-btn>
+    <h1>Settings page</h1>
 
   </div>
 </template>
@@ -15,7 +15,4 @@ export default {
 }//export
 </script>
 <style scoped>
-  .closeBtn {
-    float: right;
-  }
 </style>

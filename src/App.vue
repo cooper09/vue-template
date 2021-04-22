@@ -16,9 +16,9 @@
     </v-app-bar>
     <v-content   class="animated fadeIn">
       <p>App.vue</p>
-
+         <router-view></router-view>
       <HelloWorld/> 
-      <router-view></router-view>
+     
     </v-content>
     <v-content transition="slide-x-transition">
 
@@ -44,5 +44,7 @@ export default {
 body {
   padding: 2em;
 }
-
+.right {
+  float: right;
+}
 </style>

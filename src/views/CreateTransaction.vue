@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <v-btn class="right" @click="closeMe">X</v-btn>
     <h1>Create Transaction page</h1>
-
+fgs
     <v-btn  @click="createTx()">Sign & Create</v-btn>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
       const walletPublicAddr = this.keys.publicKey;
       const walletPrivateAddr = this.keys.privateKey;
 
-      const newTx = new Transaction(walletPublicAddr, "0c002", 100);
+      const newTx = new Transaction(walletPrivateAddr, "0c002", 100);
       console.log("our New transaction: ", newTx );
 
 
@@ -37,6 +37,17 @@ export default {
     newTx.signTransaction(this.keys); 
     console.log("Signed transaction: ", newTx.signature )  
     this.coin.addTransaction(newTx);
+
+  this.$router.push('/pending')
+
+    //mine up the new transaction in its own block
+    console.log("\n Starting up the 7 dwarfs...");
+    this.coin.minePendingTransactions(walletPublicAddr);
+                
+    console.log('\n Wallet Balance: ', this.coin.getBalanceOfAddress(walletPublicAddr));
+
+  console.log("Final Chain: ", this.coin.chain )
+
 
     }//end created
   },//end methods

@@ -43,9 +43,12 @@ class Transaction {
             throw new Error ('This Transaction has not been signed')
         }
 
+        /* cooper s - add this back when ready
         const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
 
         return publicKey.verify(this.calculateHash(), this.signature );
+        */
+       return true
 
     }//end isValid
 
@@ -127,7 +130,7 @@ class Blockchain {
     }//end minePendingTransactions
   
     addTransaction(transaction) {
-        console.log("Adding transaction to the chain: ", transaction )
+        console.log("Adding transaction to the chain: ", transaction.fromAddress, " toAddress: ", transaction.toAddress )
         if (!transaction.fromAddress || !transaction.toAddress ) {
             throw new Error('Transaction must include to and from address')
         }//end if

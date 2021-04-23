@@ -8,6 +8,11 @@ export default new Vuex.Store({
     coinClass: {},
     currentChain: [],
     keys: {},
+    newTx:{
+      from: "the kid",
+      to: "my girl",
+      amount: "20"
+    }
   },//end state
   mutations: {
     setCoin (state, data ){
@@ -15,6 +20,11 @@ export default new Vuex.Store({
     },
     setKeys (state, data ){
       state.keys = data;
+    },
+    setNewTx (state, data ){
+      console.log("Alass....Store mute - new Tx: ", data )
+      state.newTx = data;
+      alert("newTx has been updated: ")
     }
   },//end mutations
   actions: {
@@ -23,10 +33,15 @@ export default new Vuex.Store({
     },
     setKeys ({commit}, data) {
       commit('setKeys', data )
+    },
+    setNewTx  ({commit}, data) {
+      console.log("Store action - new Tx: ", data )
+      commit('setnewTx', data )
     }
   },//end actions
   getters: {
     getCoin:  state => state.coinClass,
     getKeys: state => state.keys,
+    getNewTx: state => state.newTx,
   }//end getters
 })

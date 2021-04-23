@@ -42,6 +42,11 @@ export default {
     //
     keys:{}
   }),
+  methods: {
+    appMethod (){
+      console.log('appMethod at our service...')
+    }
+  },
   created () {
     console.log(' AppVue - Create new test class')
 

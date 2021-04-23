@@ -24,7 +24,7 @@ export default new Vuex.Store({
     setNewTx (state, data ){
       console.log("Alass....Store mute - new Tx: ", data )
       state.newTx = data;
-      alert("newTx has been updated: ")
+//      alert("newTx has been updated: ")
     }
   },//end mutations
   actions: {

@@ -43,7 +43,8 @@ export default new Router({
     {
       path: '/transactions',
       name: 'List Transactions',
-      component: ListTransactions
+      component: ListTransactions,
+      props: true
     },
     {
       path: '/pending',

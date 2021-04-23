@@ -4,14 +4,19 @@
       <span><v-btn class="right" @click="createPage()">Create Transaction</v-btn></span>
       <span><v-btn class="right" @click="settingsPage()">Settings</v-btn></span>
     </div>
-     <div v-for= "block in blocks" >
-         {{block}} <router-link to='/transactions'>Transactions</router-link>
+     <div v-for= "block in blocks" :key="block.hash">
+         {{block}} <v-btn @click="showTxs(block.hash)">Transactions</v-btn>
+         
+     <!--     <router-link to='/transactions'>Transactions</router-link> 
+         <router-link :to="{ name: '/transactions', params: {block} }" ></router-link> -->
+         
     </div>
   </v-container>
 </template>
 
 <script>
 export default {
+  name: 'ListTransactions',
   data: () => ({
     blocks: [
       {
@@ -31,7 +36,6 @@ export default {
     keys: {}
   }),
   coin: {},
-  
   methods: {
     settingsPage() {
       this.$router.push('/settings')
@@ -39,6 +43,10 @@ export default {
     createPage(){
       this.$router.push('/create')
     },
+    showTxs (block){
+      console.log("Show transactions for: ", block);
+      this.$router.push({name: 'List Transactions', params: {foo: block }})
+    }
   },//end methods
     created () {
       console.log("Begin HelloWorld!");

@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'Pending',
   data() {
     return {
       tx: {}

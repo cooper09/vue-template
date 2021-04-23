@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <v-btn class="right" @click="closeMe">X</v-btn>
     <h1>Create Transaction page</h1>
-    <Pending />
+<!--    <Pending /> -->
     <v-btn  @click="createTx()">Sign & Create</v-btn>
   </div>
 </template>
@@ -11,6 +11,9 @@ import {Transaction} from '../blockchain_signing.js';
 import Pending from './Pending';
 
 export default {
+  components: {
+    Pending,
+  },
   data() {
     return {
       coin: {},
